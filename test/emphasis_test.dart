@@ -37,8 +37,7 @@ void defineTests() {
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
 
-              final textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final textWidget = textFinder.evaluate().first.widget as Text;
               final text = textWidget.textSpan!.toPlainText();
               expect(text, 'foo bar');
 
@@ -65,8 +64,7 @@ void defineTests() {
               expect(textFinder, findsOneWidget);
 
               // Expect text to be unchanged from original data string.
-              final textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final textWidget = textFinder.evaluate().first.widget as Text;
               final text = textWidget.textSpan!.toPlainText();
               expect(text, data);
 
@@ -93,8 +91,7 @@ void defineTests() {
               expect(textFinder, findsOneWidget);
 
               // Expect text to be unchanged from original data string.
-              final textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final textWidget = textFinder.evaluate().first.widget as Text;
               final text = textWidget.textSpan!.toPlainText();
               expect(text, data);
 
@@ -124,8 +121,7 @@ void defineTests() {
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
 
-              final textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final textWidget = textFinder.evaluate().first.widget as Text;
               expect(textWidget, isNotNull);
               final text = textWidget.textSpan!.toPlainText();
               expect(text, 'foobar');
@@ -167,8 +163,7 @@ void defineTests() {
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
 
-              final textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final textWidget = textFinder.evaluate().first.widget as Text;
               expect(textWidget, isNotNull);
               final text = textWidget.textSpan!.toPlainText();
               expect(text, '5678');
@@ -1306,8 +1301,7 @@ void defineTests() {
           // Example 403 from GFM.
           'strong emphasis with multiple nested emphasis',
           (WidgetTester tester) async {
-            const data =
-                '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
+            const data = '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
             await tester.pumpWidget(
               boilerplate(
                 const MarkdownBody(data: data),
@@ -1320,8 +1314,7 @@ void defineTests() {
             // Expect text to be unchanged from original data string.
             final textWidget = textFinder.evaluate().first.widget as Text;
             final text = textWidget.textSpan!.toPlainText();
-            expect(text,
-                'Gomphocarpus (Gomphocarpus physocarpus, syn. Asclepias physocarpa)',);
+            expect(text, 'Gomphocarpus (Gomphocarpus physocarpus, syn. Asclepias physocarpa)');
 
             // There should be five spans of text.
             final textSpan = textWidget.textSpan! as TextSpan;
@@ -4274,21 +4267,25 @@ void defineTests() {
         );
       });
 
-      group('Rule 17', () {
-        // The markdown package does not follow rule 17. Sam Rawlins made the
-        // following comment on issue #280 on March 7, 2020:
-        //
-        // In terms of the spec, we are not following Rule 17 of "Emphasis and
-        // strong emphasis." Inline code spans, links, images, and HTML tags
-        // group more tightly than emphasis. Currently the Dart package respects
-        // the broader rule that any time we can close a tag, we do, attempting
-        // in the order of most recent openings first. I don't think this is
-        // terribly hard to correct.
-        // https://github.com/dart-lang/markdown/issues/280
-        //
-        // Test for rule 17 are not included since markdown package is not
-        // following the rule.
-      }, skip: 'No Rule 17 tests implemented',);
+      group(
+        'Rule 17',
+        () {
+          // The markdown package does not follow rule 17. Sam Rawlins made the
+          // following comment on issue #280 on March 7, 2020:
+          //
+          // In terms of the spec, we are not following Rule 17 of "Emphasis and
+          // strong emphasis." Inline code spans, links, images, and HTML tags
+          // group more tightly than emphasis. Currently the Dart package respects
+          // the broader rule that any time we can close a tag, we do, attempting
+          // in the order of most recent openings first. I don't think this is
+          // terribly hard to correct.
+          // https://github.com/dart-lang/markdown/issues/280
+          //
+          // Test for rule 17 are not included since markdown package is not
+          // following the rule.
+        },
+        skip: 'No Rule 17 tests implemented',
+      );
     },
   );
 }

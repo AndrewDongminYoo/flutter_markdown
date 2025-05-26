@@ -14,8 +14,7 @@ void defineTests() {
     testWidgets(
       'should work with image in uri data scheme',
       (WidgetTester tester) async {
-        const data =
-            '![alt](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)';
+        const data = '![alt](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)';
         await tester.pumpWidget(
           boilerplate(
             const Markdown(data: data),
@@ -23,8 +22,7 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final image =
-            widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
         expect(image.image.runtimeType, MemoryImage);
       },
     );
@@ -88,8 +86,7 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final widget = widgets
-            .firstWhere((Widget widget) => widget is SizedBox) as SizedBox;
+        final widget = widgets.firstWhere((Widget widget) => widget is SizedBox) as SizedBox;
         expect(widget.runtimeType, SizedBox);
       },
     );

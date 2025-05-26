@@ -170,8 +170,7 @@ void defineTests() {
           );
 
           final widgets = tester.allWidgets;
-          final text =
-              widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
           final children = span.children;
@@ -192,15 +191,13 @@ void defineTests() {
             boilerplate(
               MarkdownBody(
                 data: data,
-                styleSheet:
-                    MarkdownStyleSheet(superscriptFontFeatureTag: 'numr'),
+                styleSheet: MarkdownStyleSheet(superscriptFontFeatureTag: 'numr'),
               ),
             ),
           );
 
           final widgets = tester.allWidgets;
-          final text =
-              widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
           final children = span.children;
@@ -226,8 +223,7 @@ void defineTests() {
           );
 
           final widgets = tester.allWidgets;
-          final text =
-              widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
           final children = span.children;
@@ -256,16 +252,14 @@ void defineTests() {
           );
 
           final widgets = tester.allWidgets;
-          final text =
-              widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
 
           final gestureRecognizerTypes = <Type>[];
           span.visitChildren((InlineSpan inlineSpan) {
             if (inlineSpan is TextSpan) {
-              final recognizer =
-                  inlineSpan.recognizer as TapGestureRecognizer?;
+              final recognizer = inlineSpan.recognizer as TapGestureRecognizer?;
               gestureRecognizerTypes.add(recognizer?.runtimeType ?? Null);
               if (recognizer != null) {
                 recognizer.onTap!();

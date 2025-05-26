@@ -26,8 +26,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo\nbar');
       },
@@ -47,8 +46,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo\nbar');
       },
@@ -68,8 +66,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo\nbar');
       },
@@ -89,8 +86,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo\nbar');
       },
@@ -110,8 +106,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo\nbar');
       },
@@ -142,15 +137,13 @@ void defineTests() {
 
         // First text span has italic style with normal weight.
         final firstSpan = textSpan.children![0];
-        expectTextSpanStyle(
-            firstSpan as TextSpan, FontStyle.italic, FontWeight.normal,);
+        expectTextSpanStyle(firstSpan as TextSpan, FontStyle.italic, FontWeight.normal);
 
         // Second span is just the newline character with no font style or weight.
 
         // Third text span has italic style with normal weight.
         final thirdSpan = textSpan.children![2];
-        expectTextSpanStyle(
-            thirdSpan as TextSpan, FontStyle.italic, FontWeight.normal,);
+        expectTextSpanStyle(thirdSpan as TextSpan, FontStyle.italic, FontWeight.normal);
       },
     );
 
@@ -179,15 +172,13 @@ void defineTests() {
 
         // First text span has italic style with normal weight.
         final firstSpan = textSpan.children![0];
-        expectTextSpanStyle(
-            firstSpan as TextSpan, FontStyle.italic, FontWeight.normal,);
+        expectTextSpanStyle(firstSpan as TextSpan, FontStyle.italic, FontWeight.normal);
 
         // Second span is just the newline character with no font style or weight.
 
         // Third text span has italic style with normal weight.
         final thirdSpan = textSpan.children![2];
-        expectTextSpanStyle(
-            thirdSpan as TextSpan, FontStyle.italic, FontWeight.normal,);
+        expectTextSpanStyle(thirdSpan as TextSpan, FontStyle.italic, FontWeight.normal);
       },
     );
 
@@ -255,8 +246,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, r'foo\');
       },
@@ -276,8 +266,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo');
       },
@@ -297,8 +286,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, r'foo\');
       },
@@ -318,8 +306,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo');
       },
@@ -341,8 +328,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo baz');
       },
@@ -362,8 +348,7 @@ void defineTests() {
         final richTextFinder = find.byType(RichText);
         expect(richTextFinder, findsOneWidget);
 
-        final richText =
-            richTextFinder.evaluate().first.widget as RichText;
+        final richText = richTextFinder.evaluate().first.widget as RichText;
         final text = richText.text.toPlainText();
         expect(text, 'foo baz');
       },

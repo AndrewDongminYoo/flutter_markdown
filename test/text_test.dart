@@ -122,8 +122,7 @@ void defineTests() {
           find.byType(MarkdownBody),
           tester,
         );
-        expectWidgetTypes(
-            widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText],);
+        expectWidgetTypes(widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText]);
         expectTextStrings(widgets, <String>['line 1\nline 2']);
       },
     );
@@ -143,8 +142,7 @@ void defineTests() {
           find.byType(MarkdownBody),
           tester,
         );
-        expectWidgetTypes(
-            widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText],);
+        expectWidgetTypes(widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText]);
         expectTextStrings(widgets, <String>['line 1\nline 2']);
       },
     );
@@ -216,8 +214,7 @@ void defineTests() {
           find.byType(MarkdownBody),
           tester,
         );
-        expectWidgetTypes(
-            widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText],);
+        expectWidgetTypes(widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText]);
         expectTextStrings(widgets, <String>['line 1.\nline 2.']);
       },
     );
@@ -263,20 +260,17 @@ void defineTests() {
           ),
         );
 
-        final selectableWidgets =
-            tester.widgetList(find.byType(SelectableText));
+        final Iterable<Widget> selectableWidgets = tester.widgetList<SelectableText>(find.byType(SelectableText));
         expect(selectableWidgets.length, 2);
 
-        final selectableTitle =
-            selectableWidgets.first as SelectableText;
+        final selectableTitle = selectableWidgets.first as SelectableText;
         expect(selectableTitle, isNotNull);
         expect(selectableTitle.onTap, isNotNull);
         selectableTitle.onTap!();
         expect(textTapResults == 'Text has been tapped.', true);
 
         textTapResults = null;
-        final selectableText =
-            selectableWidgets.last as SelectableText;
+        final selectableText = selectableWidgets.last as SelectableText;
         expect(selectableText, isNotNull);
         expect(selectableText.onTap, isNotNull);
         selectableText.onTap!();
@@ -304,8 +298,7 @@ void defineTests() {
         final dPos = positionInRenderedText(tester, 'abc def ghi', 4);
         final fPos = positionInRenderedText(tester, 'abc def ghi', 6);
         // Select from 'd' until 'f'.
-        final firstGesture =
-            await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
+        final firstGesture = await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
         addTearDown(firstGesture.removePointer);
         await tester.pump();
         await firstGesture.moveTo(fPos);
@@ -316,8 +309,7 @@ void defineTests() {
         final jPos = positionInRenderedText(tester, 'jkl opq', 0);
         final oPos = positionInRenderedText(tester, 'jkl opq', 4);
         // Select from 'j' until 'o'.
-        final secondGesture =
-            await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
+        final secondGesture = await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
         addTearDown(secondGesture.removePointer);
         await tester.pump();
         await secondGesture.moveTo(oPos);
@@ -334,8 +326,7 @@ void defineTests() {
         const data = '# abc def ghi\njkl opq';
         String? selectableText;
         String? selectedText;
-        void onSelectionChanged(String? text, TextSelection selection,
-            SelectionChangedCause? cause,) {
+        void onSelectionChanged(String? text, TextSelection selection, SelectionChangedCause? cause) {
           selectableText = text;
           selectedText = text != null ? selection.textInside(text) : null;
         }
@@ -356,8 +347,7 @@ void defineTests() {
         final dPos = positionInRenderedText(tester, 'abc def ghi', 4);
         final fPos = positionInRenderedText(tester, 'abc def ghi', 6);
         // Select from 'd' until 'f'.
-        final firstGesture =
-            await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
+        final firstGesture = await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
         addTearDown(firstGesture.removePointer);
         await tester.pump();
         await firstGesture.moveTo(fPos);
@@ -371,8 +361,7 @@ void defineTests() {
         final jPos = positionInRenderedText(tester, 'jkl opq', 0);
         final oPos = positionInRenderedText(tester, 'jkl opq', 4);
         // Select from 'j' until 'o'.
-        final secondGesture =
-            await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
+        final secondGesture = await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
         addTearDown(secondGesture.removePointer);
         await tester.pump();
         await secondGesture.moveTo(oPos);

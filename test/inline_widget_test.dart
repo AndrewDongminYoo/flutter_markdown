@@ -58,10 +58,12 @@ class SubscriptBuilder extends MarkdownElementBuilder {
     TextStyle? preferredStyle,
     TextStyle? parentStyle,
   ) {
-    return Text.rich(WidgetSpan(
-      alignment: PlaceholderAlignment.middle,
-      child: Text(element.textContent),
-    ),);
+    return Text.rich(
+      WidgetSpan(
+        alignment: PlaceholderAlignment.middle,
+        child: Text(element.textContent),
+      ),
+    );
   }
 }
 

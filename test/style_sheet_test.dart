@@ -54,10 +54,7 @@ void defineTests() {
 
         // code
         expect(style.code!.color, cTheme.textTheme.textStyle.color);
-        expect(
-          style.code!.fontSize,
-          cTheme.textTheme.textStyle.fontSize! * 0.85,
-        );
+        expect(style.code!.fontSize, cTheme.textTheme.textStyle.fontSize! * 0.85);
         expect(style.code!.fontFamily, 'monospace');
 
         // H1
@@ -144,10 +141,7 @@ void defineTests() {
 
         // code
         expect(style.code!.color, theme.textTheme.bodyMedium!.color);
-        expect(
-          style.code!.fontSize,
-          theme.textTheme.bodyMedium!.fontSize! * 0.85,
-        );
+        expect(style.code!.fontSize, theme.textTheme.bodyMedium!.fontSize! * 0.85);
         expect(style.code!.fontFamily, 'monospace');
         expect(style.code!.backgroundColor, theme.cardTheme.color);
 
@@ -271,9 +265,7 @@ void defineTests() {
       'use stylesheet option listBulletPadding',
       (WidgetTester tester) async {
         const paddingX = 20.0;
-        final style = MarkdownStyleSheet(
-          listBulletPadding: const EdgeInsets.symmetric(horizontal: paddingX),
-        );
+        final style = MarkdownStyleSheet(listBulletPadding: const EdgeInsets.symmetric(horizontal: paddingX));
 
         await tester.pumpWidget(
           boilerplate(
@@ -284,8 +276,7 @@ void defineTests() {
           ),
         );
 
-        final paddings =
-            tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 3);
         expect(
@@ -348,8 +339,7 @@ void defineTests() {
           ),
         );
 
-        final paddings =
-            tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 3);
         expect(
@@ -377,15 +367,13 @@ void defineTests() {
         await tester.pumpWidget(
           boilerplate(
             Markdown(
-              data:
-                  'Test\n\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n',
+              data: 'Test\n\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n',
               styleSheet: style,
             ),
           ),
         );
 
-        final paddings =
-            tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 6);
         expect(
@@ -394,6 +382,66 @@ void defineTests() {
           ),
           true,
         );
+      },
+    );
+
+    testWidgets(
+      'deprecated textScaleFactor is converted to linear scaler',
+      (WidgetTester tester) async {
+        const scaleFactor = 2.0;
+        final style = MarkdownStyleSheet(
+          textScaleFactor: scaleFactor,
+        );
+
+        expect(style.textScaler, const TextScaler.linear(scaleFactor));
+        expect(style.textScaleFactor, scaleFactor);
+      },
+    );
+
+    testWidgets(
+      'deprecated textScaleFactor is null when a scaler is provided',
+      (WidgetTester tester) async {
+        const scaler = TextScaler.linear(2);
+        final style = MarkdownStyleSheet(
+          textScaler: scaler,
+        );
+
+        expect(style.textScaler, scaler);
+        expect(style.textScaleFactor, null);
+      },
+    );
+
+    testWidgets(
+      'copyWith textScaler overwrites both textScaler and textScaleFactor',
+      (WidgetTester tester) async {
+        final original = MarkdownStyleSheet(
+          textScaleFactor: 2,
+        );
+
+        const newScaler = TextScaler.linear(3);
+        final copy = original.copyWith(
+          textScaler: newScaler,
+        );
+
+        expect(copy.textScaler, newScaler);
+        expect(copy.textScaleFactor, null);
+      },
+    );
+
+    testWidgets(
+      'copyWith textScaleFactor overwrites both textScaler and textScaleFactor',
+      (WidgetTester tester) async {
+        final original = MarkdownStyleSheet(
+          textScaleFactor: 2,
+        );
+
+        const newScaleFactor = 3.0;
+        final copy = original.copyWith(
+          textScaleFactor: newScaleFactor,
+        );
+
+        expect(copy.textScaler, const TextScaler.linear(newScaleFactor));
+        expect(copy.textScaleFactor, newScaleFactor);
       },
     );
   });

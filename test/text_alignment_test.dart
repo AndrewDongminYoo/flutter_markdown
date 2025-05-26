@@ -14,10 +14,8 @@ void defineTests() {
     testWidgets(
       'apply text alignments from stylesheet',
       (WidgetTester tester) async {
-        final theme =
-            ThemeData.light().copyWith(textTheme: textTheme);
-        final style1 =
-            MarkdownStyleSheet.fromTheme(theme).copyWith(
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final style1 = MarkdownStyleSheet.fromTheme(theme).copyWith(
           h1Align: WrapAlignment.center,
           h3Align: WrapAlignment.end,
         );
@@ -50,22 +48,20 @@ void defineTests() {
           RichText,
         ]);
 
+        expect((widgets.firstWhere((Widget w) => w is RichText) as RichText).textAlign, TextAlign.center);
         expect(
-            (widgets.firstWhere((Widget w) => w is RichText) as RichText)
-                .textAlign,
-            TextAlign.center,);
-        expect((widgets.last as RichText).textAlign, TextAlign.start,
-            reason: 'default alignment if none is set in stylesheet',);
+          (widgets.last as RichText).textAlign,
+          TextAlign.start,
+          reason: 'default alignment if none is set in stylesheet',
+        );
       },
     );
 
     testWidgets(
       'should align formatted text',
       (WidgetTester tester) async {
-        final theme =
-            ThemeData.light().copyWith(textTheme: textTheme);
-        final style =
-            MarkdownStyleSheet.fromTheme(theme).copyWith(
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
           textAlign: WrapAlignment.spaceBetween,
         );
 
@@ -79,8 +75,7 @@ void defineTests() {
           ),
         );
 
-        final text =
-            tester.widgetList(find.byType(RichText)).single as RichText;
+        final text = tester.widgetList<RichText>(find.byType(RichText)).single;
         expect(text.textAlign, TextAlign.justify);
       },
     );
@@ -88,10 +83,8 @@ void defineTests() {
     testWidgets(
       'should align selectable text',
       (WidgetTester tester) async {
-        final theme =
-            ThemeData.light().copyWith(textTheme: textTheme);
-        final style =
-            MarkdownStyleSheet.fromTheme(theme).copyWith(
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
           textAlign: WrapAlignment.spaceBetween,
         );
 
@@ -109,9 +102,7 @@ void defineTests() {
           ),
         );
 
-        final text = tester
-            .widgetList(find.byType(SelectableText))
-            .single as SelectableText;
+        final text = tester.widgetList(find.byType(SelectableText)).single as SelectableText;
         expect(text.textAlign, TextAlign.justify);
       },
     );

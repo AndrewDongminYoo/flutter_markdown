@@ -68,8 +68,7 @@ void defineTests() {
           ),
         );
 
-        final selectableText =
-            tester.widget<SelectableText>(find.byType(SelectableText));
+        final selectableText = tester.widget<SelectableText>(find.byType(SelectableText));
         expect(selectableText.textScaler, scaler);
       },
     );

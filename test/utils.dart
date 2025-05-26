@@ -12,15 +12,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-final TextTheme textTheme = Typography.material2018()
-    .black
-    .merge(const TextTheme(bodyMedium: TextStyle(fontSize: 12)));
+final TextTheme textTheme = Typography.material2018().black.merge(const TextTheme(bodyMedium: TextStyle(fontSize: 12)));
 
 Iterable<Widget> selfAndDescendantWidgetsOf(Finder start, WidgetTester tester) {
   final startElement = tester.element(start);
-  final descendants =
-      collectAllElementsFrom(startElement, skipOffstage: false)
-          .map((Element e) => e.widget);
+  final descendants = collectAllElementsFrom(startElement, skipOffstage: false).map((Element e) => e.widget);
   return <Widget>[
     startElement.widget,
     ...descendants,
@@ -29,8 +25,7 @@ Iterable<Widget> selfAndDescendantWidgetsOf(Finder start, WidgetTester tester) {
 
 // Returns the RenderEditable displaying the given text.
 RenderEditable findRenderEditableWithText(WidgetTester tester, String text) {
-  final roots =
-      tester.renderObjectList(find.byType(EditableText));
+  final roots = tester.renderObjectList(find.byType(EditableText));
   expect(roots, isNotEmpty);
 
   late RenderEditable renderEditable;
@@ -51,17 +46,13 @@ RenderEditable findRenderEditableWithText(WidgetTester tester, String text) {
 }
 
 // Returns the [textOffset] position in rendered [text].
-Offset positionInRenderedText(
-    WidgetTester tester, String text, int textOffset,) {
-  final renderEditable =
-      findRenderEditableWithText(tester, text);
-  final Iterable<TextSelectionPoint> textOffsetPoints =
-      renderEditable.getEndpointsForSelection(
+Offset positionInRenderedText(WidgetTester tester, String text, int textOffset) {
+  final renderEditable = findRenderEditableWithText(tester, text);
+  final Iterable<TextSelectionPoint> textOffsetPoints = renderEditable.getEndpointsForSelection(
     TextSelection.collapsed(offset: textOffset),
   );
   // Map the points to global positions.
-  final endpoints =
-      textOffsetPoints.map<TextSelectionPoint>((TextSelectionPoint point) {
+  final endpoints = textOffsetPoints.map<TextSelectionPoint>((TextSelectionPoint point) {
     return TextSelectionPoint(
       renderEditable.localToGlobal(point.point),
       point.direction,
@@ -104,8 +95,7 @@ String _extractTextFromTextSpan(TextSpan span) {
 }
 
 // Check the font style and weight of the text span.
-void expectTextSpanStyle(
-    TextSpan textSpan, FontStyle? style, FontWeight weight,) {
+void expectTextSpanStyle(TextSpan textSpan, FontStyle? style, FontWeight weight) {
   // Verify a text style is set
   expect(textSpan.style, isNotNull, reason: 'text span text style is null');
 
@@ -140,10 +130,7 @@ class MarkdownLink {
 
   @override
   bool operator ==(Object other) =>
-      other is MarkdownLink &&
-      other.text == text &&
-      other.destination == destination &&
-      other.title == title;
+      other is MarkdownLink && other.text == text && other.destination == destination && other.title == title;
 
   @override
   int get hashCode => '$text$destination$title'.hashCode;
@@ -175,8 +162,7 @@ void expectLinkTextSpan(TextSpan textSpan, String linkText) {
   expect(textSpan.toPlainText(), linkText);
   expect(textSpan.recognizer, isNotNull);
   expect(textSpan.recognizer, isA<TapGestureRecognizer>());
-  final tapRecognizer =
-      textSpan.recognizer as TapGestureRecognizer?;
+  final tapRecognizer = textSpan.recognizer as TapGestureRecognizer?;
   expect(tapRecognizer?.onTap, isNotNull);
 
   // Execute the onTap callback handler.
@@ -209,9 +195,7 @@ void expectTableSize(int rows, int columns) {
 }
 
 void expectLinkTap(MarkdownLink? actual, MarkdownLink expected) {
-  expect(actual, equals(expected),
-      reason:
-          'incorrect link tap results, actual: $actual expected: $expected',);
+  expect(actual, equals(expected), reason: 'incorrect link tap results, actual: $actual expected: $expected');
 }
 
 String dumpRenderView() {
@@ -234,27 +218,24 @@ class TestAssetBundle extends CachingAssetBundle {
   Future<ByteData> load(String key) async {
     if (key == 'AssetManifest.json') {
       const manifest = '{"assets/logo.png":["assets/logo.png"]}';
-      final asset =
-          ByteData.view(utf8.encoder.convert(manifest).buffer);
+      final asset = ByteData.view(utf8.encoder.convert(manifest).buffer);
       return Future<ByteData>.value(asset);
     } else if (key == 'AssetManifest.bin') {
-      final manifest = const StandardMessageCodec().encodeMessage(
-          <String, List<Object>>{'assets/logo.png': <Object>[]},)!;
+      final manifest =
+          const StandardMessageCodec().encodeMessage(<String, List<Object>>{'assets/logo.png': <Object>[]})!;
       return Future<ByteData>.value(manifest);
     } else if (key == 'AssetManifest.smcbin') {
-      final manifest = const StandardMessageCodec().encodeMessage(
-          <String, List<Object>>{'assets/logo.png': <Object>[]},)!;
+      final manifest =
+          const StandardMessageCodec().encodeMessage(<String, List<Object>>{'assets/logo.png': <Object>[]})!;
       return Future<ByteData>.value(manifest);
     } else if (key == 'assets/logo.png') {
       // The root directory tests are run from is different for 'flutter test'
       // verses 'flutter test test/*_test.dart'. Adjust the root directory
       // to access the assets directory.
-      final rootDirectory =
-          io.Directory.current.path.endsWith('${io.Platform.pathSeparator}test')
+      final rootDirectory = io.Directory.current.path.endsWith('${io.Platform.pathSeparator}test')
               ? io.Directory.current.parent
               : io.Directory.current;
-      final file =
-          io.File('${rootDirectory.path}/test/assets/images/logo.png');
+      final file = io.File('${rootDirectory.path}/test/assets/images/logo.png');
 
       final asset = ByteData.view(file.readAsBytesSync().buffer);
       return asset;

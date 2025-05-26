@@ -9,6 +9,7 @@ import 'footnote_test.dart' as footnote_test;
 import 'header_test.dart' as header_test;
 import 'horizontal_rule_test.dart' as horizontal_rule_test;
 import 'html_test.dart' as html_test;
+import 'image_test.dart' as image_test;
 import 'line_break_test.dart' as line_break_test;
 import 'link_test.dart' as link_test;
 import 'list_test.dart' as list_test;
@@ -29,6 +30,7 @@ void main() {
   header_test.defineTests();
   horizontal_rule_test.defineTests();
   html_test.defineTests();
+  image_test.defineTests();
   line_break_test.defineTests();
   link_test.defineTests();
   list_test.defineTests();
