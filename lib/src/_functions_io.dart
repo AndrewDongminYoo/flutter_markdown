@@ -12,12 +12,7 @@ import 'package:flutter_markdown/src/style_sheet.dart';
 import 'package:flutter_markdown/src/widget.dart';
 
 /// Type for a function that creates image widgets.
-typedef ImageBuilder = Widget Function(
-  Uri uri,
-  String? imageDirectory,
-  double? width,
-  double? height,
-);
+typedef ImageBuilder = Widget Function(Uri uri, String? imageDirectory, double? width, double? height);
 
 /// A default image builder handling http/https, resource, and file URLs.
 Widget kDefaultImageBuilder(
@@ -43,9 +38,7 @@ Widget kDefaultImageBuilder(
       errorBuilder: kDefaultImageErrorWidgetBuilder,
     );
   } else {
-    final fileUri = imageDirectory != null
-        ? Uri.parse(imageDirectory + uri.toString())
-        : uri;
+    final fileUri = imageDirectory != null ? Uri.parse(imageDirectory + uri.toString()) : uri;
     if (fileUri.scheme == 'http' || fileUri.scheme == 'https') {
       return Image.network(
         fileUri.toString(),
@@ -71,7 +64,7 @@ Widget kDefaultImageBuilder(
       }
     }
   }
-}
+} // as ImageBuilder;
 
 /// A default error widget builder for handling image errors.
 Widget kDefaultImageErrorWidgetBuilder(
@@ -80,10 +73,10 @@ Widget kDefaultImageErrorWidgetBuilder(
   StackTrace? stackTrace,
 ) {
   return const SizedBox();
-}
+} // as ImageErrorWidgetBuilder;
 
 /// A default style sheet generator.
-MarkdownStyleSheet defaultStyleSheet(
+MarkdownStyleSheet kFallbackStyle(
   BuildContext context,
   MarkdownStyleSheetBaseTheme? baseTheme,
 ) {
@@ -94,8 +87,7 @@ MarkdownStyleSheet defaultStyleSheet(
           ? MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context))
           : MarkdownStyleSheet.fromTheme(Theme.of(context));
     case MarkdownStyleSheetBaseTheme.cupertino:
-      result =
-          MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context));
+      result = MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context));
     case MarkdownStyleSheetBaseTheme.material:
     case null:
       result = MarkdownStyleSheet.fromTheme(Theme.of(context));
@@ -104,7 +96,7 @@ MarkdownStyleSheet defaultStyleSheet(
   return result.copyWith(
     textScaler: MediaQuery.textScalerOf(context),
   );
-}
+} // as MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?);
 
 Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {
   final mimeType = uri.data!.mimeType;

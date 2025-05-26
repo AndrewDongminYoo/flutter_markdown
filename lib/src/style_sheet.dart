@@ -63,8 +63,17 @@ class MarkdownStyleSheet {
     this.blockquoteAlign = WrapAlignment.start,
     this.codeblockAlign = WrapAlignment.start,
     this.superscriptFontFeatureTag,
-    this.textScaler,
-  }) : styles = <String, TextStyle?>{
+    @Deprecated('Use textScaler instead.') this.textScaleFactor,
+    TextScaler? textScaler,
+  })  : assert(
+          textScaler == null || textScaleFactor == null,
+          'textScaleFactor is deprecated and cannot be specified when textScaler is specified.',
+        ),
+        textScaler = textScaler ??
+            // Internally, only textScaler is used, so convert the scale factor
+            // to a linear scaler.
+            (textScaleFactor == null ? null : TextScaler.linear(textScaleFactor)),
+        styles = <String, TextStyle?>{
           'a': a,
           'p': p,
           'li': p,
@@ -165,9 +174,7 @@ class MarkdownStyleSheet {
     );
     return MarkdownStyleSheet(
       a: theme.textTheme.textStyle.copyWith(
-        color: theme.brightness == Brightness.dark
-            ? CupertinoColors.link.darkColor
-            : CupertinoColors.link.color,
+        color: theme.brightness == Brightness.dark ? CupertinoColors.link.darkColor : CupertinoColors.link.color,
       ),
       p: theme.textTheme.textStyle,
       pPadding: EdgeInsets.zero,
@@ -268,10 +275,10 @@ class MarkdownStyleSheet {
     );
   }
 
-  /// Creates a `MarkdownStyle` from the [TextStyle]s in the provided [ThemeData].
+  /// Creates a [MarkdownStyleSheet] from the [TextStyle]s in the provided [ThemeData].
   ///
   /// This constructor uses larger fonts for the headings than in
-  /// `MarkdownStyle.fromTheme`.
+  /// [MarkdownStyleSheet.fromTheme].
   factory MarkdownStyleSheet.largeFromTheme(ThemeData theme) {
     return MarkdownStyleSheet(
       a: const TextStyle(color: Colors.blue),
@@ -393,8 +400,17 @@ class MarkdownStyleSheet {
     WrapAlignment? blockquoteAlign,
     WrapAlignment? codeblockAlign,
     String? superscriptFontFeatureTag,
+    @Deprecated('Use textScaler instead.') double? textScaleFactor,
     TextScaler? textScaler,
   }) {
+    assert(
+      textScaler == null || textScaleFactor == null,
+      'textScaleFactor is deprecated and cannot be specified when textScaler is specified.',
+    );
+    // If either of textScaler or textScaleFactor is non-null, pass null for the
+    // other instead of the previous value, since only one is allowed.
+    final newTextScaler = textScaler ?? (textScaleFactor == null ? this.textScaler : null);
+    final nextTextScaleFactor = textScaleFactor ?? (textScaler == null ? this.textScaleFactor : null);
     return MarkdownStyleSheet(
       a: a ?? this.a,
       p: p ?? this.p,
@@ -431,14 +447,12 @@ class MarkdownStyleSheet {
       tableScrollbarThumbVisibility: tableScrollbarThumbVisibility,
       tableCellsPadding: tableCellsPadding ?? this.tableCellsPadding,
       tableCellsDecoration: tableCellsDecoration ?? this.tableCellsDecoration,
-      tableVerticalAlignment:
-          tableVerticalAlignment ?? this.tableVerticalAlignment,
+      tableVerticalAlignment: tableVerticalAlignment ?? this.tableVerticalAlignment,
       blockquotePadding: blockquotePadding ?? this.blockquotePadding,
       blockquoteDecoration: blockquoteDecoration ?? this.blockquoteDecoration,
       codeblockPadding: codeblockPadding ?? this.codeblockPadding,
       codeblockDecoration: codeblockDecoration ?? this.codeblockDecoration,
-      horizontalRuleDecoration:
-          horizontalRuleDecoration ?? this.horizontalRuleDecoration,
+      horizontalRuleDecoration: horizontalRuleDecoration ?? this.horizontalRuleDecoration,
       textAlign: textAlign ?? this.textAlign,
       h1Align: h1Align ?? this.h1Align,
       h2Align: h2Align ?? this.h2Align,
@@ -450,9 +464,9 @@ class MarkdownStyleSheet {
       orderedListAlign: orderedListAlign ?? this.orderedListAlign,
       blockquoteAlign: blockquoteAlign ?? this.blockquoteAlign,
       codeblockAlign: codeblockAlign ?? this.codeblockAlign,
-      superscriptFontFeatureTag:
-          superscriptFontFeatureTag ?? this.superscriptFontFeatureTag,
-      textScaler: textScaler,
+      superscriptFontFeatureTag: superscriptFontFeatureTag ?? this.superscriptFontFeatureTag,
+      textScaler: newTextScaler,
+      textScaleFactor: nextTextScaleFactor,
     );
   }
 
@@ -515,8 +529,13 @@ class MarkdownStyleSheet {
       orderedListAlign: other.orderedListAlign,
       blockquoteAlign: other.blockquoteAlign,
       codeblockAlign: other.codeblockAlign,
-      textScaler: other.textScaler,
+      textScaleFactor: other.textScaleFactor,
       superscriptFontFeatureTag: other.superscriptFontFeatureTag,
+      // Only one of textScaler and textScaleFactor can be passed. If
+      // other.textScaleFactor is non-null, then the sheet was created with a
+      // textScaleFactor and the textScaler was derived from that, so should be
+      // ignored so that the textScaleFactor continues to be set.
+      textScaler: other.textScaleFactor == null ? other.textScaler : null,
     );
   }
 
@@ -679,6 +698,13 @@ class MarkdownStyleSheet {
   /// The text scaler to use in textual elements.
   final TextScaler? textScaler;
 
+  /// The text scale factor to use in textual elements.
+  ///
+  /// This will be non-null only if the sheet was created with the deprecated
+  /// [textScaleFactor] instead of [textScaler].
+  @Deprecated('Use textScaler instead.')
+  final double? textScaleFactor;
+
   /// Custom font feature tag for font which does not support `sups'
   /// feature to create superscript in footnotes.
   final String? superscriptFontFeatureTag;
@@ -805,6 +831,7 @@ class MarkdownStyleSheet {
       blockquoteAlign,
       codeblockAlign,
       textScaler,
+      textScaleFactor,
       superscriptFontFeatureTag,
     ]);
   }

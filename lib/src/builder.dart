@@ -4,8 +4,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/src/_functions_io.dart'
-    if (dart.library.js_interop) '_functions_web.dart';
+import 'package:flutter_markdown/src/_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 import 'package:flutter_markdown/src/style_sheet.dart';
 import 'package:flutter_markdown/src/widget.dart';
 import 'package:markdown/markdown.dart' as md;
@@ -138,11 +137,15 @@ class MarkdownBuilder implements md.NodeVisitor {
     required this.builders,
     required this.paddingBuilders,
     required this.listItemCrossAxisAlignment,
+    @Deprecated('Use sizedImageBuilder instead') this.imageBuilder,
     this.fitContent = false,
     this.onSelectionChanged,
     this.onTapText,
     this.softLineBreak = false,
-  }) : assert(sizedImageBuilder == null, 'sizedImageBuilder may be specified.');
+  }) : assert(
+          imageBuilder == null || sizedImageBuilder == null,
+          'Only one of imageBuilder or sizedImageBuilder may be specified.',
+        );
 
   /// A delegate that controls how link and `pre` elements behave.
   final MarkdownBuilderDelegate delegate;
@@ -158,6 +161,21 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// The base directory holding images referenced by Img tags with local or network file paths.
   final String? imageDirectory;
 
+  /// {@template flutter_markdown.builder.MarkdownBuilder.imageBuilder}
+  /// Called to build an image widget.
+  ///
+  /// This builder allows for custom rendering of images within the Markdown content.
+  /// It provides the image `Uri`, `title`, and `alt` text.
+  ///
+  /// **Deprecated:** Use [sizedImageBuilder] instead, which offers more comprehensive
+  /// image information.
+  ///
+  /// Only one of [imageBuilder] or [sizedImageBuilder] may be specified.
+  ///
+  /// {@endtemplate}
+  @Deprecated('Use sizedImageBuilder instead')
+  final MarkdownImageBuilder? imageBuilder;
+
   /// {@template flutter_markdown.builder.MarkdownBuilder.sizedImageBuilder}
   /// Called to build an image widget with size information.
   ///
@@ -165,8 +183,15 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// when size information is available. It provides a [MarkdownImageConfig]
   /// containing the `Uri`, `title`, `alt`, `width`, and `height` of the image.
   ///
+  /// If both [imageBuilder] and [sizedImageBuilder] are `null`, a default image builder
+  /// will be used.
   /// when size information is available. It provides a [MarkdownImageConfig]
   /// containing the `Uri`, `title`, `alt`, `width`, and `height` of the image.
+  ///
+  /// If both [imageBuilder] and [sizedImageBuilder] are `null`, a default
+  /// image builder will be used.
+  ///
+  /// Only one of [imageBuilder] or [sizedImageBuilder] may be specified.
   ///
   /// {@endtemplate}
   final MarkdownSizedImageBuilder? sizedImageBuilder;
@@ -277,7 +302,12 @@ class MarkdownBuilder implements md.NodeVisitor {
         if (length == 0 || length.isOdd) {
           decoration = null;
         }
-        _tables.single.rows.add(TableRow(decoration: decoration, children: List.empty(growable: true)));
+        _tables.single.rows.add(
+          TableRow(
+            decoration: decoration,
+            children: List<Widget>.empty(growable: true),
+          ),
+        );
       }
       final bElement = _BlockElement(tag);
       if (start != null) {
@@ -304,9 +334,7 @@ class MarkdownBuilder implements md.NodeVisitor {
       // The Markdown parser passes empty table data tags for blank
       // table cells. Insert a text node with an empty string in this
       // case for the table cell to get properly created.
-      if (element.tag == 'td' &&
-          element.children != null &&
-          element.children!.isEmpty) {
+      if (element.tag == 'td' && element.children != null && element.children!.isEmpty) {
         element.children!.add(md.Text(''));
       }
 
@@ -325,14 +353,8 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// Returns the text, if any, from [element] and its descendants.
   String? extractTextFromElement(md.Node element) {
     return element is md.Element && (element.children?.isNotEmpty ?? false)
-        ? element.children!
-            .map(
-              (md.Node e) => e is md.Text ? e.text : extractTextFromElement(e),
-            )
-            .join()
-        : (element is md.Element && (element.attributes.isNotEmpty)
-            ? element.attributes['alt']
-            : '');
+        ? element.children!.map((md.Node e) => e is md.Text ? e.text : extractTextFromElement(e)).join()
+        : (element is md.Element && (element.attributes.isNotEmpty) ? element.attributes['alt'] : '');
   }
 
   @override
@@ -374,15 +396,10 @@ class MarkdownBuilder implements md.NodeVisitor {
 
     Widget? child;
     if (_blocks.isNotEmpty && builders.containsKey(_blocks.last.tag)) {
-      child = builders[_blocks.last.tag!]!
-          .visitText(text, styleSheet.styles[_blocks.last.tag!]);
+      child = builders[_blocks.last.tag!]!.visitText(text, styleSheet.styles[_blocks.last.tag!]);
     } else if (_blocks.last.tag == 'pre') {
       child = _ScrollControllerBuilder(
-        builder: (
-          BuildContext context,
-          ScrollController preScrollController,
-          Widget? child,
-        ) {
+        builder: (BuildContext context, ScrollController preScrollController, Widget? child) {
           return Scrollbar(
             controller: preScrollController,
             child: SingleChildScrollView(
@@ -398,9 +415,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     } else {
       child = _buildRichText(
         TextSpan(
-          style: _isInBlockquote
-              ? styleSheet.blockquote!.merge(_inlines.last.style)
-              : _inlines.last.style,
+          style: _isInBlockquote ? styleSheet.blockquote!.merge(_inlines.last.style) : _inlines.last.style,
           text: trimText(text.text),
           recognizer: _linkHandlers.isNotEmpty ? _linkHandlers.last : null,
         ),
@@ -427,9 +442,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         if (current.children.isNotEmpty) {
           return Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: fitContent
-                ? CrossAxisAlignment.start
-                : CrossAxisAlignment.stretch,
+            crossAxisAlignment: fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
             children: current.children,
           );
         } else {
@@ -463,19 +476,15 @@ class MarkdownBuilder implements md.NodeVisitor {
           }
           child = Row(
             mainAxisSize: fitContent ? MainAxisSize.min : MainAxisSize.max,
-            textBaseline: listItemCrossAxisAlignment ==
-                    MarkdownListItemCrossAxisAlignment.start
-                ? null
-                : TextBaseline.alphabetic,
-            crossAxisAlignment: listItemCrossAxisAlignment ==
-                    MarkdownListItemCrossAxisAlignment.start
+            textBaseline:
+                listItemCrossAxisAlignment == MarkdownListItemCrossAxisAlignment.start ? null : TextBaseline.alphabetic,
+            crossAxisAlignment: listItemCrossAxisAlignment == MarkdownListItemCrossAxisAlignment.start
                 ? CrossAxisAlignment.start
                 : CrossAxisAlignment.baseline,
             children: <Widget>[
               SizedBox(
-                width: styleSheet.listIndent! +
-                    styleSheet.listBulletPadding!.left +
-                    styleSheet.listBulletPadding!.right,
+                width:
+                    styleSheet.listIndent! + styleSheet.listBulletPadding!.left + styleSheet.listBulletPadding!.right,
                 child: bullet,
               ),
               Flexible(
@@ -486,14 +495,9 @@ class MarkdownBuilder implements md.NodeVisitor {
           );
         }
       } else if (tag == 'table') {
-        if (styleSheet.tableColumnWidth is FixedColumnWidth ||
-            styleSheet.tableColumnWidth is IntrinsicColumnWidth) {
+        if (styleSheet.tableColumnWidth is FixedColumnWidth || styleSheet.tableColumnWidth is IntrinsicColumnWidth) {
           child = _ScrollControllerBuilder(
-            builder: (
-              BuildContext context,
-              ScrollController tableScrollController,
-              Widget? child,
-            ) {
+            builder: (BuildContext context, ScrollController tableScrollController, Widget? child) {
               return Scrollbar(
                 controller: tableScrollController,
                 thumbVisibility: styleSheet.tableScrollbarThumbVisibility,
@@ -660,14 +664,10 @@ class MarkdownBuilder implements md.NodeVisitor {
 
     Widget child;
     if (sizedImageBuilder != null) {
-      final config = MarkdownImageConfig(
-        uri: uri,
-        alt: alt,
-        title: title,
-        height: height,
-        width: width,
-      );
+      final config = MarkdownImageConfig(uri: uri, alt: alt, title: title, height: height, width: width);
       child = sizedImageBuilder!(config);
+    } else if (imageBuilder != null) {
+      child = imageBuilder!(uri, alt, title);
     } else {
       child = kDefaultImageBuilder(uri, imageDirectory, width, height);
     }
@@ -704,9 +704,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         child: bulletBuilder!(
           MarkdownBulletParameters(
             index: index,
-            style: isUnordered
-                ? BulletStyle.unorderedList
-                : BulletStyle.orderedList,
+            style: isUnordered ? BulletStyle.unorderedList : BulletStyle.orderedList,
             nestLevel: _listIndents.length - 1,
           ),
         ),
@@ -886,11 +884,7 @@ class MarkdownBuilder implements md.NodeVisitor {
 
       if (lastIsText) {
         // Removes last widget from the list for merging and extracts its spans
-        spans.addAll(
-          _getInlineSpansFromSpan(
-            _getInlineSpanFromText(mergedWidgets.removeLast())!,
-          ),
-        );
+        spans.addAll(_getInlineSpansFromSpan(_getInlineSpanFromText(mergedWidgets.removeLast())!));
       }
 
       spans.addAll(_getInlineSpansFromSpan(currentSpan));
@@ -903,9 +897,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         mergedWidget = child;
       } else {
         final first = spans.first;
-        final textSpan = (spans.length == 1 && first is TextSpan)
-            ? first
-            : TextSpan(children: spans);
+        final textSpan = (spans.length == 1 && first is TextSpan) ? first : TextSpan(children: spans);
         mergedWidget = _buildRichText(textSpan, textAlign: textAlign);
       }
 
@@ -995,8 +987,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     final mergedSpans = <InlineSpan>[];
 
     for (var index = 1; index < textSpans.length; index++) {
-      final previous =
-          mergedSpans.isEmpty ? textSpans.first : mergedSpans.removeLast();
+      final previous = mergedSpans.isEmpty ? textSpans.first : mergedSpans.removeLast();
       final nextChild = textSpans[index];
 
       final previousIsTextSpan = previous is TextSpan;
@@ -1066,8 +1057,7 @@ class _ScrollControllerBuilder extends StatefulWidget {
   final Widget? child;
 
   @override
-  State<_ScrollControllerBuilder> createState() =>
-      _ScrollControllerBuilderState();
+  State<_ScrollControllerBuilder> createState() => _ScrollControllerBuilderState();
 }
 
 class _ScrollControllerBuilderState extends State<_ScrollControllerBuilder> {
