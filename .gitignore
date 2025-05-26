@@ -42,3 +42,5 @@ app.*.map.json
 
 # Test related
 coverage
+# Failed Golden Test Results
+test/failures/*.png
