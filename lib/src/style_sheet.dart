@@ -395,7 +395,6 @@ class MarkdownStyleSheet {
     String? superscriptFontFeatureTag,
     TextScaler? textScaler,
   }) {
-    assert(textScaler != null, 'textScaler should be specified.');
     return MarkdownStyleSheet(
       a: a ?? this.a,
       p: p ?? this.p,
