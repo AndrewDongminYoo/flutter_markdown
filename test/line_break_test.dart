@@ -18,9 +18,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo  \nbar';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -38,9 +36,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo\\\nbar';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -58,9 +54,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo       \nbar';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -78,9 +72,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo  \n     bar';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -98,9 +90,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo\\\n     bar';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -118,9 +108,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '*foo  \nbar*';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final textFinder = find.byType(Text);
@@ -137,13 +125,21 @@ void defineTests() {
 
         // First text span has italic style with normal weight.
         final firstSpan = textSpan.children![0];
-        expectTextSpanStyle(firstSpan as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          firstSpan as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         // Second span is just the newline character with no font style or weight.
 
         // Third text span has italic style with normal weight.
         final thirdSpan = textSpan.children![2];
-        expectTextSpanStyle(thirdSpan as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          thirdSpan as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -153,9 +149,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '*foo\\\nbar*';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final textFinder = find.byType(Text);
@@ -172,13 +166,21 @@ void defineTests() {
 
         // First text span has italic style with normal weight.
         final firstSpan = textSpan.children![0];
-        expectTextSpanStyle(firstSpan as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          firstSpan as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         // Second span is just the newline character with no font style or weight.
 
         // Third text span has italic style with normal weight.
         final thirdSpan = textSpan.children![2];
-        expectTextSpanStyle(thirdSpan as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          thirdSpan as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -188,9 +190,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '`code  \nspan`';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final textFinder = find.byType(Text);
@@ -213,9 +213,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '`code\\\nspan`';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final textFinder = find.byType(Text);
@@ -238,9 +236,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = r'foo\';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -258,9 +254,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo  ';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -278,9 +272,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = r'### foo\';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -298,9 +290,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '### foo  ';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -320,9 +310,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo\nbaz';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);
@@ -340,9 +328,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'foo \n baz';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final richTextFinder = find.byType(RichText);

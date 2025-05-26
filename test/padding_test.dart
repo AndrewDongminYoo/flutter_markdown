@@ -18,7 +18,7 @@ void defineTests() {
         const paddingX = 10;
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: '**line 1**\n\n# H1\n![alt](/assets/images/logo.png)',
               paddingBuilders: <String, MarkdownPaddingBuilder>{
@@ -31,7 +31,8 @@ void defineTests() {
           ),
         );
 
-        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings =
+            tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 4);
         expect(

@@ -20,15 +20,15 @@ void defineTests() {
         // widgets aren't necessarily identical if created on different lines.
         const markdown = Markdown(data: 'Data1');
 
-        await tester.pumpWidget(boilerplate(markdown));
+        await tester.pumpWidget(const BoilerPlate(markdown));
         expectTextStrings(tester.allWidgets, <String>['Data1']);
 
         final stateBefore = dumpRenderView();
-        await tester.pumpWidget(boilerplate(markdown));
+        await tester.pumpWidget(const BoilerPlate(markdown));
         final stateAfter = dumpRenderView();
         expect(stateBefore, equals(stateAfter));
 
-        await tester.pumpWidget(boilerplate(const Markdown(data: 'Data2')));
+        await tester.pumpWidget(const BoilerPlate(Markdown(data: 'Data2')));
         expectTextStrings(tester.allWidgets, <String>['Data2']);
       },
     );
@@ -39,9 +39,7 @@ void defineTests() {
       'Empty string',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: ''),
-          ),
+          const BoilerPlate(MarkdownBody(data: '')),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
@@ -59,9 +57,7 @@ void defineTests() {
       'Simple string',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: 'Hello'),
-          ),
+          const BoilerPlate(MarkdownBody(data: 'Hello')),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
@@ -86,9 +82,7 @@ void defineTests() {
         'leading space are ignored', (WidgetTester tester) async {
       const data = '  aaa\n bbb';
       await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
+        const BoilerPlate(MarkdownBody(data: data)),
       );
 
       final widgets = selfAndDescendantWidgetsOf(
@@ -113,16 +107,17 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'line 1  \nline 2';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );
-        expectWidgetTypes(widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText]);
+        expectWidgetTypes(
+          widgets,
+          <Type>[MarkdownBody, Column, Wrap, Text, RichText],
+        );
         expectTextStrings(widgets, <String>['line 1\nline 2']);
       },
     );
@@ -133,16 +128,17 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'line 1\\\nline 2';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );
-        expectWidgetTypes(widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText]);
+        expectWidgetTypes(
+          widgets,
+          <Type>[MarkdownBody, Column, Wrap, Text, RichText],
+        );
         expectTextStrings(widgets, <String>['line 1\nline 2']);
       },
     );
@@ -152,9 +148,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'line 1.\nline 2.';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
@@ -177,9 +171,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'line 1.\nline 2.';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
@@ -202,8 +194,8 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'line 1.\nline 2.';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(
+          const BoilerPlate(
+            MarkdownBody(
               data: data,
               softLineBreak: true,
             ),
@@ -214,7 +206,10 @@ void defineTests() {
           find.byType(MarkdownBody),
           tester,
         );
-        expectWidgetTypes(widgets, <Type>[MarkdownBody, Column, Wrap, Text, RichText]);
+        expectWidgetTypes(
+          widgets,
+          <Type>[MarkdownBody, Column, Wrap, Text, RichText],
+        );
         expectTextStrings(widgets, <String>['line 1.\nline 2.']);
       },
     );
@@ -226,8 +221,8 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '# Title\nHello _World_!';
         await tester.pumpWidget(
-          boilerplate(
-            const MediaQuery(
+          const BoilerPlate(
+            MediaQuery(
               data: MediaQueryData(),
               child: Markdown(
                 data: data,
@@ -248,7 +243,7 @@ void defineTests() {
         String? textTapResults;
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MediaQuery(
               data: const MediaQueryData(),
               child: Markdown(
@@ -260,7 +255,8 @@ void defineTests() {
           ),
         );
 
-        final Iterable<Widget> selectableWidgets = tester.widgetList<SelectableText>(find.byType(SelectableText));
+        final Iterable<Widget> selectableWidgets =
+            tester.widgetList<SelectableText>(find.byType(SelectableText));
         expect(selectableWidgets.length, 2);
 
         final selectableTitle = selectableWidgets.first as SelectableText;
@@ -298,7 +294,8 @@ void defineTests() {
         final dPos = positionInRenderedText(tester, 'abc def ghi', 4);
         final fPos = positionInRenderedText(tester, 'abc def ghi', 6);
         // Select from 'd' until 'f'.
-        final firstGesture = await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
+        final firstGesture =
+            await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
         addTearDown(firstGesture.removePointer);
         await tester.pump();
         await firstGesture.moveTo(fPos);
@@ -309,7 +306,8 @@ void defineTests() {
         final jPos = positionInRenderedText(tester, 'jkl opq', 0);
         final oPos = positionInRenderedText(tester, 'jkl opq', 4);
         // Select from 'j' until 'o'.
-        final secondGesture = await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
+        final secondGesture =
+            await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
         addTearDown(secondGesture.removePointer);
         await tester.pump();
         await secondGesture.moveTo(oPos);
@@ -326,7 +324,11 @@ void defineTests() {
         const data = '# abc def ghi\njkl opq';
         String? selectableText;
         String? selectedText;
-        void onSelectionChanged(String? text, TextSelection selection, SelectionChangedCause? cause) {
+        void onSelectionChanged(
+          String? text,
+          TextSelection selection,
+          SelectionChangedCause? cause,
+        ) {
           selectableText = text;
           selectedText = text != null ? selection.textInside(text) : null;
         }
@@ -347,7 +349,8 @@ void defineTests() {
         final dPos = positionInRenderedText(tester, 'abc def ghi', 4);
         final fPos = positionInRenderedText(tester, 'abc def ghi', 6);
         // Select from 'd' until 'f'.
-        final firstGesture = await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
+        final firstGesture =
+            await tester.startGesture(dPos, kind: PointerDeviceKind.mouse);
         addTearDown(firstGesture.removePointer);
         await tester.pump();
         await firstGesture.moveTo(fPos);
@@ -361,7 +364,8 @@ void defineTests() {
         final jPos = positionInRenderedText(tester, 'jkl opq', 0);
         final oPos = positionInRenderedText(tester, 'jkl opq', 4);
         // Select from 'j' until 'o'.
-        final secondGesture = await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
+        final secondGesture =
+            await tester.startGesture(jPos, kind: PointerDeviceKind.mouse);
         addTearDown(secondGesture.removePointer);
         await tester.pump();
         await secondGesture.moveTo(oPos);
@@ -378,9 +382,7 @@ void defineTests() {
     testWidgets('single word', (WidgetTester tester) async {
       const data = '~~strikethrough~~';
       await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
+        const BoilerPlate(MarkdownBody(data: data)),
       );
 
       final widgets = selfAndDescendantWidgetsOf(

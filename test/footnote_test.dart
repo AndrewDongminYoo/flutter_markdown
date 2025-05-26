@@ -20,8 +20,8 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
               ),
             ),
@@ -41,8 +41,8 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
                 selectable: true,
               ),
@@ -63,8 +63,8 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^1] Bar[^2]\n[^1]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
               ),
             ),
@@ -83,8 +83,8 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = '[^2]: Bar \n [^1]: Foo \n Foo[^f] Bar[^b]';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
               ),
             ),
@@ -106,8 +106,8 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = '''
 1[^1] 2[^2] 3[^3] 4[^4] 5[^5] 6[^6] 7[^7] 8[^8] 9[^9] 10[^10]
-[^1]:1 
-[^2]:2 
+[^1]:1
+[^2]:2
 [^3]:3
 [^4]:4
 [^5]:5
@@ -118,8 +118,8 @@ void defineTests() {
 [^10]:10
 ''';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
               ),
             ),
@@ -162,15 +162,16 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
               ),
             ),
           );
 
           final widgets = tester.allWidgets;
-          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text =
+              widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
           final children = span.children;
@@ -188,16 +189,18 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
+            BoilerPlate(
               MarkdownBody(
                 data: data,
-                styleSheet: MarkdownStyleSheet(superscriptFontFeatureTag: 'numr'),
+                styleSheet:
+                    MarkdownStyleSheet(superscriptFontFeatureTag: 'numr'),
               ),
             ),
           );
 
           final widgets = tester.allWidgets;
-          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text =
+              widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
           final children = span.children;
@@ -215,15 +218,16 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = '# Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
+            const BoilerPlate(
+              MarkdownBody(
                 data: data,
               ),
             ),
           );
 
           final widgets = tester.allWidgets;
-          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text =
+              widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
           final children = span.children;
@@ -242,7 +246,7 @@ void defineTests() {
           final linkTapResults = <MarkdownLink>[];
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
+            BoilerPlate(
               MarkdownBody(
                 data: data,
                 onTapLink: (String text, String? href, String title) =>
@@ -252,7 +256,8 @@ void defineTests() {
           );
 
           final widgets = tester.allWidgets;
-          final text = widgets.firstWhere((Widget widget) => widget is Text) as Text;
+          final text =
+              widgets.firstWhere((Widget widget) => widget is Text) as Text;
 
           final span = text.textSpan! as TextSpan;
 

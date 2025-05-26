@@ -18,7 +18,7 @@ void defineTests() {
       'Subscript',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: 'H_2O',
               extensionSet: md.ExtensionSet.none,
@@ -40,7 +40,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const blockContent = 'note block';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: '[!NOTE] $blockContent',
               extensionSet: md.ExtensionSet.none,
@@ -51,7 +51,8 @@ void defineTests() {
             ),
           ),
         );
-        final container = tester.widgetList<ColoredBox>(find.byType(ColoredBox)).first;
+        final container =
+            tester.widgetList<ColoredBox>(find.byType(ColoredBox)).first;
         expect(container.color, Colors.red);
         expect(container.child, isInstanceOf<Text>());
         expect((container.child! as Text).data, blockContent);
@@ -66,9 +67,10 @@ void defineTests() {
         const blockContent = 'Custom content rendered in a ColoredBox';
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
-              data: '$textBefore\n{{custom}}\n$blockContent\n{{/custom}}\n$textAfter',
+              data:
+                  '$textBefore\n{{custom}}\n$blockContent\n{{/custom}}\n$textAfter',
               extensionSet: md.ExtensionSet.none,
               blockSyntaxes: <md.BlockSyntax>[CustomTagBlockSyntax()],
               builders: <String, MarkdownElementBuilder>{
@@ -78,7 +80,8 @@ void defineTests() {
           ),
         );
 
-        final container = tester.widgetList<ColoredBox>(find.byType(ColoredBox)).first;
+        final container =
+            tester.widgetList<ColoredBox>(find.byType(ColoredBox)).first;
         expect(container.color, Colors.red);
         expect(container.child, isInstanceOf<Text>());
         expect((container.child! as Text).data, blockContent);
@@ -89,7 +92,7 @@ void defineTests() {
       'link for wikistyle',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: 'This is a [[wiki link]]',
               extensionSet: md.ExtensionSet.none,
@@ -102,7 +105,8 @@ void defineTests() {
         );
 
         final textWidget = tester.widget<Text>(find.byType(Text));
-        final span = (textWidget.textSpan! as TextSpan).children![1] as TextSpan;
+        final span =
+            (textWidget.textSpan! as TextSpan).children![1] as TextSpan;
 
         expect(span.children, null);
         expect(span.recognizer.runtimeType, equals(TapGestureRecognizer));
@@ -113,7 +117,7 @@ void defineTests() {
       'WidgetSpan in Text.rich is handled correctly',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: 'container is a widget that allows to customize its child',
               extensionSet: md.ExtensionSet.none,
@@ -136,7 +140,7 @@ void defineTests() {
       'visitElementAfterWithContext is handled correctly',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: r'# This is a header with some \color1{color} in it',
               extensionSet: md.ExtensionSet.none,
@@ -165,7 +169,7 @@ void defineTests() {
     'TextSpan and WidgetSpan as children in Text.rich are handled correctly',
     (WidgetTester tester) async {
       await tester.pumpWidget(
-        boilerplate(
+        BoilerPlate(
           Markdown(
             data: 'this test replaces a string with a container',
             extensionSet: md.ExtensionSet.none,
@@ -193,7 +197,7 @@ void defineTests() {
     (WidgetTester tester) async {
       const data = '![alt](/assets/images/logo.png)';
       await tester.pumpWidget(
-        boilerplate(
+        BoilerPlate(
           Markdown(
             data: data,
             builders: <String, MarkdownElementBuilder>{
@@ -226,7 +230,18 @@ class SubscriptSyntax extends md.InlineSyntax {
 }
 
 class SubscriptBuilder extends MarkdownElementBuilder {
-  static const List<String> _subscripts = <String>['₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉'];
+  static const List<String> _subscripts = <String>[
+    '₀',
+    '₁',
+    '₂',
+    '₃',
+    '₄',
+    '₅',
+    '₆',
+    '₇',
+    '₈',
+    '₉',
+  ];
 
   @override
   Widget visitElementAfter(md.Element element, _) {
@@ -249,8 +264,9 @@ class WikilinkSyntax extends md.InlineSyntax {
   @override
   bool onMatch(md.InlineParser parser, Match match) {
     final link = match[1]!;
-    final el = md.Element('wikilink', <md.Element>[md.Element.text('span', link)])
-      ..attributes['href'] = link.replaceAll(' ', '_');
+    final el =
+        md.Element('wikilink', <md.Element>[md.Element.text('span', link)])
+          ..attributes['href'] = link.replaceAll(' ', '_');
 
     parser.addNode(el);
     return true;
@@ -372,7 +388,10 @@ class ImgBuilder extends MarkdownElementBuilder {
 class NoteBuilder extends MarkdownElementBuilder {
   @override
   Widget? visitText(md.Text text, TextStyle? preferredStyle) {
-    return ColoredBox(color: Colors.red, child: Text(text.text, style: preferredStyle));
+    return ColoredBox(
+      color: Colors.red,
+      child: Text(text.text, style: preferredStyle),
+    );
   }
 
   @override
@@ -406,7 +425,10 @@ class CustomTagBlockBuilder extends MarkdownElementBuilder {
   ) {
     if (element.tag == 'custom') {
       final content = element.attributes['content']!;
-      return ColoredBox(color: Colors.red, child: Text(content, style: preferredStyle));
+      return ColoredBox(
+        color: Colors.red,
+        child: Text(content, style: preferredStyle),
+      );
     }
     return const SizedBox.shrink();
   }
@@ -426,7 +448,8 @@ class CustomTagBlockSyntax extends md.BlockSyntax {
     parser.advance();
 
     final buffer = StringBuffer();
-    while (!parser.current.content.startsWith('{{/custom}}') && !parser.isDone) {
+    while (
+        !parser.current.content.startsWith('{{/custom}}') && !parser.isDone) {
       buffer.writeln(parser.current.content);
       parser.advance();
     }

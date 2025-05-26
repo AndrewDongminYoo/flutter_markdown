@@ -17,8 +17,8 @@ void defineTests() {
         const data = "```\nvoid main() {\n  print('Hello World!');\n}\n```";
 
         await tester.pumpWidget(
-          boilerplate(
-            const MediaQuery(
+          const BoilerPlate(
+            MediaQuery(
               data: MediaQueryData(),
               child: MarkdownBody(data: data),
             ),
@@ -40,8 +40,8 @@ void defineTests() {
             "```\nvoid main() {\n  print('Hello World!');\n}\n```";
 
         await tester.pumpWidget(
-          boilerplate(
-            const MediaQuery(
+          const BoilerPlate(
+            MediaQuery(
               data: MediaQueryData(),
               child: MarkdownBody(data: data),
             ),
@@ -53,7 +53,10 @@ void defineTests() {
         expect(scrollViews, hasLength(2));
         expect(scrollViews.first.controller, isNotNull);
         expect(scrollViews.last.controller, isNotNull);
-        expect(scrollViews.first.controller, isNot(equals(scrollViews.last.controller)));
+        expect(
+          scrollViews.first.controller,
+          isNot(equals(scrollViews.last.controller)),
+        );
       },
     );
 
@@ -66,13 +69,14 @@ void defineTests() {
         addTearDown(controller.dispose);
 
         await tester.pumpWidget(
-          boilerplate(
-            Markdown(controller: controller, data: ''),
-          ),
+          BoilerPlate(Markdown(controller: controller, data: '')),
         );
 
         double realOffset() {
-          return tester.state<ScrollableState>(find.byType(Scrollable)).position.pixels;
+          return tester
+              .state<ScrollableState>(find.byType(Scrollable))
+              .position
+              .pixels;
         }
 
         expect(controller.offset, equals(209.0));
@@ -84,9 +88,7 @@ void defineTests() {
       'Scrollable wrapping',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: ''),
-          ),
+          const BoilerPlate(Markdown(data: '')),
         );
 
         final widgets = selfAndDescendantWidgetsOf(
@@ -111,7 +113,7 @@ void defineTests() {
             '\n|-----|-----|-----|'
             '\n|Col 1|Col 2|Col 3|';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MediaQuery(
               data: const MediaQueryData(),
               child: MarkdownBody(
@@ -138,7 +140,7 @@ void defineTests() {
             '\n|-----|-----|-----|'
             '\n|Col 1|Col 2|Col 3|';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MediaQuery(
               data: const MediaQueryData(),
               child: MarkdownBody(
@@ -170,7 +172,7 @@ void defineTests() {
             '\n|Col 1|Col 2|Col 3|';
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MediaQuery(
               data: const MediaQueryData(),
               child: MarkdownBody(
@@ -188,7 +190,10 @@ void defineTests() {
         expect(scrollViews, hasLength(2));
         expect(scrollViews.first.controller, isNotNull);
         expect(scrollViews.last.controller, isNotNull);
-        expect(scrollViews.first.controller, isNot(equals(scrollViews.last.controller)));
+        expect(
+          scrollViews.first.controller,
+          isNot(equals(scrollViews.last.controller)),
+        );
       },
     );
   });

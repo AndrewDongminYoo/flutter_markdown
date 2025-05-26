@@ -29,9 +29,7 @@ void defineTests() {
             (WidgetTester tester) async {
               const data = '*foo bar*';
               await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
+                const BoilerPlate(MarkdownBody(data: data)),
               );
 
               final textFinder = find.byType(Text);
@@ -55,9 +53,7 @@ void defineTests() {
             (WidgetTester tester) async {
               const data = 'a * foo bar*';
               await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
+                const BoilerPlate(MarkdownBody(data: data)),
               );
 
               final textFinder = find.byType(Text);
@@ -82,9 +78,7 @@ void defineTests() {
             (WidgetTester tester) async {
               const data = 'a*"foo bar"*';
               await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
+                const BoilerPlate(MarkdownBody(data: data)),
               );
 
               final textFinder = find.byType(Text);
@@ -113,9 +107,7 @@ void defineTests() {
             (WidgetTester tester) async {
               const data = 'foo*bar*';
               await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
+                const BoilerPlate(MarkdownBody(data: data)),
               );
 
               final textFinder = find.byType(Text);
@@ -155,9 +147,7 @@ void defineTests() {
             (WidgetTester tester) async {
               const data = '5*6*78';
               await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
+                const BoilerPlate(MarkdownBody(data: data)),
               );
 
               final textFinder = find.byType(Text);
@@ -208,9 +198,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo bar_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -234,9 +222,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_ foo bar_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -261,9 +247,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'a_"foo bar"_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -288,9 +272,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo_bar_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -315,9 +297,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '5_6_78';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -342,9 +322,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'пристаням_стремятся_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -369,9 +347,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'aa_"bb"_cc';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -396,9 +372,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo-_(bar)_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -439,9 +413,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -466,9 +438,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo bar *';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -493,9 +463,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo bar\n*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -519,9 +487,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*(*foo)';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -546,9 +512,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*(*foo*)*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -572,9 +536,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo*bar';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -615,9 +577,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo bar _';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -642,9 +602,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_(_foo)';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -669,9 +627,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_(_foo_)_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -695,9 +651,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo_bar';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -722,9 +676,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_пристаням_стремятся';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -749,9 +701,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo_bar_baz_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -775,9 +725,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_(bar)_.';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -818,9 +766,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo bar**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -844,9 +790,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '** foo bar**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -871,9 +815,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'a**"foo"**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -898,9 +840,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo**bar**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -941,9 +881,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo bar__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -967,9 +905,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__ foo bar__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -994,9 +930,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__\nfoo bar__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1020,9 +954,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'a__"foo"__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1047,9 +979,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo__bar__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1074,9 +1004,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '5__6__78';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1101,9 +1029,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'пристаням__стремятся__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1128,9 +1054,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo, __bar__, baz__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1155,9 +1079,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo-__(bar)__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1199,9 +1121,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo bar **';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1226,9 +1146,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**(**foo)';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1253,9 +1171,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*(**foo**)*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1301,11 +1217,10 @@ void defineTests() {
           // Example 403 from GFM.
           'strong emphasis with multiple nested emphasis',
           (WidgetTester tester) async {
-            const data = '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
+            const data =
+                '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1314,7 +1229,10 @@ void defineTests() {
             // Expect text to be unchanged from original data string.
             final textWidget = textFinder.evaluate().first.widget as Text;
             final text = textWidget.textSpan!.toPlainText();
-            expect(text, 'Gomphocarpus (Gomphocarpus physocarpus, syn. Asclepias physocarpa)');
+            expect(
+              text,
+              'Gomphocarpus (Gomphocarpus physocarpus, syn. Asclepias physocarpa)',
+            );
 
             // There should be five spans of text.
             final textSpan = textWidget.textSpan! as TextSpan;
@@ -1369,9 +1287,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo "*bar*" foo**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1419,9 +1335,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo**bar';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1463,9 +1377,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo bar __';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1490,9 +1402,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__(__foo)';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1517,9 +1427,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_(__foo__)_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1566,9 +1474,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo__bar';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1593,9 +1499,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__пристаням__стремятся';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1620,9 +1524,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo__bar__baz__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1646,9 +1548,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__(bar)__.';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1689,9 +1589,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo [bar](/url)*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1733,9 +1631,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo\nbar*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1759,9 +1655,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo __bar__ baz_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1808,9 +1702,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo _bar_ baz_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1834,9 +1726,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo_ bar_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1860,9 +1750,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo *bar**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1886,9 +1774,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo **bar** baz*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1935,9 +1821,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo**bar**baz*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -1984,9 +1868,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo**bar*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2010,9 +1892,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '***foo** bar*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2051,9 +1931,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo **bar***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2092,9 +1970,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo**bar***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2133,9 +2009,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo***bar***baz';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2182,9 +2056,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo******bar*********baz';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2231,9 +2103,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo **bar *baz*\nbim** bop*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2280,9 +2150,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo [*bar*](/url)*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2324,9 +2192,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '** is not an empty emphasis';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2351,9 +2217,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**** is not an empty strong emphasis';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2380,9 +2244,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo [bar](/url)**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2424,9 +2286,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo\nbar**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2450,9 +2310,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo _bar_ baz__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2499,9 +2357,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo __bar__ baz__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2525,9 +2381,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '____foo__ bar__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2551,9 +2405,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo **bar****';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2577,9 +2429,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo *bar* baz**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2626,9 +2476,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo*bar*baz**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2675,9 +2523,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '***foo* bar**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2716,9 +2562,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo *bar***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2757,9 +2601,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo *bar **baz**\nbim* bop**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2806,9 +2648,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo [*bar*](/url)**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2850,9 +2690,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__ is not an empty emphasis';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2877,9 +2715,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '____ is not an empty strong emphasis';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2906,9 +2742,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo ***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2933,9 +2767,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = r'foo *\**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -2975,9 +2807,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo *_*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3017,9 +2847,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo *****';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3044,9 +2872,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = r'foo **\***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3086,9 +2912,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo **_**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3128,9 +2952,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3170,9 +2992,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3212,9 +3032,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '***foo**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3254,9 +3072,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '****foo*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3296,9 +3112,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3338,9 +3152,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo****';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3382,9 +3194,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo ___';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3409,9 +3219,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = r'foo _\__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3451,9 +3259,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo _*_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3493,9 +3299,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo _____';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3520,9 +3324,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = r'foo __\___';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3562,9 +3364,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = 'foo __*__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3604,9 +3404,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3646,9 +3444,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3688,9 +3484,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '___foo__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3730,9 +3524,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '____foo_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3772,9 +3564,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo___';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3814,9 +3604,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_foo____';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3858,9 +3646,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3884,9 +3670,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*_foo_*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3910,9 +3694,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '__foo__';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3936,9 +3718,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_*foo*_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3962,9 +3742,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '****foo****';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -3988,9 +3766,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '____foo____';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4014,9 +3790,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '******foo******';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4044,9 +3818,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '***foo***';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4070,9 +3842,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '_____foo_____';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4098,9 +3868,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo _bar* baz_';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4139,9 +3907,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo __bar *baz bim__ bam*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4190,9 +3956,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '**foo **bar baz**';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);
@@ -4231,9 +3995,7 @@ void defineTests() {
           (WidgetTester tester) async {
             const data = '*foo *bar baz*';
             await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
+              const BoilerPlate(MarkdownBody(data: data)),
             );
 
             final textFinder = find.byType(Text);

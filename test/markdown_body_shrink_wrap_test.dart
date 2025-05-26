@@ -16,8 +16,8 @@ void defineTests() {
       'Then it wraps its content',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const Stack(
+          const BoilerPlate(
+            Stack(
               children: <Widget>[
                 Text('shrinkWrap=true'),
                 Align(
@@ -48,8 +48,8 @@ void defineTests() {
       'Then it expands to the maximum allowed height',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const Stack(
+          const BoilerPlate(
+            Stack(
               children: <Widget>[
                 Text('shrinkWrap=false test'),
                 Align(

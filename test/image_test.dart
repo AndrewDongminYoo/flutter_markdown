@@ -28,9 +28,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '_textbefore ![alt](https://img) textafter_';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final texts = tester.widgetList<Text>(find.byType(Text));
@@ -54,9 +52,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](https://img#50x50)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final image = tester.widget<Image>(find.byType(Image));
@@ -72,8 +68,8 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](/img.png)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(
+          const BoilerPlate(
+            Markdown(
               data: data,
               imageDirectory: 'https://localhost',
             ),
@@ -81,7 +77,8 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image =
+            widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is NetworkImage, isTrue);
         expect((image.image as NetworkImage).url, 'https://localhost/img.png');
@@ -93,13 +90,12 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](http.png)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image =
+            widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is FileImage, isTrue);
       },
@@ -111,13 +107,12 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](http.png)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image =
+            widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is NetworkImage, isTrue);
       },
@@ -130,7 +125,7 @@ void defineTests() {
         TestWidgetsFlutterBinding.ensureInitialized();
         const data = '![alt](resource:assets/logo.png)';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MaterialApp(
               home: DefaultAssetBundle(
                 bundle: TestAssetBundle(),
@@ -148,7 +143,8 @@ void defineTests() {
           ),
         );
 
-        final image = tester.allWidgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image = tester.allWidgets
+            .firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is AssetImage, isTrue);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -163,7 +159,9 @@ void defineTests() {
 
         await expectLater(
           find.byType(Container),
-          matchesGoldenFile('assets/images/golden/image_test/resource_asset_logo.png'),
+          matchesGoldenFile(
+            'assets/images/golden/image_test/resource_asset_logo.png',
+          ),
         );
       },
       skip: kIsWeb, // Goldens are platform-specific.
@@ -174,9 +172,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](img.png#50x50)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final image = tester.widget<Image>(find.byType(Image));
@@ -193,9 +189,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = 'Hello ![alt](img#50x50)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final text = tester.widget<Text>(find.byType(Text));
@@ -212,7 +206,7 @@ void defineTests() {
         final tapResults = <String?>[];
         const data = '[![alt](https://img#50x50)](href)';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: data,
               onTapLink: (String text, String? value, String title) {
@@ -223,7 +217,8 @@ void defineTests() {
           ),
         );
 
-        final detector = tester.widget<GestureDetector>(find.byType(GestureDetector));
+        final detector =
+            tester.widget<GestureDetector>(find.byType(GestureDetector));
         detector.onTap!();
 
         expect(tapTexts.length, 1);
@@ -240,7 +235,7 @@ void defineTests() {
         final tapResults = <String?>[];
         const data = '[Text before ![alt](https://img#50x50) text after](href)';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: data,
               onTapLink: (String text, String? value, String title) {
@@ -251,7 +246,8 @@ void defineTests() {
           ),
         );
 
-        final detector = tester.widget<GestureDetector>(find.byType(GestureDetector));
+        final detector =
+            tester.widget<GestureDetector>(find.byType(GestureDetector));
         detector.onTap!();
 
         final texts = tester.widgetList<Text>(find.byType(Text));
@@ -283,10 +279,11 @@ void defineTests() {
       (WidgetTester tester) async {
         final tapTexts = <String>[];
         final tapResults = <String?>[];
-        const data = '[Link before](firstHref)[![alt](https://img#50x50)](imageHref)[link after](secondHref)';
+        const data =
+            '[Link before](firstHref)[![alt](https://img#50x50)](imageHref)[link after](secondHref)';
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: data,
               onTapLink: (String text, String? value, String title) {
@@ -302,7 +299,8 @@ void defineTests() {
         final firstSpan = firstTextWidget.textSpan! as TextSpan;
         (firstSpan.recognizer as TapGestureRecognizer?)!.onTap!();
 
-        final detector = tester.widget<GestureDetector>(find.byType(GestureDetector));
+        final detector =
+            tester.widget<GestureDetector>(find.byType(GestureDetector));
         detector.onTap!();
 
         final lastTextWidget = texts.last;
@@ -329,9 +327,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](://img#x50)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         expect(find.byType(Image), findsNothing);
@@ -345,9 +341,7 @@ void defineTests() {
         // cspell:ignore ttps
         const data = '![alt](ttps://img#x50)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         // On the web, any URI with an unrecognized scheme is treated as a network image.
@@ -370,9 +364,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '![alt](https://img#x50)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final image = tester.widget<Image>(find.byType(Image));
@@ -388,9 +380,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = ' ![alt](https://img#50x)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
+          const BoilerPlate(Markdown(data: data)),
         );
 
         final image = tester.widget<Image>(find.byType(Image));
@@ -405,10 +395,11 @@ void defineTests() {
       'custom image builder',
       (WidgetTester tester) async {
         const data = '![alt](https://img.png)';
-        Widget builder(Uri uri, String? title, String? alt) => Image.asset('assets/logo.png');
+        Widget builder(Uri uri, String? title, String? alt) =>
+            Image.asset('assets/logo.png');
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MaterialApp(
               home: DefaultAssetBundle(
                 bundle: TestAssetBundle(),
@@ -428,7 +419,8 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image =
+            widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image.runtimeType, AssetImage);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -443,7 +435,9 @@ void defineTests() {
 
         await expectLater(
           find.byType(Container),
-          matchesGoldenFile('assets/images/golden/image_test/custom_builder_asset_logo.png'),
+          matchesGoldenFile(
+            'assets/images/golden/image_test/custom_builder_asset_logo.png',
+          ),
         );
         imageCache.clear();
       },
@@ -453,14 +447,17 @@ void defineTests() {
     testWidgets(
       'custom image builder test width and height',
       (WidgetTester tester) async {
-        const double height = 200;
-        const double width = 100;
+        const height = 200;
+        const width = 100;
         const data = '![alt](https://img.png#${width}x$height)';
-        Widget builder(MarkdownImageConfig config) =>
-            Image.asset('assets/logo.png', width: config.width, height: config.height);
+        Widget builder(MarkdownImageConfig config) => Image.asset(
+              'assets/logo.png',
+              width: config.width,
+              height: config.height,
+            );
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MaterialApp(
               home: DefaultAssetBundle(
                 bundle: TestAssetBundle(),
@@ -480,7 +477,8 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image =
+            widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image.runtimeType, AssetImage);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -496,7 +494,9 @@ void defineTests() {
 
         await expectLater(
           find.byType(Container),
-          matchesGoldenFile('assets/images/golden/image_test/custom_image_builder_test.png'),
+          matchesGoldenFile(
+            'assets/images/golden/image_test/custom_image_builder_test.png',
+          ),
         );
         imageCache.clear();
       },

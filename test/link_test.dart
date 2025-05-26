@@ -20,7 +20,7 @@ void defineTests() {
         final linkTapResults = <MarkdownLink>[];
         const data = '[Link `with nested code` Text](href)';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: data,
               onTapLink: (String text, String? href, String title) =>
@@ -51,7 +51,10 @@ void defineTests() {
 
         // Each of the child text span runs should return the same link info.
         for (final tapResult in linkTapResults) {
-          expectLinkTap(tapResult, const MarkdownLink('Link with nested code Text', 'href'));
+          expectLinkTap(
+            tapResult,
+            const MarkdownLink('Link with nested code Text', 'href'),
+          );
         }
       },
     );
@@ -62,7 +65,7 @@ void defineTests() {
         final linkTapResults = <MarkdownLink>[];
         const data = '[First Link](firstHref) and [Second Link](secondHref)';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: data,
               onTapLink: (String text, String? href, String title) =>
@@ -89,10 +92,18 @@ void defineTests() {
         expect(span.children!.length, 3);
         expect(
           gestureRecognizerTypes,
-          orderedEquals(<Type>[TapGestureRecognizer, Null, TapGestureRecognizer]),
+          orderedEquals(
+            <Type>[TapGestureRecognizer, Null, TapGestureRecognizer],
+          ),
         );
-        expectLinkTap(linkTapResults[0], const MarkdownLink('First Link', 'firstHref'));
-        expectLinkTap(linkTapResults[1], const MarkdownLink('Second Link', 'secondHref'));
+        expectLinkTap(
+          linkTapResults[0],
+          const MarkdownLink('First Link', 'firstHref'),
+        );
+        expectLinkTap(
+          linkTapResults[1],
+          const MarkdownLink('Second Link', 'secondHref'),
+        );
       },
     );
 
@@ -100,7 +111,7 @@ void defineTests() {
       'multiple inline links with same name but different urls - unique keys are assigned automatically',
       (WidgetTester tester) async {
         //Arange
-        final toBePumped = boilerplate(
+        final toBePumped = BoilerPlate(
           Column(
             children: <Widget>[
               MarkdownBody(
@@ -135,7 +146,7 @@ void defineTests() {
       'multiple inline links with same content should not throw an exception',
       (WidgetTester tester) async {
         //Arrange
-        final toBePumped = boilerplate(
+        final toBePumped = BoilerPlate(
           Column(
             children: <Widget>[
               Expanded(
@@ -173,16 +184,20 @@ void defineTests() {
         const data = '[link](/uri "title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/uri', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/uri', 'title'),
+        );
       },
     );
 
@@ -192,10 +207,11 @@ void defineTests() {
         const data = '[](/uri "title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -212,10 +228,11 @@ void defineTests() {
         const data = '[link](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -232,10 +249,11 @@ void defineTests() {
         const data = '[link]()';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -252,10 +270,11 @@ void defineTests() {
         const data = '[link](<>)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -272,10 +291,11 @@ void defineTests() {
         const data = '[link](/my url)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -293,10 +313,11 @@ void defineTests() {
         const data = '[link](</my url>)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -313,10 +334,11 @@ void defineTests() {
         const data = '[link](foo\nbar)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -334,10 +356,11 @@ void defineTests() {
         const data = '[link](<foo\nbar>)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -355,10 +378,11 @@ void defineTests() {
         const data = '[link](</my)url>)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -375,10 +399,11 @@ void defineTests() {
         const data = r'[link](<foo\>)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -396,10 +421,11 @@ void defineTests() {
         const data = '[link](<foo)bar\n[link](<foo)bar>\n[link](<foo>bar)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -417,10 +443,11 @@ void defineTests() {
         const data = r'[link](\(foo\))';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -437,16 +464,20 @@ void defineTests() {
         const data = '[link](foo(and(bar)))';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', 'foo(and(bar))'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', 'foo(and(bar))'),
+        );
       },
     );
 
@@ -458,16 +489,20 @@ void defineTests() {
         const data = r'[link](foo\(and\(bar\))';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', 'foo(and(bar)'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', 'foo(and(bar)'),
+        );
       },
     );
 
@@ -478,16 +513,20 @@ void defineTests() {
         const data = '[link](<foo(and(bar)>)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', 'foo(and(bar)'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', 'foo(and(bar)'),
+        );
       },
     );
 
@@ -499,10 +538,11 @@ void defineTests() {
         const data = r'[link](foo\)\:)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -520,10 +560,11 @@ void defineTests() {
 
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -541,16 +582,20 @@ void defineTests() {
 
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', 'http://example.com#fragment'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', 'http://example.com#fragment'),
+        );
       },
     );
 
@@ -562,16 +607,20 @@ void defineTests() {
 
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', 'http://example.com?foo=3#fragment'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', 'http://example.com?foo=3#fragment'),
+        );
       },
     );
 
@@ -583,10 +632,11 @@ void defineTests() {
 
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -603,16 +653,20 @@ void defineTests() {
         const data = '[link](foo%20b&auml;)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', 'foo%20b%C3%A4'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', 'foo%20b%C3%A4'),
+        );
       },
     );
 
@@ -623,16 +677,20 @@ void defineTests() {
         const data = '[link]("title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '%22title%22'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '%22title%22'),
+        );
       },
     );
 
@@ -643,16 +701,20 @@ void defineTests() {
         const data = '[link](/url "title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/url', 'title'),
+        );
       },
     );
 
@@ -663,16 +725,20 @@ void defineTests() {
         const data = "[link](/url 'title')";
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/url', 'title'),
+        );
       },
     );
 
@@ -683,16 +749,20 @@ void defineTests() {
         const data = '[link](/url (title))';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/url', 'title'),
+        );
       },
     );
 
@@ -703,16 +773,20 @@ void defineTests() {
         const data = r'[link](/url "title \"&quot;")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/url', 'title &quot;&quot;'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/url', 'title &quot;&quot;'),
+        );
       },
     );
 
@@ -723,16 +797,20 @@ void defineTests() {
         const data = '[link](/url\u{C2A0}"title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/url%EC%8A%A0%22title%22'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/url%EC%8A%A0%22title%22'),
+        );
       },
     );
 
@@ -743,10 +821,11 @@ void defineTests() {
         const data = '[link](/url "title "and" title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -764,10 +843,11 @@ void defineTests() {
         const data = '[link](/url \'title "and" title\')';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -787,16 +867,20 @@ void defineTests() {
         const data = '[link](   /url  "title")';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link');
-        expectLinkTap(linkTapResults, const MarkdownLink('link', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link', '/url', 'title'),
+        );
       },
     );
 
@@ -807,10 +891,11 @@ void defineTests() {
         const data = '[link] (/url)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -828,16 +913,20 @@ void defineTests() {
         const data = '[link [foo [bar]]](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link [foo [bar]]');
-        expectLinkTap(linkTapResults, const MarkdownLink('link [foo [bar]]', '/uri'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link [foo [bar]]', '/uri'),
+        );
       },
     );
 
@@ -848,10 +937,11 @@ void defineTests() {
         const data = '[link] bar](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -869,10 +959,11 @@ void defineTests() {
         const data = '[link [bar](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -895,10 +986,11 @@ void defineTests() {
         const data = r'[link \[bar](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -915,7 +1007,7 @@ void defineTests() {
         const data = '[link *foo **bar** `#`*](/uri)';
         final linkTapResults = <MarkdownLink>[];
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
               onTapLink: (String text, String? href, String title) =>
@@ -927,10 +1019,26 @@ void defineTests() {
         final textWidget = tester.widget<Text>(find.byType(Text));
         final span = textWidget.textSpan! as TextSpan;
         expect(span.children!.length, 5);
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
-        expectTextSpanStyle(span.children![1] as TextSpan, FontStyle.italic, FontWeight.normal);
-        expectTextSpanStyle(span.children![2] as TextSpan, FontStyle.italic, FontWeight.bold);
-        expectTextSpanStyle(span.children![3] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
+        expectTextSpanStyle(
+          span.children![2] as TextSpan,
+          FontStyle.italic,
+          FontWeight.bold,
+        );
+        expectTextSpanStyle(
+          span.children![3] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
         expect((span.children![4] as TextSpan).style!.fontFamily, 'monospace');
 
         final gestureRecognizerTypes = <Type>[];
@@ -949,7 +1057,10 @@ void defineTests() {
 
         // Each of the child text span runs should return the same link info.
         for (final tapResult in linkTapResults) {
-          expectLinkTap(tapResult, const MarkdownLink('link foo bar #', '/uri'));
+          expectLinkTap(
+            tapResult,
+            const MarkdownLink('link foo bar #', '/uri'),
+          );
         }
       },
     );
@@ -961,17 +1072,19 @@ void defineTests() {
         const data = '[![moon](moon.jpg)](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         final gestureFinder = find.byType(GestureDetector);
         expect(gestureFinder, findsOneWidget);
-        final gestureWidget = gestureFinder.evaluate().first.widget as GestureDetector;
+        final gestureWidget =
+            gestureFinder.evaluate().first.widget as GestureDetector;
         expect(gestureWidget.child, isA<Image>());
         expect(gestureWidget.onTap, isNotNull);
 
@@ -987,10 +1100,11 @@ void defineTests() {
         const data = '[foo [bar](/uri)](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1016,10 +1130,11 @@ void defineTests() {
         const data = '[foo *[bar [baz](/uri)](/uri)*](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1030,19 +1145,39 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), '[foo ');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), '[bar ');
-        expectTextSpanStyle(span.children![1] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![2].toPlainText(), 'baz');
-        expectTextSpanStyle(span.children![2] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![2] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![3].toPlainText(), '](/uri)');
-        expectTextSpanStyle(span.children![3] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![3] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![4].toPlainText(), '](/uri)');
-        expectTextSpanStyle(span.children![4] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![4] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![2] as TextSpan, 'baz');
         expectLinkTap(linkTapResults, const MarkdownLink('baz', '/uri'));
@@ -1056,10 +1191,11 @@ void defineTests() {
         const data = '![[[foo](uri1)](uri2)](uri3)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1088,10 +1224,11 @@ void defineTests() {
         const data = '*[foo*](/uri)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1101,7 +1238,11 @@ void defineTests() {
         expect(span.children!.length, 2);
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '*');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'foo*');
         expectLinkTap(linkTapResults, const MarkdownLink('foo*', '/uri'));
@@ -1115,10 +1256,11 @@ void defineTests() {
         const data = '[foo *bar](baz*)';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1134,9 +1276,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '*foo [bar* baz]';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final textWidget = tester.widget<Text>(find.byType(Text));
@@ -1145,10 +1285,18 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), 'foo [bar');
-        expectTextSpanStyle(span.children![0] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), ' baz]');
-        expectTextSpanStyle(span.children![1] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -1159,10 +1307,11 @@ void defineTests() {
         const data = '[foo <bar attr="](baz)">';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1180,10 +1329,11 @@ void defineTests() {
         const data = '[foo`](/uri)`';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1198,9 +1348,17 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
         expect((span.children![1] as TextSpan).style!.fontFamily, 'monospace');
         expect(linkTapResults, isNull);
       },
@@ -1213,10 +1371,11 @@ void defineTests() {
         const data = '[foo<http://example.com/?search=](uri)>';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1227,12 +1386,22 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), '[foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
-        expectLinkTextSpan(span.children![1] as TextSpan, 'http://example.com/?search=](uri)');
+        expectLinkTextSpan(
+          span.children![1] as TextSpan,
+          'http://example.com/?search=](uri)',
+        );
         expectLinkTap(
           linkTapResults,
-          const MarkdownLink('http://example.com/?search=](uri)', 'http://example.com/?search=%5D(uri)'),
+          const MarkdownLink(
+            'http://example.com/?search=](uri)',
+            'http://example.com/?search=%5D(uri)',
+          ),
         );
       },
     );
@@ -1245,16 +1414,20 @@ void defineTests() {
         const data = '[foo][bar]\n\n[bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('foo', '/url', 'title'),
+        );
       },
     );
 
@@ -1265,16 +1438,20 @@ void defineTests() {
         const data = '[link [foo [bar]]][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('link [foo [bar]]');
-        expectLinkTap(linkTapResults, const MarkdownLink('link [foo [bar]]', '/uri'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('link [foo [bar]]', '/uri'),
+        );
       },
     );
 
@@ -1285,10 +1462,11 @@ void defineTests() {
         const data = '[link \\[bar][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1305,10 +1483,11 @@ void defineTests() {
         const data = '[link *foo **bar** `#`*][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1319,19 +1498,39 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), 'link ');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), 'foo ');
-        expectTextSpanStyle(span.children![1] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![2].toPlainText(), 'bar');
-        expectTextSpanStyle(span.children![2] as TextSpan, FontStyle.italic, FontWeight.bold);
+        expectTextSpanStyle(
+          span.children![2] as TextSpan,
+          FontStyle.italic,
+          FontWeight.bold,
+        );
 
         expect(span.children![3].toPlainText(), ' ');
-        expectTextSpanStyle(span.children![3] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![3] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![4].toPlainText(), '#');
-        expectTextSpanStyle(span.children![4] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![4] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
         expect((span.children![4] as TextSpan).style!.fontFamily, 'monospace');
 
         for (final element in span.children!) {
@@ -1342,7 +1541,10 @@ void defineTests() {
           expect(tapRecognizer?.onTap, isNotNull);
 
           tapRecognizer!.onTap!();
-          expectLinkTap(linkTapResults, const MarkdownLink('link foo bar #', '/uri'));
+          expectLinkTap(
+            linkTapResults,
+            const MarkdownLink('link foo bar #', '/uri'),
+          );
 
           // Clear link tap results.
           linkTapResults = null;
@@ -1357,17 +1559,19 @@ void defineTests() {
         const data = '[![moon](moon.jpg)][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         final gestureFinder = find.byType(GestureDetector);
         expect(gestureFinder, findsOneWidget);
-        final gestureWidget = gestureFinder.evaluate().first.widget as GestureDetector;
+        final gestureWidget =
+            gestureFinder.evaluate().first.widget as GestureDetector;
         expect(gestureWidget.child, isA<Image>());
         expect(gestureWidget.onTap, isNotNull);
 
@@ -1384,10 +1588,11 @@ void defineTests() {
         const data = '[foo [bar](/uri)][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1417,10 +1622,11 @@ void defineTests() {
         const data = '[foo *bar [baz][ref]*][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1431,22 +1637,42 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[foo ');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(span.children![1], isA<TextSpan>());
         expect(span.children![1].toPlainText(), 'bar ');
-        expectTextSpanStyle(span.children![1] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![2] as TextSpan, 'baz');
-        expectTextSpanStyle(span.children![2] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![2] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
         expectLinkTap(linkTapResults, const MarkdownLink('baz', '/uri'));
 
         expect(span.children![3], isA<TextSpan>());
         expect(span.children![3].toPlainText(), ']');
-        expectTextSpanStyle(span.children![3] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![3] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![4] as TextSpan, 'ref');
-        expectTextSpanStyle(span.children![4] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![4] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
         expectLinkTap(linkTapResults, const MarkdownLink('ref', '/uri'));
       },
     );
@@ -1458,10 +1684,11 @@ void defineTests() {
         const data = '*[foo*][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1471,7 +1698,11 @@ void defineTests() {
         expect(span.children!.length, 2);
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '*');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'foo*');
         expectLinkTap(linkTapResults, const MarkdownLink('foo*', '/uri'));
@@ -1485,10 +1716,11 @@ void defineTests() {
         const data = '[foo *bar][ref]*\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1498,12 +1730,20 @@ void defineTests() {
         expect(span.children!.length, 2);
 
         expectLinkTextSpan(span.children![0] as TextSpan, 'foo *bar');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
         expectLinkTap(linkTapResults, const MarkdownLink('foo *bar', '/uri'));
 
         expect(span.children![1], isA<TextSpan>());
         expect(span.children![1].toPlainText(), '*');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -1514,10 +1754,11 @@ void defineTests() {
         const data = '[foo <bar attr="][ref]">\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1535,10 +1776,11 @@ void defineTests() {
         const data = '[foo`][ref]`\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1553,7 +1795,11 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), '][ref]');
         expect((span.children![1] as TextSpan).style!.fontFamily, 'monospace');
@@ -1568,10 +1814,11 @@ void defineTests() {
         const data = '[foo<http://example.com/?search=][ref]>\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1582,12 +1829,22 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), '[foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
-        expectLinkTextSpan(span.children![1] as TextSpan, 'http://example.com/?search=][ref]');
+        expectLinkTextSpan(
+          span.children![1] as TextSpan,
+          'http://example.com/?search=][ref]',
+        );
         expectLinkTap(
           linkTapResults,
-          const MarkdownLink('http://example.com/?search=][ref]', 'http://example.com/?search=%5D%5Bref%5D'),
+          const MarkdownLink(
+            'http://example.com/?search=][ref]',
+            'http://example.com/?search=%5D%5Bref%5D',
+          ),
         );
       },
     );
@@ -1599,16 +1856,20 @@ void defineTests() {
         const data = '[foo][BaR]\n\n[bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('foo', '/url', 'title'),
+        );
       },
     );
 
@@ -1619,10 +1880,11 @@ void defineTests() {
         const data = '[ẞ]\n\n[SS]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1644,10 +1906,11 @@ void defineTests() {
         const data = '[Толпой][Толпой] is a Russian word.\n\n[ТОЛПОЙ]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1661,7 +1924,11 @@ void defineTests() {
 
         expect(span.children![1], isA<TextSpan>());
         expect(span.children![1].toPlainText(), ' is a Russian word.');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -1672,10 +1939,11 @@ void defineTests() {
         const data = '[Foo\n  bar]: /url\n\n[Baz][Foo bar]';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1692,10 +1960,11 @@ void defineTests() {
         const data = '[foo] [bar]\n\n[bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1706,10 +1975,17 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[foo] ');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'bar');
-        expectLinkTap(linkTapResults, const MarkdownLink('bar', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('bar', '/url', 'title'),
+        );
       },
     );
 
@@ -1720,10 +1996,11 @@ void defineTests() {
         const data = '[foo]\n[bar]\n\n[bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1734,10 +2011,17 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[foo] ');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'bar');
-        expectLinkTap(linkTapResults, const MarkdownLink('bar', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('bar', '/url', 'title'),
+        );
       },
     );
 
@@ -1748,10 +2032,11 @@ void defineTests() {
         const data = '[foo]: /url1\n\n[foo]: /url2\n\n[bar][foo]';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1768,10 +2053,11 @@ void defineTests() {
         const data = '[bar][foo\\!]\n\n[foo!]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1789,24 +2075,36 @@ void defineTests() {
         const data = '[foo][ref[]\n\n[ref[]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
-        final textWidgets = tester.widgetList<RichText>(find.byType(RichText)).toList().cast<RichText>();
+        final textWidgets = tester
+            .widgetList<RichText>(find.byType(RichText))
+            .toList()
+            .cast<RichText>();
         expect(textWidgets.length, 2);
 
         expect(textWidgets[0].text, isA<TextSpan>());
         expect(textWidgets[0].text.toPlainText(), '[foo][ref[]');
-        expectTextSpanStyle(textWidgets[0].text as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[0].text as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(textWidgets[1].text, isA<TextSpan>());
         expect(textWidgets[1].text.toPlainText(), '[ref[]: /uri');
-        expectTextSpanStyle(textWidgets[1].text as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[1].text as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(linkTapResults, isNull);
       },
@@ -1822,26 +2120,36 @@ void defineTests() {
         const data = '[foo][ref[bar]]\n\n[ref[bar]]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
-        final textWidgets = tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
+        final textWidgets =
+            tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
         expect(textWidgets.length, 2);
 
         expect(textWidgets[0].textSpan, isNotNull);
         expect(textWidgets[0].textSpan, isA<TextSpan>());
         expect(textWidgets[0].textSpan!.toPlainText(), '[foo][ref[bar]]');
-        expectTextSpanStyle(textWidgets[0].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[0].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(textWidgets[1].textSpan, isNotNull);
         expect(textWidgets[1].textSpan, isA<TextSpan>());
         expect(textWidgets[1].textSpan!.toPlainText(), '[ref[bar]]: /uri');
-        expectTextSpanStyle(textWidgets[1].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[1].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(linkTapResults, isNull);
       },
@@ -1854,26 +2162,36 @@ void defineTests() {
         const data = '[[[foo]]]\n\n[[[foo]]]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
-        final textWidgets = tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
+        final textWidgets =
+            tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
         expect(textWidgets.length, 2);
 
         expect(textWidgets[0].textSpan, isNotNull);
         expect(textWidgets[0].textSpan, isA<TextSpan>());
         expect(textWidgets[0].textSpan!.toPlainText(), '[[[foo]]]');
-        expectTextSpanStyle(textWidgets[0].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[0].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(textWidgets[1].textSpan, isNotNull);
         expect(textWidgets[1].textSpan, isA<TextSpan>());
         expect(textWidgets[1].textSpan!.toPlainText(), '[[[foo]]]: /url');
-        expectTextSpanStyle(textWidgets[1].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[1].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(linkTapResults, isNull);
       },
@@ -1886,10 +2204,11 @@ void defineTests() {
         const data = '[foo][ref\\[]\n\n[ref\\[]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1906,10 +2225,11 @@ void defineTests() {
         const data = '[bar\\]: /uri\n\n[bar\\]';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -1929,26 +2249,36 @@ void defineTests() {
         const data = '[]\n\n[]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
-        final textWidgets = tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
+        final textWidgets =
+            tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
         expect(textWidgets.length, 2);
 
         expect(textWidgets[0].textSpan, isNotNull);
         expect(textWidgets[0].textSpan, isA<TextSpan>());
         expect(textWidgets[0].textSpan!.toPlainText(), '[]');
-        expectTextSpanStyle(textWidgets[0].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[0].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(textWidgets[1].textSpan, isNotNull);
         expect(textWidgets[1].textSpan, isA<TextSpan>());
         expect(textWidgets[1].textSpan!.toPlainText(), '[]: /uri');
-        expectTextSpanStyle(textWidgets[1].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[1].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(linkTapResults, isNull);
       },
@@ -1961,26 +2291,36 @@ void defineTests() {
         const data = '[\n ]\n\n[\n ]: /uri';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
-        final textWidgets = tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
+        final textWidgets =
+            tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
         expect(textWidgets.length, 2);
 
         expect(textWidgets[0].textSpan, isNotNull);
         expect(textWidgets[0].textSpan, isA<TextSpan>());
         expect(textWidgets[0].textSpan!.toPlainText(), '[ ]');
-        expectTextSpanStyle(textWidgets[0].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[0].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(textWidgets[1].textSpan, isNotNull);
         expect(textWidgets[1].textSpan, isA<TextSpan>());
         expect(textWidgets[1].textSpan!.toPlainText(), '[ ]: /uri');
-        expectTextSpanStyle(textWidgets[1].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[1].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expect(linkTapResults, isNull);
       },
@@ -1993,16 +2333,20 @@ void defineTests() {
         const data = '[foo][]\n\n[foo]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('foo', '/url', 'title'),
+        );
       },
     );
 
@@ -2013,10 +2357,11 @@ void defineTests() {
         const data = '[*foo* bar][]\n\n[*foo* bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2027,10 +2372,18 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), 'foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), ' bar');
-        expectTextSpanStyle(span.children![1] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         for (final element in span.children!) {
           final textSpan = element as TextSpan;
@@ -2040,7 +2393,10 @@ void defineTests() {
           expect(tapRecognizer?.onTap, isNotNull);
 
           tapRecognizer!.onTap!();
-          expectLinkTap(linkTapResults, const MarkdownLink('foo bar', '/url', 'title'));
+          expectLinkTap(
+            linkTapResults,
+            const MarkdownLink('foo bar', '/url', 'title'),
+          );
 
           // Clear link tap results.
           linkTapResults = null;
@@ -2055,16 +2411,20 @@ void defineTests() {
         const data = '[Foo][]\n\n[foo]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('Foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('Foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('Foo', '/url', 'title'),
+        );
       },
     );
 
@@ -2075,15 +2435,17 @@ void defineTests() {
         const data = '[foo] \n\n[]\n\n[foo]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
-        final textWidgets = tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
+        final textWidgets =
+            tester.widgetList<Text>(find.byType(Text)).toList().cast<Text>();
         expect(textWidgets.length, 2);
 
         expect(textWidgets[0].textSpan, isNotNull);
@@ -2093,12 +2455,19 @@ void defineTests() {
         expect(textWidgets[0].textSpan, isNotNull);
         expect(textWidgets[0].textSpan, isA<TextSpan>());
         expectLinkTextSpan(textWidgets[0].textSpan! as TextSpan, 'foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('foo', '/url', 'title'),
+        );
 
         expect(textWidgets[1].textSpan, isNotNull);
         expect(textWidgets[1].textSpan, isA<TextSpan>());
         expect(textWidgets[1].textSpan!.toPlainText(), '[]');
-        expectTextSpanStyle(textWidgets[1].textSpan! as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          textWidgets[1].textSpan! as TextSpan,
+          null,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -2109,16 +2478,20 @@ void defineTests() {
         const data = '[foo]\n\n[foo]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('foo', '/url', 'title'),
+        );
       },
     );
 
@@ -2129,10 +2502,11 @@ void defineTests() {
         const data = '[*foo* bar]\n\n[*foo* bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2143,10 +2517,18 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), 'foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), ' bar');
-        expectTextSpanStyle(span.children![1] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         for (final element in span.children!) {
           final textSpan = element as TextSpan;
@@ -2156,7 +2538,10 @@ void defineTests() {
           expect(tapRecognizer?.onTap, isNotNull);
 
           tapRecognizer!.onTap!();
-          expectLinkTap(linkTapResults, const MarkdownLink('foo bar', '/url', 'title'));
+          expectLinkTap(
+            linkTapResults,
+            const MarkdownLink('foo bar', '/url', 'title'),
+          );
 
           // Clear link tap results.
           linkTapResults = null;
@@ -2171,10 +2556,11 @@ void defineTests() {
         const data = '[*foo* bar]\n\n[*foo* bar]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2185,10 +2571,18 @@ void defineTests() {
         expect(span.children, everyElement(isA<TextSpan>()));
 
         expect(span.children![0].toPlainText(), 'foo');
-        expectTextSpanStyle(span.children![0] as TextSpan, FontStyle.italic, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          FontStyle.italic,
+          FontWeight.normal,
+        );
 
         expect(span.children![1].toPlainText(), ' bar');
-        expectTextSpanStyle(span.children![1] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         for (final element in span.children!) {
           final textSpan = element as TextSpan;
@@ -2198,7 +2592,10 @@ void defineTests() {
           expect(tapRecognizer?.onTap, isNotNull);
 
           tapRecognizer!.onTap!();
-          expectLinkTap(linkTapResults, const MarkdownLink('foo bar', '/url', 'title'));
+          expectLinkTap(
+            linkTapResults,
+            const MarkdownLink('foo bar', '/url', 'title'),
+          );
 
           // Clear link tap results.
           linkTapResults = null;
@@ -2213,10 +2610,11 @@ void defineTests() {
         const data = '[[bar [foo]\n\n[foo]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2227,7 +2625,11 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[[bar ');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'foo');
         expectLinkTap(linkTapResults, const MarkdownLink('foo', '/url'));
@@ -2241,16 +2643,20 @@ void defineTests() {
         const data = '[Foo]\n\n[foo]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
 
         expectValidLink('Foo');
-        expectLinkTap(linkTapResults, const MarkdownLink('Foo', '/url', 'title'));
+        expectLinkTap(
+          linkTapResults,
+          const MarkdownLink('Foo', '/url', 'title'),
+        );
       },
     );
 
@@ -2261,10 +2667,11 @@ void defineTests() {
         const data = '[foo] bar\n\n[foo]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2278,7 +2685,11 @@ void defineTests() {
 
         expect(span.children![1], isA<TextSpan>());
         expect(span.children![1].toPlainText(), ' bar');
-        expectTextSpanStyle(span.children![1] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -2289,10 +2700,11 @@ void defineTests() {
         const data = '\\[foo]\n\n[foo]: /url "title"';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2310,10 +2722,11 @@ void defineTests() {
         const data = '[foo*]: /url\n\n*[foo*]';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2323,7 +2736,11 @@ void defineTests() {
         expect(span.children!.length, 2);
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '*');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'foo*');
         expectLinkTap(linkTapResults, const MarkdownLink('foo*', '/url'));
@@ -2337,10 +2754,11 @@ void defineTests() {
         const data = '[foo][bar]\n\n[foo]: /url1\n[bar]: /url2';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2357,10 +2775,11 @@ void defineTests() {
         const data = '[foo][]\n\n[foo]: /url1';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2377,10 +2796,11 @@ void defineTests() {
         const data = '[foo]()\n\n[foo]: /url1';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2397,10 +2817,11 @@ void defineTests() {
         const data = '[foo](not a link)\n\n[foo]: /url1';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2414,7 +2835,11 @@ void defineTests() {
 
         expect(span.children![1], isA<TextSpan>());
         expect(span.children![1].toPlainText(), '(not a link)');
-        expectTextSpanStyle(span.children![1] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![1] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
       },
     );
 
@@ -2425,10 +2850,11 @@ void defineTests() {
         const data = '[foo][bar][baz]\n\n[baz]: /url';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2439,7 +2865,11 @@ void defineTests() {
 
         expect(span.children![0], isA<TextSpan>());
         expect(span.children![0].toPlainText(), '[foo]');
-        expectTextSpanStyle(span.children![0] as TextSpan, null, FontWeight.normal);
+        expectTextSpanStyle(
+          span.children![0] as TextSpan,
+          null,
+          FontWeight.normal,
+        );
 
         expectLinkTextSpan(span.children![1] as TextSpan, 'bar');
         expectLinkTap(linkTapResults, const MarkdownLink('bar', '/url'));
@@ -2453,10 +2883,11 @@ void defineTests() {
         const data = '[foo][bar][baz]\n\n[baz]: /url1\n[bar]: /url2';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );
@@ -2480,10 +2911,11 @@ void defineTests() {
         const data = '[foo][bar][baz]\n\n[baz]: /url1\n[foo]: /url2';
         MarkdownLink? linkTapResults;
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
-              onTapLink: (String text, String? href, String title) => linkTapResults = MarkdownLink(text, href, title),
+              onTapLink: (String text, String? href, String title) =>
+                  linkTapResults = MarkdownLink(text, href, title),
             ),
           ),
         );

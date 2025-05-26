@@ -22,7 +22,7 @@ void defineTests() {
 
         const data = '# h1\n ## h2';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
               styleSheet: style1,
@@ -48,7 +48,11 @@ void defineTests() {
           RichText,
         ]);
 
-        expect((widgets.firstWhere((Widget w) => w is RichText) as RichText).textAlign, TextAlign.center);
+        expect(
+          (widgets.firstWhere((Widget w) => w is RichText) as RichText)
+              .textAlign,
+          TextAlign.center,
+        );
         expect(
           (widgets.last as RichText).textAlign,
           TextAlign.start,
@@ -67,7 +71,7 @@ void defineTests() {
 
         const data = 'hello __my formatted text__';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
               styleSheet: style,
@@ -90,7 +94,7 @@ void defineTests() {
 
         const data = 'hello __my formatted text__';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MediaQuery(
               data: const MediaQueryData(),
               child: MarkdownBody(
@@ -102,7 +106,8 @@ void defineTests() {
           ),
         );
 
-        final text = tester.widgetList(find.byType(SelectableText)).single as SelectableText;
+        final text = tester.widgetList(find.byType(SelectableText)).single
+            as SelectableText;
         expect(text.textAlign, TextAlign.justify);
       },
     );

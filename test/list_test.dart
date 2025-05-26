@@ -17,9 +17,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '- Item 1\n- Item 2\n- Item 3';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = tester.allWidgets;
@@ -39,9 +37,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '- \n- Item 2\n- Item 3';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = tester.allWidgets;
@@ -60,9 +56,7 @@ void defineTests() {
         'leading space are ignored', (WidgetTester tester) async {
       const data = ' -    one\n\n        two';
       await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
+        const BoilerPlate(MarkdownBody(data: data)),
       );
 
       final widgets = tester.allWidgets;
@@ -78,9 +72,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '- one\n-  two\n-   three';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = tester.allWidgets;
@@ -96,15 +88,14 @@ void defineTests() {
     );
 
     testWidgets('custom bullet builder', (WidgetTester tester) async {
-      const data = '* Item 1\n   * Item 2\n      * Item 3\n   * Item 4\n* Item 5';
+      const data =
+          '* Item 1\n   * Item 2\n      * Item 3\n   * Item 4\n* Item 5';
       Widget builder(MarkdownBulletParameters parameters) => Text(
             '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'} ${parameters.nestLevel}',
           );
 
       await tester.pumpWidget(
-        boilerplate(
-          Markdown(data: data, bulletBuilder: builder),
-        ),
+        BoilerPlate(Markdown(data: data, bulletBuilder: builder)),
       );
 
       final widgets = tester.allWidgets;
@@ -131,15 +122,24 @@ void defineTests() {
         const data = '1. Item 1\n1. Item 2\n2. Item 3\n\n\n'
             '10. Item 10\n13. Item 11';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = tester.allWidgets;
         expectTextStrings(
           widgets,
-          <String>['1.', 'Item 1', '2.', 'Item 2', '3.', 'Item 3', '4.', 'Item 10', '5.', 'Item 11'],
+          <String>[
+            '1.',
+            'Item 1',
+            '2.',
+            'Item 2',
+            '3.',
+            'Item 3',
+            '4.',
+            'Item 10',
+            '5.',
+            'Item 11',
+          ],
         );
       },
     );
@@ -147,9 +147,7 @@ void defineTests() {
     testWidgets('leading space are ignored', (WidgetTester tester) async {
       const data = ' 1.    one\n\n       two';
       await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
+        const BoilerPlate(MarkdownBody(data: data)),
       );
 
       final widgets = tester.allWidgets;
@@ -157,15 +155,14 @@ void defineTests() {
     });
 
     testWidgets('custom bullet builder', (WidgetTester tester) async {
-      const data = '1. Item 1\n   1. Item 2\n      1. Item 3\n   1. Item 4\n1. Item 5';
+      const data =
+          '1. Item 1\n   1. Item 2\n      1. Item 3\n   1. Item 4\n1. Item 5';
       Widget builder(MarkdownBulletParameters parameters) => Text(
             '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'} ${parameters.nestLevel}',
           );
 
       await tester.pumpWidget(
-        boilerplate(
-          Markdown(data: data, bulletBuilder: builder),
-        ),
+        BoilerPlate(Markdown(data: data, bulletBuilder: builder)),
       );
 
       final widgets = tester.allWidgets;
@@ -191,9 +188,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '- [x] Item 1\n- [ ] Item 2';
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
+          const BoilerPlate(MarkdownBody(data: data)),
         );
 
         final widgets = tester.allWidgets;
@@ -209,13 +204,12 @@ void defineTests() {
 
     testWidgets('custom bullet builder', (WidgetTester tester) async {
       const data = '* Item 1\n* Item 2\n1) Item 3\n2) Item 4';
-      Widget builder(MarkdownBulletParameters parameters) =>
-          Text('${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'}');
+      Widget builder(MarkdownBulletParameters parameters) => Text(
+            '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'}',
+          );
 
       await tester.pumpWidget(
-        boilerplate(
-          Markdown(data: data, bulletBuilder: builder),
-        ),
+        BoilerPlate(Markdown(data: data, bulletBuilder: builder)),
       );
 
       final widgets = tester.allWidgets;
@@ -239,9 +233,7 @@ void defineTests() {
         Widget builder(bool checked) => Text('$checked');
 
         await tester.pumpWidget(
-          boilerplate(
-            Markdown(data: data, checkboxBuilder: builder),
-          ),
+          BoilerPlate(Markdown(data: data, checkboxBuilder: builder)),
         );
 
         final widgets = tester.allWidgets;
@@ -263,8 +255,8 @@ void defineTests() {
         const data = '- Foo\n- Bar';
 
         await tester.pumpWidget(
-          boilerplate(
-            const Column(
+          const BoilerPlate(
+            Column(
               children: <Widget>[
                 MarkdownBody(fitContent: false, data: data),
               ],
@@ -273,7 +265,8 @@ void defineTests() {
         );
 
         final screenWidth = find.byType(Column).evaluate().first.size!.width;
-        final markdownBodyWidth = find.byType(MarkdownBody).evaluate().single.size!.width;
+        final markdownBodyWidth =
+            find.byType(MarkdownBody).evaluate().single.size!.width;
 
         expect(markdownBodyWidth, equals(screenWidth));
       },
@@ -285,8 +278,8 @@ void defineTests() {
         const data = '- Foo\n- Bar';
 
         await tester.pumpWidget(
-          boilerplate(
-            const Column(
+          const BoilerPlate(
+            Column(
               children: <Widget>[
                 MarkdownBody(data: data),
               ],
@@ -295,7 +288,8 @@ void defineTests() {
         );
 
         final screenWidth = find.byType(Column).evaluate().first.size!.width;
-        final markdownBodyWidth = find.byType(MarkdownBody).evaluate().single.size!.width;
+        final markdownBodyWidth =
+            find.byType(MarkdownBody).evaluate().single.size!.width;
 
         expect(markdownBodyWidth, lessThan(screenWidth));
       },

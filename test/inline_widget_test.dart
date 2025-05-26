@@ -18,7 +18,7 @@ void defineTests() {
       'Test inline widget',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: 'Hello, foo bar',
               builders: <String, MarkdownElementBuilder>{

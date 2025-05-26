@@ -15,9 +15,7 @@ void defineTests() {
       'simple one word blockquote',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: '> quote'),
-          ),
+          const BoilerPlate(MarkdownBody(data: '> quote')),
         );
 
         final widgets = tester.allWidgets;
@@ -29,9 +27,7 @@ void defineTests() {
       'soft wrapping in blockquote',
       (WidgetTester tester) async {
         await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: '> soft\n> wrap'),
-          ),
+          const BoilerPlate(MarkdownBody(data: '> soft\n> wrap')),
         );
 
         final widgets = tester.allWidgets;
@@ -52,7 +48,7 @@ void defineTests() {
         const data =
             '> this is a link: [Markdown guide](https://www.markdownguide.org) and this is **bold** and *italic*';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
               styleSheet: styleSheet,
@@ -65,11 +61,14 @@ void defineTests() {
           find.byType(DecoratedBox),
         );
         final quoteText = tester.widget<Text>(find.byType(Text));
-        final styledTextParts = (quoteText.textSpan! as TextSpan).children!.cast<TextSpan>();
+        final styledTextParts =
+            (quoteText.textSpan! as TextSpan).children!.cast<TextSpan>();
 
         expectTextStrings(
           widgets,
-          <String>['this is a link: Markdown guide and this is bold and italic'],
+          <String>[
+            'this is a link: Markdown guide and this is bold and italic',
+          ],
         );
         expect(
           (blockQuoteContainer.decoration as BoxDecoration).color,

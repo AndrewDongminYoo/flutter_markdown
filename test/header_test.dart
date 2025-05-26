@@ -15,7 +15,7 @@ void defineTests() {
       'level one',
       (WidgetTester tester) async {
         const data = '# Header';
-        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
+        await tester.pumpWidget(const BoilerPlate(MarkdownBody(data: data)));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),

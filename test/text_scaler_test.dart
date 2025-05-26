@@ -17,7 +17,7 @@ void defineTests() {
         const scaler = TextScaler.linear(2);
         const data = 'Hello';
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               styleSheet: MarkdownStyleSheet(textScaler: scaler),
               data: data,
@@ -36,8 +36,8 @@ void defineTests() {
         const scaler = TextScaler.linear(2);
         const data = 'Hello';
         await tester.pumpWidget(
-          boilerplate(
-            const MediaQuery(
+          const BoilerPlate(
+            MediaQuery(
               data: MediaQueryData(textScaler: scaler),
               child: MarkdownBody(
                 data: data,
@@ -57,8 +57,8 @@ void defineTests() {
         const scaler = TextScaler.linear(2);
         const data = 'Hello';
         await tester.pumpWidget(
-          boilerplate(
-            const MediaQuery(
+          const BoilerPlate(
+            MediaQuery(
               data: MediaQueryData(textScaler: scaler),
               child: MarkdownBody(
                 data: data,
@@ -68,7 +68,8 @@ void defineTests() {
           ),
         );
 
-        final selectableText = tester.widget<SelectableText>(find.byType(SelectableText));
+        final selectableText =
+            tester.widget<SelectableText>(find.byType(SelectableText));
         expect(selectableText.textScaler, scaler);
       },
     );

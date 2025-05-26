@@ -54,7 +54,10 @@ void defineTests() {
 
         // code
         expect(style.code!.color, cTheme.textTheme.textStyle.color);
-        expect(style.code!.fontSize, cTheme.textTheme.textStyle.fontSize! * 0.85);
+        expect(
+          style.code!.fontSize,
+          cTheme.textTheme.textStyle.fontSize! * 0.85,
+        );
         expect(style.code!.fontFamily, 'monospace');
 
         // H1
@@ -141,7 +144,10 @@ void defineTests() {
 
         // code
         expect(style.code!.color, theme.textTheme.bodyMedium!.color);
-        expect(style.code!.fontSize, theme.textTheme.bodyMedium!.fontSize! * 0.85);
+        expect(
+          style.code!.fontSize,
+          theme.textTheme.bodyMedium!.fontSize! * 0.85,
+        );
         expect(style.code!.fontFamily, 'monospace');
         expect(style.code!.backgroundColor, theme.cardTheme.color);
 
@@ -215,8 +221,8 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '[title](url)';
         await tester.pumpWidget(
-          boilerplate(
-            const Markdown(
+          const BoilerPlate(
+            Markdown(
               data: data,
               styleSheetTheme: MarkdownStyleSheetBaseTheme.cupertino,
             ),
@@ -238,7 +244,7 @@ void defineTests() {
         expect(style1, isNot(style2));
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: '# Test',
               styleSheet: style1,
@@ -248,7 +254,7 @@ void defineTests() {
 
         final text1 = tester.widget<RichText>(find.byType(RichText));
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: '# Test',
               styleSheet: style2,
@@ -265,10 +271,12 @@ void defineTests() {
       'use stylesheet option listBulletPadding',
       (WidgetTester tester) async {
         const paddingX = 20.0;
-        final style = MarkdownStyleSheet(listBulletPadding: const EdgeInsets.symmetric(horizontal: paddingX));
+        final style = MarkdownStyleSheet(
+          listBulletPadding: const EdgeInsets.symmetric(horizontal: paddingX),
+        );
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: '1. Bullet\n 2. Bullet\n * Bullet',
               styleSheet: style,
@@ -276,7 +284,8 @@ void defineTests() {
           ),
         );
 
-        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings =
+            tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 3);
         expect(
@@ -298,7 +307,7 @@ void defineTests() {
         );
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             MarkdownBody(
               data: data,
               styleSheet: style,
@@ -331,7 +340,7 @@ void defineTests() {
         );
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
               data: 'Test line 1\n\nTest line 2\n\nTest line 3\n# H1',
               styleSheet: style,
@@ -339,7 +348,8 @@ void defineTests() {
           ),
         );
 
-        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings =
+            tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 3);
         expect(
@@ -365,15 +375,17 @@ void defineTests() {
         );
 
         await tester.pumpWidget(
-          boilerplate(
+          BoilerPlate(
             Markdown(
-              data: 'Test\n\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n',
+              data:
+                  'Test\n\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n',
               styleSheet: style,
             ),
           ),
         );
 
-        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings =
+            tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 6);
         expect(
