@@ -1,0 +1,1052 @@
+00:00 +0: loading /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_alignment_test.dart                                                                                 00:01 +0: loading /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_alignment_test.dart                                                                                 00:01 +0: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_alignment_test.dart: Text Alignment apply text alignments from stylesheet                                   00:01 +1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/list_test.dart: Unordered List simple 3 item list                                                                00:01 +2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/list_test.dart: Unordered List simple 3 item list                                                                00:01 +3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +5: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +6: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +7: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +8: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +9: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                         00:02 +10: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                        00:02 +11: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/inline_widget_test.dart: InlineWidget Test inline widget                                                        00:02 +12: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/horizontal_rule_test.dart: Horizontal Rule 3 consecutive hyphens                                                00:02 +13: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/horizontal_rule_test.dart: Horizontal Rule 3 consecutive hyphens                                                00:02 +14: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/horizontal_rule_test.dart: Horizontal Rule 3 consecutive hyphens                                                00:02 +15: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/horizontal_rule_test.dart: Horizontal Rule 3 consecutive hyphens                                                00:02 +16: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/horizontal_rule_test.dart: Horizontal Rule 3 consecutive hyphens                                                00:02 +17: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/horizontal_rule_test.dart: Horizontal Rule 3 consecutive hyphens                                                00:02 +18: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML ignore tags                                                                                00:02 +19: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML ignore tags                                                                                00:02 +20: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML ignore tags                                                                                00:02 +21: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML ignore tags                                                                                00:02 +22: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML ignore tags                                                                                00:02 +22: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML doesn't convert & to &amp; when parsing                                                    00:02 +23: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML doesn't convert & to &amp; when parsing                                                    00:02 +23: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML doesn't convert < to &lt; when parsing                                                     00:02 +24: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: HTML doesn't convert < to &lt; when parsing                                                     00:02 +24: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/html_test.dart: (tearDownAll)                                                                                   00:02 +24: loading /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/padding_test.dart                                                                                       00:02 +24: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/padding_test.dart: Padding builders use paddingBuilders for p                                                   00:03 +24: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/padding_test.dart: Padding builders use paddingBuilders for p                                                   00:03 +25: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/scrollable_test.dart: Scrollable code block                                                                     00:03 +26: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +27: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +28: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +29: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +30: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +31: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +32: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/custom_syntax_test.dart: Custom Syntax Custom block element                                                     00:03 +33: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/emphasis_test.dart: Emphasis Rule 1 italic text using asterisk tags                                             00:03 +34: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/emphasis_test.dart: Emphasis Rule 1 italic text using asterisk tags                                             00:03 +35: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/emphasis_test.dart: Emphasis Rule 1 italic text using asterisk tags                                             00:03 +36: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +37: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +38: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +39: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +40: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +41: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +42: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +43: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +44: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +45: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +46: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +47: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +48: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +49: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +50: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +51: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +52: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +53: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +54: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +55: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +56: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +57: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +58: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +59: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +60: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +61: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +62: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +63: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +64: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +65: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +66: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +67: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +68: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +69: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +70: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:03 +71: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +71: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +72: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +73: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +74: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +75: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +76: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +77: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +78: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +79: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +80: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +81: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +82: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +83: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +84: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +85: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +86: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +87: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +88: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +89: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +90: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +91: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +92: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +93: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +94: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +95: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +96: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +97: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +98: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +99: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected            00:04 +100: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected           00:04 +101: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected           00:04 +102: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false Text can be selected           00:04 +103: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/blockquote_test.dart: (tearDownAll)                                                                            00:04 +104: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/blockquote_test.dart: (tearDownAll)                                                                            00:04 +104: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +105: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +106: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +107: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +108: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +109: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +110: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +111: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: ... when selectable is default to false List can be selected           00:04 +112: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/emphasis_test.dart: ... Rule 10 emphasis and strong emphasis nested inside strong emphasis - nested emphasis   00:04 +113: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +114: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +115: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +116: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +117: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +118: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +119: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +120: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +121: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +122: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +123: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +124: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/selection_area_compatibility_test.dart: (tearDownAll)                                                          00:04 +124: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +125: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +126: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +127: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +128: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +129: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +130: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +131: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +132: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +133: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +134: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +135: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +136: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +137: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +138: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +139: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +140: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +141: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +142: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +143: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +144: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +145: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +146: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +147: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +148: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +149: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +150: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +151: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +152: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +153: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +154: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +155: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +156: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +157: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +158: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +159: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/markdown_body_shrink_wrap_test.dart: ... Given a MarkdownBody with shrinkWrap=true Then it wraps its content   00:04 +160: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of line                                               00:04 +161: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of line                                               00:04 +162: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of line                                               00:04 +163: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of line                                               00:04 +164: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of line                                               00:04 +164: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash at end of line                                                00:04 +165: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash at end of line                                                00:04 +165: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks more than two spaces at end of line                                     00:04 +166: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks more than two spaces at end of line                                     00:04 +166: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks leading spaces at beginning of next line are ignored                    00:04 +167: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks leading spaces at beginning of next line are ignored                    00:04 +168: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks leading spaces at beginning of next line are ignored                    00:04 +168: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces line break inside emphasis                                   00:04 +169: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces line break inside emphasis                                   00:04 +169: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash line break inside emphasis                                    00:04 +170: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash line break inside emphasis                                    00:04 +170: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two space line break does not occur in code span                        00:04 +171: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two space line break does not occur in code span                        00:04 +171: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash line break does not occur in code span                        00:04 +172: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash line break does not occur in code span                        00:04 +172: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash at end of paragraph is ignored                                00:04 +173: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash at end of paragraph is ignored                                00:04 +173: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of paragraph is ignored                               00:04 +174: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of paragraph is ignored                               00:04 +174: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash at end of header is ignored                                   00:04 +175: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks backslash at end of header is ignored                                   00:04 +175: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of header is ignored                                  00:04 +176: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Hard Line Breaks two spaces at end of header is ignored                                  00:04 +176: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Soft Line Breaks lines of text in paragraph                                              00:04 +177: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Soft Line Breaks lines of text in paragraph                                              00:04 +177: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Soft Line Breaks spaces at beginning and end of lines of text in paragraph are removed   00:04 +178: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: Soft Line Breaks spaces at beginning and end of lines of text in paragraph are removed   00:04 +178: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/line_break_test.dart: (tearDownAll)                                                                            00:04 +178: loading /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart                                                                                  00:04 +178: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet equality - Cupertino                                                        00:05 +178: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet equality - Cupertino                                                        00:05 +179: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet equality - Cupertino                                                        00:05 +179: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet equality - Material                                                         00:05 +180: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet equality - Material                                                         00:05 +180: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet MarkdownStyleSheet.fromCupertinoTheme                                       00:05 +181: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet MarkdownStyleSheet.fromCupertinoTheme                                       00:05 +181: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet MarkdownStyleSheet.fromTheme                                                00:05 +182: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet MarkdownStyleSheet.fromTheme                                                00:05 +182: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet merge 2 style sheets                                                        00:05 +183: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet merge 2 style sheets                                                        00:05 +183: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/style_sheet_test.dart: Style Sheet create based on which theme                                                 00:05 +184: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/footnote_test.dart: structure footnote is detected and handle correctly                                        00:05 +185: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/footnote_test.dart: structure footnote is detected and handle correctly                                        00:05 +186: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/footnote_test.dart: structure footnote is detected and handle correctly                                        00:05 +187: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/footnote_test.dart: structure footnote is detected and handle correctly                                        00:05 +188: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/footnote_test.dart: structure footnote is detected and handle correctly                                        00:05 +189: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/footnote_test.dart: structure footnote is detected and handle correctly                                        00:05 +190: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +191: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +192: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +193: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +194: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +195: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +196: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +197: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +198: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should not interrupt styling                                                            00:05 +199: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link should work with nested elements                                                          00:05 +200: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link should work with nested elements                                                          00:05 +201: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link should work with nested elements                                                          00:05 +202: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link should work with nested elements                                                          00:05 +202 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link should work with nested elements                                                       00:05 +203 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +204 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +205 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +206 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +207 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +208 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +209 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +210 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +211 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +212 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:05 +213 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:06 +213 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:06 +214 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:06 +215 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:06 +216 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with image in uri data scheme                                    00:06 +217 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work with resources                                                           00:06 +217 ~1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work with resources                                                           
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown while running async test code:
+Golden "assets/images/golden/image_test/resource_asset_logo.png": Pixel test failed, 0.00%, 7px diff
+detected.
+Failure feedback can be found at
+/Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/failures
+
+When the exception was thrown, this was the stack:
+#0      LocalFileComparator.compare (package:flutter_test/src/_goldens_io.dart:108:5)
+<asynchronous suspension>
+#1      MatchesGoldenFile.matchAsync.<anonymous closure> (package:flutter_test/src/_matchers_io.dart:124:32)
+<asynchronous suspension>
+<asynchronous suspension>
+#3      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:123:26)
+<asynchronous suspension>
+<asynchronous suspension>
+#5      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:509:19)
+<asynchronous suspension>
+#6      defineTests.<anonymous closure>.<anonymous closure> (file:///Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart:168:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+The exception was caught asynchronously.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +217 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work with resources [E]                                                    
+  Test failed. See exception logs above.
+  The test description was: should work with resources
+  
+
+To run this test again: /Users/dongminyu/Development/flutter/bin/cache/dart-sdk/bin/dart test /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart -p vm --plain-name 'Image should work with resources'
+00:06 +218 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with base64 text in uri data scheme                           00:06 +219 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with base64 text in uri data scheme                           00:06 +220 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work with local image files                                                00:06 +221 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work with local image files                                                00:06 +222 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work with local image files                                                00:06 +223 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with text in uri data scheme                                  00:06 +224 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with text in uri data scheme                                  00:06 +225 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should show properly next to text                                                 00:06 +226 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link pointy brackets enclosed unbalanced parentheses                                     00:06 +227 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with empty uri data scheme                                    00:06 +228 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with empty uri data scheme                                    00:06 +229 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should work when nested in a link                                                 00:06 +230 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Link link destinations with just fragment identifier                                     00:06 +231 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with unsupported mime types of uri data scheme                00:06 +232 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with unsupported mime types of uri data scheme                00:06 +233 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/uri_test.dart: Uri Data Scheme should work with unsupported mime types of uri data scheme                00:06 +234 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +235 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +236 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +237 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +238 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +239 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +240 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +241 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +242 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +243 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +244 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +244 ~1 -1: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should gracefully handle image URLs with invalid scheme                           
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: UnsupportedError:<Unsupported operation: Cannot extract a file path from a ttps URI>
+
+When the exception was thrown, this was the stack:
+#4      defineTests.<anonymous closure>.<anonymous closure> (file:///Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart:372:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart line 372
+The test description was:
+  should gracefully handle image URLs with invalid scheme
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +244 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image should gracefully handle image URLs with invalid scheme [E]                       
+  Test failed. See exception logs above.
+  The test description was: should gracefully handle image URLs with invalid scheme
+  
+
+To run this test again: /Users/dongminyu/Development/flutter/bin/cache/dart-sdk/bin/dart test /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart -p vm --plain-name 'Image should gracefully handle image URLs with invalid scheme'
+00:06 +244 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +245 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +246 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +247 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +248 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +249 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +250 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +251 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +252 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +253 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +254 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +255 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +255 ~1 -2: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image custom image builder test width and height                                        
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building Container(bg: Color(alpha: 1.0000, red: 1.0000, green:
+1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), constraints: BoxConstraints(w=500.0,
+0.0<=h<=Infinity)):
+sizedImageBuilder may be specified.
+'package:flutter_markdown/src/builder.dart':
+Failed assertion: line 145 pos 15: 'sizedImageBuilder == null'
+
+The relevant error-causing widget was:
+  Container
+  Container:file:///Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart:428:26
+
+When the exception was thrown, this was the stack:
+#2      new MarkdownBuilder (package:flutter_markdown/src/builder.dart:145:15)
+#3      _MarkdownWidgetState._parseMarkdown (package:flutter_markdown/src/widget.dart:388:21)
+#4      _MarkdownWidgetState.didChangeDependencies (package:flutter_markdown/src/widget.dart:350:5)
+#5      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5860:11)
+#6      ComponentElement.mount (package:flutter/src/widgets/framework.dart:5691:5)
+...     Normal element mounting (249 frames)
+#255    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4539:16)
+#256    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7159:36)
+#257    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7175:32)
+...     Normal element mounting (463 frames)
+#720    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4539:16)
+#721    Element.updateChild (package:flutter/src/widgets/framework.dart:3998:20)
+#722    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#723    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#724    ProxyElement.update (package:flutter/src/widgets/framework.dart:6041:5)
+#725    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#726    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#727    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#728    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5874:11)
+#729    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#730    StatefulElement.update (package:flutter/src/widgets/framework.dart:5899:5)
+#731    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#732    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#733    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#734    ProxyElement.update (package:flutter/src/widgets/framework.dart:6041:5)
+#735    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#736    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#737    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#738    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5874:11)
+#739    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#740    StatefulElement.update (package:flutter/src/widgets/framework.dart:5899:5)
+#741    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#742    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#743    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5874:11)
+#744    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#745    StatefulElement.update (package:flutter/src/widgets/framework.dart:5899:5)
+#746    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#747    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#748    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#749    ProxyElement.update (package:flutter/src/widgets/framework.dart:6041:5)
+#750    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#751    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#752    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5874:11)
+#753    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#754    StatefulElement.update (package:flutter/src/widgets/framework.dart:5899:5)
+#755    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#756    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#757    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#758    ProxyElement.update (package:flutter/src/widgets/framework.dart:6041:5)
+#759    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#760    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#761    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#762    ProxyElement.update (package:flutter/src/widgets/framework.dart:6041:5)
+#763    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#764    _RawViewElement._updateChild (package:flutter/src/widgets/view.dart:481:16)
+#765    _RawViewElement.update (package:flutter/src/widgets/view.dart:569:5)
+#766    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#767    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#768    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#769    StatelessElement.update (package:flutter/src/widgets/framework.dart:5787:5)
+#770    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#771    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5738:16)
+#772    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5874:11)
+#773    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#774    StatefulElement.update (package:flutter/src/widgets/framework.dart:5899:5)
+#775    Element.updateChild (package:flutter/src/widgets/framework.dart:3982:15)
+#776    RootElement._rebuild (package:flutter/src/widgets/binding.dart:1698:16)
+#777    RootElement.update (package:flutter/src/widgets/binding.dart:1676:5)
+#778    RootElement.performRebuild (package:flutter/src/widgets/binding.dart:1690:7)
+#779    Element.rebuild (package:flutter/src/widgets/framework.dart:5427:7)
+#780    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2694:15)
+#781    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2752:11)
+#782    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3056:18)
+#783    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:1515:19)
+#784    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+#785    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1438:15)
+#786    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1351:9)
+#787    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:1340:9)
+#790    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#791    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:1329:27)
+#792    WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:599:22)
+#795    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#796    WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:596:27)
+#797    defineTests.<anonymous closure>.<anonymous closure> (file:///Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart:422:22)
+#798    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:29)
+<asynchronous suspension>
+#799    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.firstWhere (dart:core/iterable.dart:722:5)
+#1      defineTests.<anonymous closure>.<anonymous closure> (file:///Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart:444:21)
+<asynchronous suspension>
+#2      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  custom image builder test width and height
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +255 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: Image custom image builder test width and height [E]                                    
+  Test failed. See exception logs above.
+  The test description was: custom image builder test width and height
+  
+
+To run this test again: /Users/dongminyu/Development/flutter/bin/cache/dart-sdk/bin/dart test /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart -p vm --plain-name 'Image custom image builder test width and height'
+00:06 +256 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +257 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +258 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +259 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +260 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +261 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +262 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +263 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +264 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: Text Scaler should use style textScaler in RichText                               00:06 +265 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +266 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +267 ~1 -3: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +268 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +269 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +270 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +271 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +271 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart: (tearDownAll) [E]                                                                       
+  Expected: leak free
+    Actual: <Instance of 'Leaks'>
+     Which: contains leaks:
+            # The text is generated by leak_tracker.
+            # For leak troubleshooting tips open:
+            # https://github.com/dart-lang/leak_tracker/blob/main/doc/leak_tracking/TROUBLESHOOT.md
+            notDisposed:
+              total: 277
+              objects:
+                ImageStreamCompleterHandle:
+                  test: local files should be files on non-web
+                  identityHashCode: 568171131
+                _LiveImage:
+                  test: local files should be files on non-web
+                  identityHashCode: 368961802
+                Image:
+                  test: should work with resources
+                  identityHashCode: 547424415
+                ImageInfo:
+                  test: should work with resources
+                  identityHashCode: 355692765
+                ImageStreamCompleterHandle:
+                  test: should work with resources
+                  identityHashCode: 657702564
+                _CachedImage:
+                  test: should work with resources
+                  identityHashCode: 15798984
+                ImageStreamCompleterHandle:
+                  test: should work with local image files
+                  identityHashCode: 7505750
+                _LiveImage:
+                  test: should work with local image files
+                  identityHashCode: 101753441
+                ImageStreamCompleterHandle:
+                  test: should show properly next to text
+                  identityHashCode: 238128675
+                _LiveImage:
+                  test: should show properly next to text
+                  identityHashCode: 285885816
+                StatefulElement:
+                  test: should gracefully handle image URLs with invalid scheme
+                  identityHashCode: 513846435
+                _MarkdownWidgetState:
+                  test: should gracefully handle image URLs with invalid scheme
+                  identityHashCode: 1056604700
+                _UbiquitousInheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 621657641
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 600857236
+                _MaterialAppState:
+                  test: custom image builder test width and height
+                  identityHashCode: 380217471
+                HeroController:
+                  test: custom image builder test width and height
+                  identityHashCode: 950822286
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 445824899
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 240697822
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 617750289
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 998894275
+                FocusNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 530619933
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 95394085
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 408472303
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 230519846
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 364971301
+                _WidgetsAppState:
+                  test: custom image builder test width and height
+                  identityHashCode: 822473941
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 116308304
+                _RootRestorationScopeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 45657961
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 656213079
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 813741903
+                _RestorationScopeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 173499860
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 262126246
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 245961059
+                _SharedAppDataState:
+                  test: custom image builder test width and height
+                  identityHashCode: 676458170
+                InheritedModelElement<Object>:
+                  test: custom image builder test width and height
+                  identityHashCode: 25926887
+                _NotificationElement<NavigationNotification>:
+                  test: custom image builder test width and height
+                  identityHashCode: 755479295
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 913699400
+                _ShortcutsState:
+                  test: custom image builder test width and height
+                  identityHashCode: 906609779
+                ShortcutManager:
+                  test: custom image builder test width and height
+                  identityHashCode: 56879631
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 793795108
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 978169825
+                FocusNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 356980380
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 111299462
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 404561638
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 992907434
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 376544756
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 321883974
+                _ShortcutsState:
+                  test: custom image builder test width and height
+                  identityHashCode: 389314757
+                ShortcutManager:
+                  test: custom image builder test width and height
+                  identityHashCode: 820179618
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 950000115
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 682863094
+                FocusNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 663381075
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 670299624
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 611114530
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 683426154
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 139560797
+                _ActionsState:
+                  test: custom image builder test width and height
+                  identityHashCode: 255762973
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 215081663
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 1002680846
+                _FocusTraversalGroupState:
+                  test: custom image builder test width and height
+                  identityHashCode: 572916432
+                _FocusTraversalGroupNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 851775383
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 725316665
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 591113227
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 586235463
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 877586825
+                RenderTapRegionSurface:
+                  test: custom image builder test width and height
+                  identityHashCode: 751326030
+                ShortcutRegistry:
+                  test: custom image builder test width and height
+                  identityHashCode: 147688842
+                ShortcutManager:
+                  test: custom image builder test width and height
+                  identityHashCode: 820035
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 452060048
+                _ShortcutRegistrarState:
+                  test: custom image builder test width and height
+                  identityHashCode: 928573191
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 451405799
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 771541201
+                _ShortcutsState:
+                  test: custom image builder test width and height
+                  identityHashCode: 420422947
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 960189815
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 1015695194
+                FocusNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 982360348
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 137417352
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 661510000
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 323659197
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 232245514
+                _LocalizationsState:
+                  test: custom image builder test width and height
+                  identityHashCode: 241986984
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 861680366
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 69178207
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 185361104
+                _UbiquitousInheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 921755482
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 508758777
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 796253809
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 567605684
+                _BannerState:
+                  test: custom image builder test width and height
+                  identityHashCode: 617115980
+                BannerPainter:
+                  test: custom image builder test width and height
+                  identityHashCode: 281630306
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 758834751
+                RenderCustomPaint:
+                  test: custom image builder test width and height
+                  identityHashCode: 623551755
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 67509538
+                _ValueListenableBuilderState<bool>:
+                  test: custom image builder test width and height
+                  identityHashCode: 675102354
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 25671498
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 640739404
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 316667753
+                _AnimatedThemeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 200599885
+                AnimationController:
+                  test: custom image builder test width and height
+                  identityHashCode: 383610235
+                Ticker:
+                  test: custom image builder test width and height
+                  identityHashCode: 271219550
+                CurvedAnimation:
+                  test: custom image builder test width and height
+                  identityHashCode: 350899875
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 895211303
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 466261633
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 451090337
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 859601014
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 449849283
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 933005141
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 507156339
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 139123587
+                ScaffoldMessengerState:
+                  test: custom image builder test width and height
+                  identityHashCode: 613483452
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 1054096605
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 667387414
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 798852291
+                _FocusScopeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 154072417
+                FocusScopeNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 444301008
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 892174341
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 739440211
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 550539378
+                _History:
+                  test: custom image builder test width and height
+                  identityHashCode: 880110412
+                _HistoryProperty:
+                  test: custom image builder test width and height
+                  identityHashCode: 7014090
+                FocusNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 939835431
+                RestorableNum<int>:
+                  test: custom image builder test width and height
+                  identityHashCode: 1034245850
+                ValueNotifier<bool>:
+                  test: custom image builder test width and height
+                  identityHashCode: 717632236
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 495513895
+                NavigatorState:
+                  test: custom image builder test width and height
+                  identityHashCode: 686078134
+                ValueNotifier<String?>:
+                  test: custom image builder test width and height
+                  identityHashCode: 559687851
+                MaterialPageRoute<dynamic>:
+                  test: custom image builder test width and height
+                  identityHashCode: 469212349
+                _RouteEntry:
+                  test: custom image builder test width and height
+                  identityHashCode: 661012776
+                AnimationController:
+                  test: custom image builder test width and height
+                  identityHashCode: 865647557
+                _WidgetTicker:
+                  test: custom image builder test width and height
+                  identityHashCode: 342705174
+                ValueNotifier<_OverlayEntryWidgetState?>:
+                  test: custom image builder test width and height
+                  identityHashCode: 216281261
+                OverlayEntry:
+                  test: custom image builder test width and height
+                  identityHashCode: 542516901
+                ValueNotifier<_OverlayEntryWidgetState?>:
+                  test: custom image builder test width and height
+                  identityHashCode: 508885347
+                OverlayEntry:
+                  test: custom image builder test width and height
+                  identityHashCode: 1060011340
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 373935315
+                _NotificationElement<NavigationNotification>:
+                  test: custom image builder test width and height
+                  identityHashCode: 83023162
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 998099688
+                RenderPointerListener:
+                  test: custom image builder test width and height
+                  identityHashCode: 354983242
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 619345628
+                RenderAbsorbPointer:
+                  test: custom image builder test width and height
+                  identityHashCode: 297049092
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 512682697
+                _FocusTraversalGroupState:
+                  test: custom image builder test width and height
+                  identityHashCode: 184682676
+                _FocusTraversalGroupNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 53073068
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 56744600
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 987215217
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 426479044
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 804426707
+                _FocusState:
+                  test: custom image builder test width and height
+                  identityHashCode: 980037124
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 581470389
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 887697892
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 577972107
+                OverlayState:
+                  test: custom image builder test width and height
+                  identityHashCode: 151254628
+                _TheaterElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 658321562
+                _RenderTheater:
+                  test: custom image builder test width and height
+                  identityHashCode: 698757542
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 833393193
+                _OverlayEntryWidgetState:
+                  test: custom image builder test width and height
+                  identityHashCode: 157434355
+                ValueNotifier<bool>:
+                  test: custom image builder test width and height
+                  identityHashCode: 411574722
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 227857453
+                _TickerModeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 153924967
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 56869686
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 109682
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 773536257
+                RenderIgnorePointer:
+                  test: custom image builder test width and height
+                  identityHashCode: 854302263
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 385998606
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 130932301
+                RenderBlockSemantics:
+                  test: custom image builder test width and height
+                  identityHashCode: 543693997
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 941036076
+                RenderExcludeSemantics:
+                  test: custom image builder test width and height
+                  identityHashCode: 865248692
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 456447225
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 746559185
+                RawGestureDetectorState:
+                  test: custom image builder test width and height
+                  identityHashCode: 1042304901
+                _AnyTapGestureRecognizer:
+                  test: custom image builder test width and height
+                  identityHashCode: 979332206
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 418899723
+                RenderSemanticsGestureHandler:
+                  test: custom image builder test width and height
+                  identityHashCode: 460602713
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 502794697
+                RenderPointerListener:
+                  test: custom image builder test width and height
+                  identityHashCode: 102376265
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 460518398
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 534491776
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 628873107
+                RenderMouseRegion:
+                  test: custom image builder test width and height
+                  identityHashCode: 16588612
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 660741580
+                RenderConstrainedBox:
+                  test: custom image builder test width and height
+                  identityHashCode: 443887738
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 691547485
+                _OverlayEntryWidgetState:
+                  test: custom image builder test width and height
+                  identityHashCode: 492983252
+                ValueNotifier<bool>:
+                  test: custom image builder test width and height
+                  identityHashCode: 1069847318
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 991108257
+                _TickerModeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 81737198
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 867442684
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 448492635
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 450692019
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 144373900
+                FocusScopeNode:
+                  test: custom image builder test width and height
+                  identityHashCode: 243521265
+                ScrollController:
+                  test: custom image builder test width and height
+                  identityHashCode: 579057962
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 750290992
+                _ModalScopeState<dynamic>:
+                  test: custom image builder test width and height
+                  identityHashCode: 579660116
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 424650831
+                _AnimatedState:
+                  test: custom image builder test width and height
+                  identityHashCode: 101684330
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 250581757
+                _RestorationScopeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 645032254
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 70943899
+                InheritedModelElement<_ModalRouteAspect>:
+                  test: custom image builder test width and height
+                  identityHashCode: 355426220
+                _OffstageElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 390953878
+                RenderOffstage:
+                  test: custom image builder test width and height
+                  identityHashCode: 190624915
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 396631046
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 431167934
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 1060400345
+                _ActionsState:
+                  test: custom image builder test width and height
+                  identityHashCode: 491602902
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 523492409
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 317574935
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 675486085
+                _FocusScopeState:
+                  test: custom image builder test width and height
+                  identityHashCode: 842843672
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 581128217
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 592594340
+                _InheritedNotifierElement<FocusNode>:
+                  test: custom image builder test width and height
+                  identityHashCode: 759997583
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 795448153
+                RenderRepaintBoundary:
+                  test: custom image builder test width and height
+                  identityHashCode: 427624420
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 299356966
+                _AnimatedState:
+                  test: custom image builder test width and height
+                  identityHashCode: 534308544
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 939988146
+                _PageTransitionsThemeTransitionsState<dynamic>:
+                  test: custom image builder test width and height
+                  identityHashCode: 469648285
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 189007125
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 861857943
+                _DualTransitionBuilderState:
+                  test: custom image builder test width and height
+                  identityHashCode: 683039871
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 139420909
+                _ZoomEnterTransitionPainter:
+                  test: custom image builder test width and height
+                  identityHashCode: 931817903
+                _ZoomEnterTransitionState:
+                  test: custom image builder test width and height
+                  identityHashCode: 266644096
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 33146202
+                _RenderSnapshotWidget:
+                  test: custom image builder test width and height
+                  identityHashCode: 93515963
+                SnapshotController:
+                  test: custom image builder test width and height
+                  identityHashCode: 655071084
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 194249693
+                _ZoomExitTransitionPainter:
+                  test: custom image builder test width and height
+                  identityHashCode: 26461287
+                _ZoomExitTransitionState:
+                  test: custom image builder test width and height
+                  identityHashCode: 55549918
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 806678142
+                _RenderSnapshotWidget:
+                  test: custom image builder test width and height
+                  identityHashCode: 833841264
+                SnapshotController:
+                  test: custom image builder test width and height
+                  identityHashCode: 95769859
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 990245151
+                _DualTransitionBuilderState:
+                  test: custom image builder test width and height
+                  identityHashCode: 595262404
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 12806155
+                _ZoomEnterTransitionPainter:
+                  test: custom image builder test width and height
+                  identityHashCode: 1014544448
+                _ZoomEnterTransitionState:
+                  test: custom image builder test width and height
+                  identityHashCode: 563090953
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 863940034
+                _RenderSnapshotWidget:
+                  test: custom image builder test width and height
+                  identityHashCode: 494234374
+                SnapshotController:
+                  test: custom image builder test width and height
+                  identityHashCode: 161596511
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 768137945
+                _ZoomExitTransitionPainter:
+                  test: custom image builder test width and height
+                  identityHashCode: 515699409
+                _ZoomExitTransitionState:
+                  test: custom image builder test width and height
+                  identityHashCode: 515888144
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 169037415
+                _RenderSnapshotWidget:
+                  test: custom image builder test width and height
+                  identityHashCode: 817332671
+                SnapshotController:
+                  test: custom image builder test width and height
+                  identityHashCode: 560637753
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 44025228
+                _AnimatedState:
+                  test: custom image builder test width and height
+                  identityHashCode: 1001705109
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 244502304
+                RenderIgnorePointer:
+                  test: custom image builder test width and height
+                  identityHashCode: 698848462
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 473242009
+                RenderRepaintBoundary:
+                  test: custom image builder test width and height
+                  identityHashCode: 856909842
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 765880749
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 158762670
+                RenderSemanticsAnnotations:
+                  test: custom image builder test width and height
+                  identityHashCode: 799486584
+                InheritedElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 326323650
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 304837832
+                RenderPositionedBox:
+                  test: custom image builder test width and height
+                  identityHashCode: 218279643
+                StatelessElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 710800652
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 609504908
+                RenderConstrainedBox:
+                  test: custom image builder test width and height
+                  identityHashCode: 30171835
+                SingleChildRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 447843952
+                _RenderColoredBox:
+                  test: custom image builder test width and height
+                  identityHashCode: 59571990
+                StatefulElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 529956670
+                _MarkdownWidgetState:
+                  test: custom image builder test width and height
+                  identityHashCode: 531281919
+                LeafRenderObjectElement:
+                  test: custom image builder test width and height
+                  identityHashCode: 813429710
+                RenderErrorBox:
+                  test: custom image builder test width and height
+                  identityHashCode: 1033449464
+                OffsetLayer:
+                  test: custom image builder test width and height
+                  identityHashCode: 168382738
+                OffsetLayer:
+                  test: custom image builder test width and height
+                  identityHashCode: 936952455
+                PictureLayer:
+                  test: custom image builder test width and height
+                  identityHashCode: 767393099
+                _NativePicture:
+                  test: custom image builder test width and height
+                  identityHashCode: 460391972
+                PictureLayer:
+                  test: custom image builder test width and height
+                  identityHashCode: 93687863
+                TextPainter:
+                  test: custom image builder test width and height
+                  identityHashCode: 77710466
+                _NativePicture:
+                  test: custom image builder test width and height
+                  identityHashCode: 333056084
+            
+            
+  
+  package:matcher                                              expect
+  package:leak_tracker_testing/src/leak_testing.dart 69:24     LeakTesting.collectedLeaksReporter.<fn>
+  package:leak_tracker_flutter_testing/src/testing.dart 72:37  maybeTearDownLeakTrackingForAll
+  ===== asynchronous gap ===========================
+  dart:async                                                   _CustomZone.registerBinaryCallback
+  package:flutter_test/src/test_compat.dart 302:3              _tearDownForTestFile
+  
+
+To run this test again: /Users/dongminyu/Development/flutter/bin/cache/dart-sdk/bin/dart test /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/image_test.dart -p vm --plain-name '(tearDownAll)'
+00:06 +272 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +273 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +274 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +275 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +276 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +277 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +278 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +279 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +280 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +281 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +282 ~1 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +282 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +283 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +284 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: Header level one                                                                       00:06 +285 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_scaler_test.dart: (tearDownAll)                                                                     00:06 +285 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link reference link no whitespace between link text and link label             00:06 +286 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +287 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +288 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +289 ~2 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +289 ~3 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +290 ~3 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +291 ~3 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +292 ~3 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +292 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +293 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +294 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/header_test.dart: (tearDownAll)                                                                          00:06 +294 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference link                                                  00:06 +295 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference link                                                  00:06 +295 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference link with inline emphasis in link text                00:06 +296 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference link with inline emphasis in link text                00:06 +296 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference links are case-insensitive                            00:06 +297 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference links are case-insensitive                            00:06 +297 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference link no whitespace between link text and link label   00:06 +298 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link collapsed reference link no whitespace between link text and link label   00:06 +298 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link                                                   00:06 +299 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link                                                   00:06 +299 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link with inline emphasis in link text                 00:06 +300 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link with inline emphasis in link text                 00:06 +300 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link with inline emphasis nested in link text          00:06 +301 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link with inline emphasis nested in link text          00:06 +301 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link with unbalanced open square brackets              00:06 +302 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link with unbalanced open square brackets              00:06 +302 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference links are case-insensitive                             00:06 +303 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference links are case-insensitive                             00:06 +303 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link should preserve space after link text             00:06 +304 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link should preserve space after link text             00:06 +304 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link backslash escape opening bracket to avoid link    00:06 +305 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link shortcut reference link backslash escape opening bracket to avoid link    00:06 +305 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: ... Link shortcut reference link text grouping has precedence over emphasis grouping     00:06 +306 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: ... Link shortcut reference link text grouping has precedence over emphasis grouping     00:06 +306 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link full link reference takes precedence over shortcut link reference         00:06 +307 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link full link reference takes precedence over shortcut link reference         00:06 +307 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link compact link reference takes precedence over shortcut link reference      00:06 +308 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link compact link reference takes precedence over shortcut link reference      00:06 +308 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: ... link reference, no link destination takes precedence over shortcut link reference    00:06 +309 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: ... link reference, no link destination takes precedence over shortcut link reference    00:06 +309 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link inline link reference, invalid link destination is a link followed by text00:06 +310 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link inline link reference, invalid link destination is a link followed by text00:06 +310 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: ... Link three sequential runs of square-bracketed text, normal text and a link reference00:06 +311 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: ... Link three sequential runs of square-bracketed text, normal text and a link reference00:06 +311 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link three sequential runs of square-bracketed text, two link references       00:06 +312 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link three sequential runs of square-bracketed text, two link references       00:06 +312 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link full reference link followed by a shortcut reference link                 00:06 +313 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: Reference Link full reference link followed by a shortcut reference link                 00:06 +313 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: (tearDownAll)                                                                            00:07 +313 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/link_test.dart: (tearDownAll)                                                                            00:07 +313 ~4 -4: loading /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart                                                                                  00:07 +313 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: Table should show properly                                                              00:07 +314 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +315 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +316 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +317 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +318 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +319 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +320 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +321 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +322 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +323 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +324 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +325 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +326 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +327 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +328 ~4 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +328 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +329 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Data simple data                                                                         00:07 +330 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: Table GFM Examples table definition is complete at first empty line                     00:07 +331 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Text Empty string                                                                        00:07 +332 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: Table GFM Examples table header row must match the delimiter row in number of cells     00:07 +333 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Text Simple string                                                                       00:07 +334 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: Table GFM Examples remainder of table cells may vary, excess cells are ignored          00:07 +335 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Leading spaces leading space are ignored                                                 00:07 +336 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: Table GFM Examples no table body is created when no rows are defined                    00:07 +337 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Line Break two spaces at end of line inside a block element                              00:07 +338 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: (tearDownAll)                                                                           00:07 +339 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: (tearDownAll)                                                                           00:07 +340 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: (tearDownAll)                                                                           00:07 +341 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: (tearDownAll)                                                                           00:07 +342 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/table_test.dart: (tearDownAll)                                                                           00:07 +342 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable header with line of text                                                      00:07 +343 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable header with line of text                                                      00:07 +343 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable header with line of text and onTap callback                                   00:07 +344 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable header with line of text and onTap callback                                   00:07 +344 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable Selectable without onSelectionChanged                                         00:07 +345 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable Selectable without onSelectionChanged                                         00:07 +345 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable header with line of text and onSelectionChanged callback                      00:07 +346 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Selectable header with line of text and onSelectionChanged callback                      00:07 +346 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Strikethrough single word                                                                00:07 +347 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: Strikethrough single word                                                                00:07 +347 ~5 -4: /Users/dongminyu/Development/ANDREW/cami_lab/packages/flutter_markdown/test/text_test.dart: (tearDownAll)                                                                            00:07 +347 ~5 -4: Some tests failed.                                                                                                                                                                   
