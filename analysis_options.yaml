@@ -4,3 +4,5 @@ analyzer:
     avoid_positional_boolean_parameters: ignore
     lines_longer_than_80_chars: ignore
     one_member_abstracts: ignore
+formatter:
+  page_width: 120
