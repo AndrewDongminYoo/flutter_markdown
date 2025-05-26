@@ -277,7 +277,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         if (length == 0 || length.isOdd) {
           decoration = null;
         }
-        _tables.single.rows.add(TableRow(decoration: decoration));
+        _tables.single.rows.add(TableRow(decoration: decoration, children: List.empty(growable: true)));
       }
       final bElement = _BlockElement(tag);
       if (start != null) {
