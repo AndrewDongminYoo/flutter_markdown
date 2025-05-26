@@ -20,8 +20,7 @@ typedef ImageBuilder = Widget Function(
 );
 
 /// A default image builder handling http/https, resource, and file URLs.
-// ignore: prefer_function_declarations_over_variables
-final ImageBuilder kDefaultImageBuilder = (
+Widget kDefaultImageBuilder(
   Uri uri,
   String? imageDirectory,
   double? width,
@@ -72,23 +71,22 @@ final ImageBuilder kDefaultImageBuilder = (
       }
     }
   }
-};
+}
 
 /// A default error widget builder for handling image errors.
-// ignore: prefer_function_declarations_over_variables
-final ImageErrorWidgetBuilder kDefaultImageErrorWidgetBuilder = (
+Widget kDefaultImageErrorWidgetBuilder(
   BuildContext context,
   Object error,
   StackTrace? stackTrace,
 ) {
   return const SizedBox();
-};
+}
 
 /// A default style sheet generator.
-final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
-    // ignore: prefer_function_declarations_over_variables
-    kFallbackStyle =
-    (BuildContext context, MarkdownStyleSheetBaseTheme? baseTheme) {
+MarkdownStyleSheet defaultStyleSheet(
+  BuildContext context,
+  MarkdownStyleSheetBaseTheme? baseTheme,
+) {
   MarkdownStyleSheet result;
   switch (baseTheme) {
     case MarkdownStyleSheetBaseTheme.platform:
@@ -106,7 +104,7 @@ final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
   return result.copyWith(
     textScaler: MediaQuery.textScalerOf(context),
   );
-};
+}
 
 Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {
   final mimeType = uri.data!.mimeType;

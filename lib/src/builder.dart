@@ -277,16 +277,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         if (length == 0 || length.isOdd) {
           decoration = null;
         }
-        _tables.single.rows.add(
-          TableRow(
-            decoration: decoration,
-            // TODO(stuartmorgan): This should be fixed, not suppressed; enabling
-            // this lint warning exposed that the builder is modifying the
-            // children of TableRows, even though they are @immutable.
-            // ignore: prefer_const_literals_to_create_immutables
-            children: <Widget>[],
-          ),
-        );
+        _tables.single.rows.add(TableRow(decoration: decoration));
       }
       final bElement = _BlockElement(tag);
       if (start != null) {
@@ -366,21 +357,19 @@ class MarkdownBuilder implements md.NodeVisitor {
       // specification on soft line breaks when lines of text are joined.
       final softLineBreakPattern = RegExp(r' ?\n *');
 
+      var processed = text;
       // Leading spaces following a hard line break are ignored.
       // https://github.github.com/gfm/#example-657
       // Leading spaces in paragraph or list item are ignored
       // https://github.github.com/gfm/#example-192
       // https://github.github.com/gfm/#example-236
-      if (const <String>['ul', 'ol', 'li', 'p', 'br']
-          .contains(_lastVisitedTag)) {
-        // ignore: parameter_assignments
-        text = text.replaceAll(leadingSpacesPattern, '');
+      if (['ul', 'ol', 'li', 'p', 'br'].contains(_lastVisitedTag)) {
+        processed = text.replaceAll(leadingSpacesPattern, '');
       }
 
-      if (softLineBreak) {
-        return text;
-      }
-      return text.replaceAll(softLineBreakPattern, ' ');
+      return softLineBreak
+          ? processed
+          : processed.replaceAll(softLineBreakPattern, ' ');
     }
 
     Widget? child;

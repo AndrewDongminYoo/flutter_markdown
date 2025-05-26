@@ -2,13 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:js_interop';
-
-import 'package:flutter/cupertino.dart' show CupertinoTheme;
-import 'package:flutter/material.dart' show Theme;
 import 'package:flutter/widgets.dart';
-import 'package:flutter_markdown/src/style_sheet.dart';
-import 'package:flutter_markdown/src/widget.dart';
 import 'package:path/path.dart' as p;
 
 /// Type for a function that creates image widgets.
@@ -20,8 +14,7 @@ typedef ImageBuilder = Widget Function(
 );
 
 /// A default image builder handling http/https, resource, data, and file URLs.
-// ignore: prefer_function_declarations_over_variables
-final ImageBuilder kDefaultImageBuilder = (
+Widget kDefaultImageBuilder(
   Uri uri,
   String? imageDirectory,
   double? width,
@@ -78,36 +71,15 @@ final ImageBuilder kDefaultImageBuilder = (
       );
     }
   }
-};
+}
 
 /// A default error widget builder for handling image errors.
-// ignore: prefer_function_declarations_over_variables
-final ImageErrorWidgetBuilder kDefaultImageErrorWidgetBuilder = (
+Widget kDefaultImageErrorWidgetBuilder(
   BuildContext context,
   Object error,
   StackTrace? stackTrace,
-) {
-  return const SizedBox();
-};
-
-/// A default style sheet generator.
-final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
-// ignore: prefer_function_declarations_over_variables
-    kFallbackStyle = (
-  BuildContext context,
-  MarkdownStyleSheetBaseTheme? baseTheme,
-) {
-  final result = switch (baseTheme) {
-    MarkdownStyleSheetBaseTheme.platform when _userAgent.toDart.contains('Mac OS X') =>
-      MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
-    MarkdownStyleSheetBaseTheme.cupertino => MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
-    _ => MarkdownStyleSheet.fromTheme(Theme.of(context)),
-  };
-
-  return result.copyWith(
-    textScaler: MediaQuery.textScalerOf(context),
-  );
-};
+) =>
+    const SizedBox();
 
 Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {
   final mimeType = uri.data!.mimeType;
@@ -123,6 +95,3 @@ Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {
   }
   return const SizedBox();
 }
-
-@JS('window.navigator.userAgent')
-external JSString get _userAgent;

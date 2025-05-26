@@ -8,7 +8,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_markdown/src/_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
+import 'package:flutter_markdown/src/_functions_io.dart'
+    if (dart.library.js_interop) '_functions_web.dart';
 import 'package:markdown/markdown.dart' as md;
 
 /// Signature for callbacks used by [MarkdownWidget] when
@@ -51,15 +52,6 @@ typedef MarkdownTapLinkCallback = void Function(
 ///
 /// Used by [MarkdownWidget.sizedImageBuilder]
 typedef MarkdownSizedImageBuilder = Widget Function(MarkdownImageConfig config);
-
-/// Signature for custom image widget.
-///
-/// Used by [MarkdownWidget.imageBuilder]
-typedef MarkdownImageBuilder = Widget Function(
-  Uri uri,
-  String? title,
-  String? alt,
-);
 
 /// Signature for custom checkbox widget.
 ///
@@ -109,7 +101,6 @@ enum BulletStyle {
 ///
 /// Used by [MarkdownWidget] to highlight the contents of `pre` elements.
 abstract class SyntaxHighlighter {
-  // ignore: one_member_abstracts
   /// Returns the formatted [TextSpan] for the given string.
   TextSpan format(String source);
 }
@@ -148,19 +139,8 @@ abstract class MarkdownElementBuilder {
     md.Element element,
     TextStyle? preferredStyle,
     TextStyle? parentStyle,
-  ) {
-    return visitElementAfter(element, preferredStyle);
-  }
-
-  /// Called when an Element has been reached, after its children have been
-  /// visited.
-  ///
-  /// If [MarkdownWidget.styleSheet] has a style of this tag, will passing
-  /// to [preferredStyle].
-  ///
-  /// If you needn't build a widget, return null.
-  @Deprecated('Use visitElementAfterWithContext() instead.')
-  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) => null;
+  ) =>
+      null;
 }
 
 /// Enum to specify which theme being used when creating [MarkdownStyleSheet]
@@ -242,14 +222,14 @@ abstract class MarkdownWidget extends StatefulWidget {
     this.blockSyntaxes,
     this.inlineSyntaxes,
     this.extensionSet,
-    @Deprecated('Use sizedImageBuilder instead') this.imageBuilder,
     this.sizedImageBuilder,
     this.checkboxBuilder,
     this.bulletBuilder,
     this.builders = const <String, MarkdownElementBuilder>{},
     this.paddingBuilders = const <String, MarkdownPaddingBuilder>{},
     this.fitContent = false,
-    this.listItemCrossAxisAlignment = MarkdownListItemCrossAxisAlignment.baseline,
+    this.listItemCrossAxisAlignment =
+        MarkdownListItemCrossAxisAlignment.baseline,
     this.softLineBreak = false,
   });
 
@@ -298,10 +278,6 @@ abstract class MarkdownWidget extends StatefulWidget {
   ///
   /// Defaults to [md.ExtensionSet.gitHubFlavored]
   final md.ExtensionSet? extensionSet;
-
-  /// {@macro flutter_markdown.builder.MarkdownBuilder.imageBuilder}
-  @Deprecated('Use sizedImageBuilder instead')
-  final MarkdownImageBuilder? imageBuilder;
 
   /// {@macro flutter_markdown.builder.MarkdownBuilder.sizedImageBuilder}
   final MarkdownSizedImageBuilder? sizedImageBuilder;
@@ -364,7 +340,8 @@ abstract class MarkdownWidget extends StatefulWidget {
   State<MarkdownWidget> createState() => _MarkdownWidgetState();
 }
 
-class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuilderDelegate {
+class _MarkdownWidgetState extends State<MarkdownWidget>
+    implements MarkdownBuilderDelegate {
   List<Widget>? _children;
   final List<GestureRecognizer> _recognizers = <GestureRecognizer>[];
 
@@ -377,7 +354,8 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
   @override
   void didUpdateWidget(MarkdownWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.data != oldWidget.data || widget.styleSheet != oldWidget.styleSheet) {
+    if (widget.data != oldWidget.data ||
+        widget.styleSheet != oldWidget.styleSheet) {
       _parseMarkdown();
     }
   }
@@ -389,7 +367,7 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
   }
 
   void _parseMarkdown() {
-    final fallbackStyleSheet = kFallbackStyle(context, widget.styleSheetTheme);
+    final fallbackStyleSheet = defaultStyleSheet(context, widget.styleSheetTheme);
     final styleSheet = fallbackStyleSheet.merge(widget.styleSheet);
 
     _disposeRecognizers();
@@ -442,9 +420,7 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
   GestureRecognizer createLink(String text, String? href, String title) {
     final recognizer = TapGestureRecognizer()
       ..onTap = () {
-        if (widget.onTapLink != null) {
-          widget.onTapLink!(text, href, title);
-        }
+        widget.onTapLink?.call(text, href, title);
       };
     _recognizers.add(recognizer);
     return recognizer;
@@ -452,11 +428,11 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
 
   @override
   TextSpan formatText(MarkdownStyleSheet styleSheet, String code) {
-    code = code.replaceAll(RegExp(r'\n$'), '');
+    final text = code.replaceAll(RegExp(r'\n$'), '');
     if (widget.syntaxHighlighter != null) {
-      return widget.syntaxHighlighter!.format(code);
+      return widget.syntaxHighlighter!.format(text);
     }
-    return TextSpan(style: styleSheet.code, text: code);
+    return TextSpan(style: styleSheet.code, text: text);
   }
 
   @override
@@ -488,7 +464,6 @@ class MarkdownBody extends MarkdownWidget {
     super.blockSyntaxes,
     super.inlineSyntaxes,
     super.extensionSet,
-    @Deprecated('Use sizedImageBuilder instead.') super.imageBuilder,
     super.sizedImageBuilder,
     super.checkboxBuilder,
     super.bulletBuilder,
@@ -512,7 +487,8 @@ class MarkdownBody extends MarkdownWidget {
     }
     return Column(
       mainAxisSize: shrinkWrap ? MainAxisSize.min : MainAxisSize.max,
-      crossAxisAlignment: fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
+      crossAxisAlignment:
+          fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
       children: children,
     );
   }
@@ -543,7 +519,6 @@ class Markdown extends MarkdownWidget {
     super.blockSyntaxes,
     super.inlineSyntaxes,
     super.extensionSet,
-    @Deprecated('Use sizedImageBuilder instead.') super.imageBuilder,
     super.sizedImageBuilder,
     super.checkboxBuilder,
     super.bulletBuilder,
@@ -585,32 +560,6 @@ class Markdown extends MarkdownWidget {
       shrinkWrap: shrinkWrap,
       children: children!,
     );
-  }
-}
-
-/// Parse [task list items](https://github.github.com/gfm/#task-list-items-extension-).
-///
-/// This class is no longer used as Markdown now supports checkbox syntax natively.
-@Deprecated(
-  'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]',
-)
-class TaskListSyntax extends md.InlineSyntax {
-  /// Creates a new instance.
-  @Deprecated(
-    'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]',
-  )
-  TaskListSyntax() : super(_pattern);
-
-  static const String _pattern = r'^ *\[([ xX])\] +';
-
-  @override
-  bool onMatch(md.InlineParser parser, Match match) {
-    final el = md.Element.withTag('input');
-    el.attributes['type'] = 'checkbox';
-    el.attributes['disabled'] = 'true';
-    el.attributes['checked'] = '${match[1]!.trim().isNotEmpty}';
-    parser.addNode(el);
-    return true;
   }
 }
 

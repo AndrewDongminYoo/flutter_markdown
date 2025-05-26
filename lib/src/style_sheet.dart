@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// Defines which [TextStyle] objects to use for which Markdown elements.
+@immutable
 class MarkdownStyleSheet {
   /// Creates an explicit mapping of [TextStyle] objects to Markdown elements.
   MarkdownStyleSheet({
@@ -63,11 +64,7 @@ class MarkdownStyleSheet {
     this.codeblockAlign = WrapAlignment.start,
     this.superscriptFontFeatureTag,
     this.textScaler,
-  })  : assert(
-          textScaler == null,
-          'textScaler is deprecated and cannot be specified when textScaler is specified.',
-        ),
-        _styles = <String, TextStyle?>{
+  }) : styles = <String, TextStyle?>{
           'a': a,
           'p': p,
           'li': p,
@@ -688,11 +685,9 @@ class MarkdownStyleSheet {
   final String? superscriptFontFeatureTag;
 
   /// A [Map] from element name to the corresponding [TextStyle] object.
-  Map<String, TextStyle?> get styles => _styles;
-  Map<String, TextStyle?> _styles;
+  final Map<String, TextStyle?> styles;
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
@@ -757,7 +752,6 @@ class MarkdownStyleSheet {
   }
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode {
     return Object.hashAll(<Object?>[
       a,
