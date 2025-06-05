@@ -5,3 +5,4 @@ analyzer:
     deprecated_member_use_from_same_package: ignore
     avoid_positional_boolean_parameters: ignore
     one_member_abstracts: ignore
+    directives_ordering: ignore
