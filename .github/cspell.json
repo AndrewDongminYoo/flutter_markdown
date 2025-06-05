@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-  "dictionaries": ["vgv_allowed", "vgv_forbidden", "workspace"],
+  "dictionaries": ["vgv_allowed", "vgv_forbidden"],
   "dictionaryDefinitions": [
     {
       "name": "vgv_allowed",
@@ -12,16 +12,21 @@
       "name": "vgv_forbidden",
       "path": "https://raw.githubusercontent.com/verygoodopensource/very_good_dictionaries/main/forbidden.txt",
       "description": "Forbidden VGV Spellings"
-    },
-    {
-      "addWords": true,
-      "name": "workspace",
-      "path": ".cspell/workspace.txt",
-      "scope": "workspace"
     }
   ],
   "allowCompoundWords": true,
   "ignorePaths": ["CHANGELOG.md"],
   "useGitignore": true,
-  "words": ["flutter_markdown"]
+  "words": [
+    "flutter_markdown",
+    "blockquotes",
+    "supr",
+    "numr",
+    "ambiguate",
+    "nullsafety",
+    "upgraders",
+    "Darktheme",
+    "Cupertino",
+    "strikethrough"
+  ]
 }
