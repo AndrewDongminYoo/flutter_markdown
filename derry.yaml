@@ -6,8 +6,7 @@ test:
 posttest:
   (description): Generates a coverage report from the test coverage data.
   (scripts):
-    - lcov --quiet --remove coverage/lcov.info "**/*.*.dart" -o coverage/lcov_filtered.info
-    - genhtml coverage/lcov_filtered.info -o coverage/ --quiet
+    - genhtml coverage/lcov.info -o coverage/ --quiet
 
 reinstall:
   (description): Cleans and reinstalls the Flutter project by removing old builds, fetching dependencies, running code generators, and formatting the code.
