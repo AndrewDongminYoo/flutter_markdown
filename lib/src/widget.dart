@@ -58,15 +58,6 @@ typedef MarkdownTapLinkCallback = void Function(
 /// Used by [MarkdownWidget.sizedImageBuilder]
 typedef MarkdownSizedImageBuilder = Widget Function(MarkdownImageConfig config);
 
-/// Signature for custom image widget.
-///
-/// Used by [MarkdownWidget.imageBuilder]
-typedef MarkdownImageBuilder = Widget Function(
-  Uri uri,
-  String? title,
-  String? alt,
-);
-
 /// Signature for custom checkbox widget.
 ///
 /// Used by [MarkdownWidget.checkboxBuilder]
@@ -154,18 +145,8 @@ abstract class MarkdownElementBuilder {
     TextStyle? preferredStyle,
     TextStyle? parentStyle,
   ) {
-    return visitElementAfter(element, preferredStyle);
+    return null;
   }
-
-  /// Called when an Element has been reached, after its children have been
-  /// visited.
-  ///
-  /// If [MarkdownWidget.styleSheet] has a style of this tag, will passing
-  /// to [preferredStyle].
-  ///
-  /// If you needn't build a widget, return null.
-  @Deprecated('Use visitElementAfterWithContext() instead.')
-  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) => null;
 }
 
 /// Enum to specify which theme being used when creating [MarkdownStyleSheet]
@@ -247,7 +228,6 @@ abstract class MarkdownWidget extends StatefulWidget {
     this.blockSyntaxes,
     this.inlineSyntaxes,
     this.extensionSet,
-    @Deprecated('Use sizedImageBuilder instead') this.imageBuilder,
     this.sizedImageBuilder,
     this.checkboxBuilder,
     this.bulletBuilder,
@@ -303,10 +283,6 @@ abstract class MarkdownWidget extends StatefulWidget {
   ///
   /// Defaults to [md.ExtensionSet.gitHubFlavored]
   final md.ExtensionSet? extensionSet;
-
-  /// {@macro flutter_markdown.builder.MarkdownBuilder.imageBuilder}
-  @Deprecated('Use sizedImageBuilder instead')
-  final MarkdownImageBuilder? imageBuilder;
 
   /// {@macro flutter_markdown.builder.MarkdownBuilder.sizedImageBuilder}
   final MarkdownSizedImageBuilder? sizedImageBuilder;
@@ -491,7 +467,6 @@ class MarkdownBody extends MarkdownWidget {
     super.blockSyntaxes,
     super.inlineSyntaxes,
     super.extensionSet,
-    @Deprecated('Use sizedImageBuilder instead.') super.imageBuilder,
     super.sizedImageBuilder,
     super.checkboxBuilder,
     super.bulletBuilder,
@@ -546,7 +521,6 @@ class Markdown extends MarkdownWidget {
     super.blockSyntaxes,
     super.inlineSyntaxes,
     super.extensionSet,
-    @Deprecated('Use sizedImageBuilder instead.') super.imageBuilder,
     super.sizedImageBuilder,
     super.checkboxBuilder,
     super.bulletBuilder,

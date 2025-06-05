@@ -408,57 +408,6 @@ void defineTests() {
     );
 
     testWidgets(
-      'custom image builder',
-      (WidgetTester tester) async {
-        const data = '![alt](https://img.png)';
-        Widget builder(Uri uri, String? title, String? alt) => Image.asset('assets/logo.png');
-
-        await tester.pumpWidget(
-          boilerplate(
-            MaterialApp(
-              home: DefaultAssetBundle(
-                bundle: TestAssetBundle(),
-                child: Center(
-                  child: Container(
-                    color: Colors.white,
-                    width: 500,
-                    child: Markdown(
-                      data: data,
-                      imageBuilder: builder,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        );
-
-        final widgets = tester.allWidgets;
-        final image = widgets.whereType<Image>().first;
-
-        expect(image.image.runtimeType.toString(), 'NetworkImage');
-        expect((image.image as NetworkImage).url, 'https://img.png');
-
-        // Force the asset image to be rasterized so it can be compared.
-        await tester.runAsync(() async {
-          final element = tester.element(find.byType(Markdown));
-          await precacheImage(image.image, element);
-        });
-
-        await tester.pumpAndSettle();
-
-        await expectLater(
-          find.byType(Container),
-          matchesGoldenFile(
-            'assets/images/golden/image_test/custom_builder_asset_logo.png',
-          ),
-        );
-        imageCache.clear();
-      },
-      skip: kIsWeb, // Goldens are platform-specific.
-    );
-
-    testWidgets(
       'custom image builder test width and height',
       (WidgetTester tester) async {
         const double height = 200;

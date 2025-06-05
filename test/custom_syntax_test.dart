@@ -244,7 +244,12 @@ class SubscriptBuilder extends MarkdownElementBuilder {
   ];
 
   @override
-  Widget visitElementAfter(md.Element element, _) {
+  Widget visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
     // We don't currently have a way to control the vertical alignment of text spans.
     // See https://github.com/flutter/flutter/issues/10906#issuecomment-385723664
     final textContent = element.textContent;
@@ -274,7 +279,12 @@ class WikilinkSyntax extends md.InlineSyntax {
 
 class WikilinkBuilder extends MarkdownElementBuilder {
   @override
-  Widget visitElementAfter(md.Element element, _) {
+  Widget visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
     final recognizer = TapGestureRecognizer()..onTap = () {};
     addTearDown(recognizer.dispose);
     return Text.rich(
@@ -299,7 +309,12 @@ class ContainerSyntax extends md.InlineSyntax {
 
 class ContainerBuilder extends MarkdownElementBuilder {
   @override
-  Widget? visitElementAfter(md.Element element, _) {
+  Widget? visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
     return Text.rich(
       TextSpan(
         children: <InlineSpan>[
@@ -314,7 +329,12 @@ class ContainerBuilder extends MarkdownElementBuilder {
 
 class ContainerBuilder2 extends MarkdownElementBuilder {
   @override
-  Widget? visitElementAfter(md.Element element, _) {
+  Widget? visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
     return Text.rich(
       TextSpan(
         children: <InlineSpan>[
@@ -379,7 +399,12 @@ class InlineTextColorElementBuilder extends MarkdownElementBuilder {
 
 class ImgBuilder extends MarkdownElementBuilder {
   @override
-  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) {
+  Widget? visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
     return Text('foo', style: preferredStyle);
   }
 }
