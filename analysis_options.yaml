@@ -1,1 +1,7 @@
 include: package:very_good_analysis/analysis_options.6.0.0.yaml
+analyzer:
+  errors:
+    lines_longer_than_80_chars: ignore
+    deprecated_member_use_from_same_package: ignore
+    avoid_positional_boolean_parameters: ignore
+    one_member_abstracts: ignore
