@@ -71,9 +71,7 @@ class MarkdownStyleSheet {
         textScaler = textScaler ??
             // Internally, only textScaler is used, so convert the scale factor
             // to a linear scaler.
-            (textScaleFactor == null
-                ? null
-                : TextScaler.linear(textScaleFactor)),
+            (textScaleFactor == null ? null : TextScaler.linear(textScaleFactor)),
         _styles = <String, TextStyle?>{
           'a': a,
           'p': p,
@@ -129,34 +127,34 @@ class MarkdownStyleSheet {
       checkbox: theme.textTheme.bodyMedium!.copyWith(
         color: theme.primaryColor,
       ),
-      blockSpacing: 8.0,
-      listIndent: 24.0,
+      blockSpacing: 8,
+      listIndent: 24,
       listBullet: theme.textTheme.bodyMedium,
       listBulletPadding: const EdgeInsets.only(right: 4),
       tableHead: const TextStyle(fontWeight: FontWeight.w600),
       tableBody: theme.textTheme.bodyMedium,
       tableHeadAlign: TextAlign.center,
-      tablePadding: const EdgeInsets.only(bottom: 4.0),
+      tablePadding: const EdgeInsets.only(bottom: 4),
       tableBorder: TableBorder.all(
         color: theme.dividerColor,
       ),
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
-      blockquotePadding: const EdgeInsets.all(8.0),
+      blockquotePadding: const EdgeInsets.all(8),
       blockquoteDecoration: BoxDecoration(
         color: Colors.blue.shade100,
-        borderRadius: BorderRadius.circular(2.0),
+        borderRadius: BorderRadius.circular(2),
       ),
-      codeblockPadding: const EdgeInsets.all(8.0),
+      codeblockPadding: const EdgeInsets.all(8),
       codeblockDecoration: BoxDecoration(
         color: theme.cardTheme.color ?? theme.cardColor,
-        borderRadius: BorderRadius.circular(2.0),
+        borderRadius: BorderRadius.circular(2),
       ),
       horizontalRuleDecoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            width: 5.0,
+            width: 5,
             color: theme.dividerColor,
           ),
         ),
@@ -169,9 +167,7 @@ class MarkdownStyleSheet {
     assert(theme.textTheme.textStyle.fontSize != null);
     return MarkdownStyleSheet(
       a: theme.textTheme.textStyle.copyWith(
-        color: theme.brightness == Brightness.dark
-            ? CupertinoColors.link.darkColor
-            : CupertinoColors.link.color,
+        color: theme.brightness == Brightness.dark ? CupertinoColors.link.darkColor : CupertinoColors.link.color,
       ),
       p: theme.textTheme.textStyle,
       pPadding: EdgeInsets.zero,
@@ -272,10 +268,10 @@ class MarkdownStyleSheet {
     );
   }
 
-  /// Creates a [MarkdownStyle] from the [TextStyle]s in the provided [ThemeData].
+  /// Creates a `MarkdownStyle` from the [TextStyle]s in the provided [ThemeData].
   ///
   /// This constructor uses larger fonts for the headings than in
-  /// [MarkdownStyle.fromTheme].
+  /// `MarkdownStyle.fromTheme`.
   factory MarkdownStyleSheet.largeFromTheme(ThemeData theme) {
     return MarkdownStyleSheet(
       a: const TextStyle(color: Colors.blue),
@@ -306,34 +302,34 @@ class MarkdownStyleSheet {
       checkbox: theme.textTheme.bodyMedium!.copyWith(
         color: theme.primaryColor,
       ),
-      blockSpacing: 8.0,
-      listIndent: 24.0,
+      blockSpacing: 8,
+      listIndent: 24,
       listBullet: theme.textTheme.bodyMedium,
       listBulletPadding: const EdgeInsets.only(right: 4),
       tableHead: const TextStyle(fontWeight: FontWeight.w600),
       tableBody: theme.textTheme.bodyMedium,
       tableHeadAlign: TextAlign.center,
-      tablePadding: const EdgeInsets.only(bottom: 4.0),
+      tablePadding: const EdgeInsets.only(bottom: 4),
       tableBorder: TableBorder.all(
         color: theme.dividerColor,
       ),
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
-      blockquotePadding: const EdgeInsets.all(8.0),
+      blockquotePadding: const EdgeInsets.all(8),
       blockquoteDecoration: BoxDecoration(
         color: Colors.blue.shade100,
-        borderRadius: BorderRadius.circular(2.0),
+        borderRadius: BorderRadius.circular(2),
       ),
-      codeblockPadding: const EdgeInsets.all(8.0),
+      codeblockPadding: const EdgeInsets.all(8),
       codeblockDecoration: BoxDecoration(
         color: theme.cardTheme.color ?? theme.cardColor,
-        borderRadius: BorderRadius.circular(2.0),
+        borderRadius: BorderRadius.circular(2),
       ),
       horizontalRuleDecoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            width: 5.0,
+            width: 5,
             color: theme.dividerColor,
           ),
         ),
@@ -406,10 +402,8 @@ class MarkdownStyleSheet {
     );
     // If either of textScaler or textScaleFactor is non-null, pass null for the
     // other instead of the previous value, since only one is allowed.
-    final TextScaler? newTextScaler =
-        textScaler ?? (textScaleFactor == null ? this.textScaler : null);
-    final double? nextTextScaleFactor =
-        textScaleFactor ?? (textScaler == null ? this.textScaleFactor : null);
+    final newTextScaler = textScaler ?? (textScaleFactor == null ? this.textScaler : null);
+    final nextTextScaleFactor = textScaleFactor ?? (textScaler == null ? this.textScaleFactor : null);
     return MarkdownStyleSheet(
       a: a ?? this.a,
       p: p ?? this.p,
@@ -446,14 +440,12 @@ class MarkdownStyleSheet {
       tableScrollbarThumbVisibility: tableScrollbarThumbVisibility,
       tableCellsPadding: tableCellsPadding ?? this.tableCellsPadding,
       tableCellsDecoration: tableCellsDecoration ?? this.tableCellsDecoration,
-      tableVerticalAlignment:
-          tableVerticalAlignment ?? this.tableVerticalAlignment,
+      tableVerticalAlignment: tableVerticalAlignment ?? this.tableVerticalAlignment,
       blockquotePadding: blockquotePadding ?? this.blockquotePadding,
       blockquoteDecoration: blockquoteDecoration ?? this.blockquoteDecoration,
       codeblockPadding: codeblockPadding ?? this.codeblockPadding,
       codeblockDecoration: codeblockDecoration ?? this.codeblockDecoration,
-      horizontalRuleDecoration:
-          horizontalRuleDecoration ?? this.horizontalRuleDecoration,
+      horizontalRuleDecoration: horizontalRuleDecoration ?? this.horizontalRuleDecoration,
       textAlign: textAlign ?? this.textAlign,
       h1Align: h1Align ?? this.h1Align,
       h2Align: h2Align ?? this.h2Align,
@@ -465,8 +457,7 @@ class MarkdownStyleSheet {
       orderedListAlign: orderedListAlign ?? this.orderedListAlign,
       blockquoteAlign: blockquoteAlign ?? this.blockquoteAlign,
       codeblockAlign: codeblockAlign ?? this.codeblockAlign,
-      superscriptFontFeatureTag:
-          superscriptFontFeatureTag ?? this.superscriptFontFeatureTag,
+      superscriptFontFeatureTag: superscriptFontFeatureTag ?? this.superscriptFontFeatureTag,
       textScaler: newTextScaler,
       textScaleFactor: nextTextScaleFactor,
     );

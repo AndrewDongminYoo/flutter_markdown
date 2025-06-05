@@ -7,10 +7,9 @@ import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown/src/_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 import 'package:markdown/markdown.dart' as md;
-
-import '../flutter_markdown.dart';
-import '_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 
 /// Signature for callbacks used by [MarkdownWidget] when
 /// [MarkdownWidget.selectable] is set to true and the user changes selection.
@@ -22,7 +21,10 @@ import '_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 ///
 /// Used by [MarkdownWidget.onSelectionChanged]
 typedef MarkdownOnSelectionChangedCallback = void Function(
-    String? text, TextSelection selection, SelectionChangedCause? cause);
+  String? text,
+  TextSelection selection,
+  SelectionChangedCause? cause,
+);
 
 /// Signature for callbacks used by [MarkdownWidget] when the user taps a link.
 /// The callback will return the link text, destination, and title from the
@@ -30,7 +32,10 @@ typedef MarkdownOnSelectionChangedCallback = void Function(
 ///
 /// Used by [MarkdownWidget.onTapLink].
 typedef MarkdownTapLinkCallback = void Function(
-    String text, String? href, String title);
+  String text,
+  String? href,
+  String title,
+);
 
 /// Signature for custom image builders used by [MarkdownWidget.sizedImageBuilder].
 ///
@@ -51,7 +56,10 @@ typedef MarkdownSizedImageBuilder = Widget Function(MarkdownImageConfig config);
 ///
 /// Used by [MarkdownWidget.imageBuilder]
 typedef MarkdownImageBuilder = Widget Function(
-    Uri uri, String? title, String? alt);
+  Uri uri,
+  String? title,
+  String? alt,
+);
 
 /// Signature for custom checkbox widget.
 ///
@@ -152,8 +160,7 @@ abstract class MarkdownElementBuilder {
   ///
   /// If you needn't build a widget, return null.
   @Deprecated('Use visitElementAfterWithContext() instead.')
-  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) =>
-      null;
+  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) => null;
 }
 
 /// Enum to specify which theme being used when creating [MarkdownStyleSheet]
@@ -222,8 +229,8 @@ abstract class MarkdownWidget extends StatefulWidget {
   ///
   /// The [data] argument must not be null.
   const MarkdownWidget({
-    super.key,
     required this.data,
+    super.key,
     this.selectable = false,
     this.styleSheet,
     this.styleSheetTheme = MarkdownStyleSheetBaseTheme.material,
@@ -242,8 +249,7 @@ abstract class MarkdownWidget extends StatefulWidget {
     this.builders = const <String, MarkdownElementBuilder>{},
     this.paddingBuilders = const <String, MarkdownPaddingBuilder>{},
     this.fitContent = false,
-    this.listItemCrossAxisAlignment =
-        MarkdownListItemCrossAxisAlignment.baseline,
+    this.listItemCrossAxisAlignment = MarkdownListItemCrossAxisAlignment.baseline,
     this.softLineBreak = false,
   });
 
@@ -358,8 +364,7 @@ abstract class MarkdownWidget extends StatefulWidget {
   State<MarkdownWidget> createState() => _MarkdownWidgetState();
 }
 
-class _MarkdownWidgetState extends State<MarkdownWidget>
-    implements MarkdownBuilderDelegate {
+class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuilderDelegate {
   List<Widget>? _children;
   final List<GestureRecognizer> _recognizers = <GestureRecognizer>[];
 
@@ -372,8 +377,7 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
   @override
   void didUpdateWidget(MarkdownWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.data != oldWidget.data ||
-        widget.styleSheet != oldWidget.styleSheet) {
+    if (widget.data != oldWidget.data || widget.styleSheet != oldWidget.styleSheet) {
       _parseMarkdown();
     }
   }
@@ -385,14 +389,12 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
   }
 
   void _parseMarkdown() {
-    final MarkdownStyleSheet fallbackStyleSheet =
-        kFallbackStyle(context, widget.styleSheetTheme);
-    final MarkdownStyleSheet styleSheet =
-        fallbackStyleSheet.merge(widget.styleSheet);
+    final fallbackStyleSheet = kFallbackStyle(context, widget.styleSheetTheme);
+    final styleSheet = fallbackStyleSheet.merge(widget.styleSheet);
 
     _disposeRecognizers();
 
-    final md.Document document = md.Document(
+    final document = md.Document(
       blockSyntaxes: widget.blockSyntaxes,
       inlineSyntaxes: widget.inlineSyntaxes,
       extensionSet: widget.extensionSet ?? md.ExtensionSet.gitHubFlavored,
@@ -400,12 +402,12 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
     );
 
     // Parse the source Markdown data into nodes of an Abstract Syntax Tree.
-    final List<String> lines = const LineSplitter().convert(widget.data);
-    final List<md.Node> astNodes = document.parseLines(lines);
+    final lines = const LineSplitter().convert(widget.data);
+    final astNodes = document.parseLines(lines);
 
     // Configure a Markdown widget builder to traverse the AST nodes and
     // create a widget tree based on the elements.
-    final MarkdownBuilder builder = MarkdownBuilder(
+    final builder = MarkdownBuilder(
       delegate: this,
       selectable: widget.selectable,
       styleSheet: styleSheet,
@@ -430,29 +432,26 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
     if (_recognizers.isEmpty) {
       return;
     }
-    final List<GestureRecognizer> localRecognizers =
-        List<GestureRecognizer>.from(_recognizers);
+    final localRecognizers = List<GestureRecognizer>.from(_recognizers);
     _recognizers.clear();
-    for (final GestureRecognizer recognizer in localRecognizers) {
+    for (final recognizer in localRecognizers) {
       recognizer.dispose();
     }
   }
 
   @override
   GestureRecognizer createLink(String text, String? href, String title) {
-    final TapGestureRecognizer recognizer = TapGestureRecognizer()
+    final recognizer = TapGestureRecognizer()
       ..onTap = () {
-        if (widget.onTapLink != null) {
-          widget.onTapLink!(text, href, title);
-        }
+        widget.onTapLink?.call(text, href, title);
       };
     _recognizers.add(recognizer);
     return recognizer;
   }
 
   @override
-  TextSpan formatText(MarkdownStyleSheet styleSheet, String code) {
-    code = code.replaceAll(RegExp(r'\n$'), '');
+  TextSpan formatText(MarkdownStyleSheet styleSheet, String pre) {
+    final code = pre.replaceAll(RegExp(r'\n$'), '');
     if (widget.syntaxHighlighter != null) {
       return widget.syntaxHighlighter!.format(code);
     }
@@ -475,8 +474,8 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
 class MarkdownBody extends MarkdownWidget {
   /// Creates a non-scrolling widget that parses and displays Markdown.
   const MarkdownBody({
-    super.key,
     required super.data,
+    super.key,
     super.selectable,
     super.styleSheet,
     super.styleSheetTheme = null,
@@ -512,8 +511,7 @@ class MarkdownBody extends MarkdownWidget {
     }
     return Column(
       mainAxisSize: shrinkWrap ? MainAxisSize.min : MainAxisSize.max,
-      crossAxisAlignment:
-          fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
+      crossAxisAlignment: fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
       children: children,
     );
   }
@@ -531,8 +529,8 @@ class MarkdownBody extends MarkdownWidget {
 class Markdown extends MarkdownWidget {
   /// Creates a scrolling widget that parses and displays Markdown.
   const Markdown({
-    super.key,
     required super.data,
+    super.key,
     super.selectable,
     super.styleSheet,
     super.styleSheetTheme = null,
@@ -551,7 +549,7 @@ class Markdown extends MarkdownWidget {
     super.builders,
     super.paddingBuilders,
     super.listItemCrossAxisAlignment,
-    this.padding = const EdgeInsets.all(16.0),
+    this.padding = const EdgeInsets.all(16),
     this.controller,
     this.physics,
     this.shrinkWrap = false,
@@ -593,18 +591,20 @@ class Markdown extends MarkdownWidget {
 ///
 /// This class is no longer used as Markdown now supports checkbox syntax natively.
 @Deprecated(
-    'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]')
+  'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]',
+)
 class TaskListSyntax extends md.InlineSyntax {
   /// Creates a new instance.
   @Deprecated(
-      'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]')
+    'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]',
+  )
   TaskListSyntax() : super(_pattern);
 
   static const String _pattern = r'^ *\[([ xX])\] +';
 
   @override
   bool onMatch(md.InlineParser parser, Match match) {
-    final md.Element el = md.Element.withTag('input');
+    final el = md.Element.withTag('input');
     el.attributes['type'] = 'checkbox';
     el.attributes['disabled'] = 'true';
     el.attributes['checked'] = '${match[1]!.trim().isNotEmpty}';

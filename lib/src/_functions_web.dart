@@ -7,14 +7,17 @@ import 'dart:js_interop';
 import 'package:flutter/cupertino.dart' show CupertinoTheme;
 import 'package:flutter/material.dart' show Theme;
 import 'package:flutter/widgets.dart';
+import 'package:flutter_markdown/src/style_sheet.dart';
+import 'package:flutter_markdown/src/widget.dart';
 import 'package:path/path.dart' as p;
-
-import 'style_sheet.dart';
-import 'widget.dart';
 
 /// Type for a function that creates image widgets.
 typedef ImageBuilder = Widget Function(
-    Uri uri, String? imageDirectory, double? width, double? height);
+  Uri uri,
+  String? imageDirectory,
+  double? width,
+  double? height,
+);
 
 /// A default image builder handling http/https, resource, data, and file URLs.
 // ignore: prefer_function_declarations_over_variables
@@ -66,7 +69,7 @@ final ImageBuilder kDefaultImageBuilder = (
         errorBuilder: kDefaultImageErrorWidgetBuilder,
       );
     } else {
-      final String src = p.join(p.current, fileUri.toString());
+      final src = p.join(p.current, fileUri.toString());
       return Image.network(
         src,
         width: width,
@@ -94,12 +97,10 @@ final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
   BuildContext context,
   MarkdownStyleSheetBaseTheme? baseTheme,
 ) {
-  final MarkdownStyleSheet result = switch (baseTheme) {
-    MarkdownStyleSheetBaseTheme.platform
-        when _userAgent.toDart.contains('Mac OS X') =>
+  final result = switch (baseTheme) {
+    MarkdownStyleSheetBaseTheme.platform when _userAgent.toDart.contains('Mac OS X') =>
       MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
-    MarkdownStyleSheetBaseTheme.cupertino =>
-      MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
+    MarkdownStyleSheetBaseTheme.cupertino => MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
     _ => MarkdownStyleSheet.fromTheme(Theme.of(context)),
   };
 
@@ -108,9 +109,8 @@ final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
   );
 };
 
-Widget _handleDataSchemeUri(
-    Uri uri, final double? width, final double? height) {
-  final String mimeType = uri.data!.mimeType;
+Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {
+  final mimeType = uri.data!.mimeType;
   if (mimeType.startsWith('image/')) {
     return Image.memory(
       uri.data!.contentAsBytes(),
