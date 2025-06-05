@@ -6,7 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'utils.dart';
+import 'helpers/utils.dart';
 
 // The emphasis and strong emphasis section of the GitHub Flavored Markdown
 // specification (https://github.github.com/gfm/#emphasis-and-strong-emphasis)

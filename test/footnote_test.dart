@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'utils.dart';
+import 'helpers/utils.dart';
 
 void main() => defineTests();
 
@@ -106,8 +106,8 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = '''
 1[^1] 2[^2] 3[^3] 4[^4] 5[^5] 6[^6] 7[^7] 8[^8] 9[^9] 10[^10]
-[^1]:1 
-[^2]:2 
+[^1]:1
+[^2]:2
 [^3]:3
 [^4]:4
 [^5]:5

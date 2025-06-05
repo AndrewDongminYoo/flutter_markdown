@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'image_test_mocks.dart';
-import 'utils.dart';
+import 'mocks/image_test_mocks.dart';
+import 'helpers/utils.dart';
 
 void main() => defineTests();
 
@@ -148,7 +148,7 @@ void defineTests() {
           ),
         );
 
-        final image = tester.allWidgets.whereType<Image>() as Image;
+        final image = tester.allWidgets.whereType<Image>().first;
 
         expect(image.image is AssetImage, isTrue);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -429,7 +429,7 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image = widgets.whereType<Image>().first;
 
         expect(image.image.runtimeType, AssetImage);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -486,7 +486,7 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final image = widgets.whereType<Image>().first;
 
         expect(image.image.runtimeType, AssetImage);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
