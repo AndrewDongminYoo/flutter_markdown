@@ -114,5 +114,90 @@ void defineTests() {
         expect(text.textAlign, TextAlign.justify);
       },
     );
+
+    testWidgets(
+      'should apply spaceEvenly alignment to text',
+      (WidgetTester tester) async {
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
+          textAlign: WrapAlignment.spaceEvenly,
+        );
+
+        const data = 'hello world this is a test';
+        await tester.pumpWidget(
+          boilerplate(
+            MarkdownBody(
+              data: data,
+              styleSheet: style,
+            ),
+          ),
+        );
+
+        final text = tester.widgetList(find.byType(RichText)).single as RichText;
+        expect(text.textAlign, TextAlign.justify);
+      },
+    );
+
+    testWidgets(
+      'should apply spaceEvenly alignment to headers',
+      (WidgetTester tester) async {
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
+          h1Align: WrapAlignment.spaceEvenly,
+          h2Align: WrapAlignment.spaceEvenly,
+        );
+
+        const data = '# Header One\n## Header Two';
+        await tester.pumpWidget(
+          boilerplate(
+            MarkdownBody(
+              data: data,
+              styleSheet: style,
+            ),
+          ),
+        );
+
+        final widgets = selfAndDescendantWidgetsOf(
+          find.byType(MarkdownBody),
+          tester,
+        );
+        
+        final richTextWidgets = widgets.whereType<RichText>().toList();
+        expect(richTextWidgets.length, 2);
+        
+        // 첫 번째 RichText (h1)는 spaceEvenly 정렬이 적용되어 justify로 변환됨
+        expect(richTextWidgets[0].textAlign, TextAlign.justify);
+        
+        // 두 번째 RichText (h2)도 spaceEvenly 정렬이 적용되어 justify로 변환됨
+        expect(richTextWidgets[1].textAlign, TextAlign.justify);
+      },
+    );
+
+    testWidgets(
+      'should apply spaceEvenly alignment to selectable headers',
+      (WidgetTester tester) async {
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
+          h1Align: WrapAlignment.spaceEvenly,
+        );
+
+        const data = '# Selectable Header with SpaceEvenly';
+        await tester.pumpWidget(
+          boilerplate(
+            MediaQuery(
+              data: const MediaQueryData(),
+              child: MarkdownBody(
+                data: data,
+                styleSheet: style,
+                selectable: true,
+              ),
+            ),
+          ),
+        );
+
+        final selectableText = tester.widgetList(find.byType(SelectableText)).single as SelectableText;
+        expect(selectableText.textAlign, TextAlign.justify);
+      },
+    );
   });
 }
