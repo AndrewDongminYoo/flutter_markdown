@@ -161,13 +161,13 @@ void defineTests() {
           find.byType(MarkdownBody),
           tester,
         );
-        
+
         final richTextWidgets = widgets.whereType<RichText>().toList();
         expect(richTextWidgets.length, 2);
-        
+
         // 첫 번째 RichText (h1)는 spaceEvenly 정렬이 적용되어 justify로 변환됨
         expect(richTextWidgets[0].textAlign, TextAlign.justify);
-        
+
         // 두 번째 RichText (h2)도 spaceEvenly 정렬이 적용되어 justify로 변환됨
         expect(richTextWidgets[1].textAlign, TextAlign.justify);
       },

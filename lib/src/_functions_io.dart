@@ -94,7 +94,7 @@ MarkdownStyleSheet kFallbackStyle(
       result = (Platform.isIOS || Platform.isMacOS)
           ? MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context))
           : MarkdownStyleSheet.fromTheme(Theme.of(context));
-      // coverage:ignore-end
+    // coverage:ignore-end
     case MarkdownStyleSheetBaseTheme.cupertino:
       result = MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context));
     case MarkdownStyleSheetBaseTheme.material:
