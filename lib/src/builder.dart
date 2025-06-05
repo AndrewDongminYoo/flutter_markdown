@@ -305,7 +305,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         _tables.single.rows.add(
           TableRow(
             decoration: decoration,
-            children: List<Widget>.empty(),
+            children: List<Widget>.empty(growable: true),
           ),
         );
       }
