@@ -15,7 +15,5 @@
     }
   ],
   "useGitignore": true,
-  "words": [
-    "flutter_markdown"
-  ]
+  "words": ["flutter_markdown"]
 }
