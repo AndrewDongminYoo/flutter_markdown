@@ -1,4 +1,4 @@
-# Flutter Markdown
+# Flutter Markdown (Maintained Fork)
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
@@ -8,21 +8,42 @@ A Very Good Project created by Very Good CLI.
 
 ## Installation 💻
 
-**❗ In order to start using Flutter Markdown you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
+**❗ In order to start using Flutter Markdown, you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
 
-Install via `flutter pub add`:
+> **Note: This repository is a maintained fork of the official [`flutter_markdown`](https://github.com/flutter/packages/tree/860ecdea6c8d7ee36021cf79e7c332982b050060/packages/flutter_markdown) package, which has been discontinued.**
+>
+> If you were previously using `flutter_markdown`, please point your project to this fork by adding a Git dependency, as shown below:
+>
+> ```yaml
+> # pubspec.yaml example
+> dependencies:
+>   flutter_markdown:
+>     git:
+>       url: https://github.com/AndrewDongminYoo/flutter_markdown.git
+>       ref: main
+> ```
+
+To start using Flutter Markdown (Maintained Fork), add the dependency to your `pubspec.yaml` as shown above, then run:
 
 ```sh
-dart pub add flutter_markdown
+flutter pub get
+```
+
+If you want to add it directly via the command line (for local testing, for example), run:
+
+```sh
+flutter pub add flutter_markdown \
+  --git-url https://github.com/AndrewDongminYoo/flutter_markdown.git \
+  --git-ref main
 ```
 
 ---
 
 ## Continuous Integration 🤖
 
-Flutter Markdown comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
+Flutter Markdown (Maintained Fork) comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link], but you can also integrate your preferred CI/CD solution.
 
-Out of the box, on each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Analysis][very_good_analysis_link] for a strict set of analysis options used by our team. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
+Out of the box, on each pull request and push, the CI workflow will `format`, `lint`, and `test` the code. This ensures consistency and correctness as you add new functionality. The project uses [Very Good Analysis][very_good_analysis_link] for strict analysis rules. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
 
 ---
 
@@ -40,7 +61,7 @@ To run all unit tests:
 very_good test --coverage
 ```
 
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+To view the generated coverage report, use [lcov](https://github.com/linux-test-project/lcov):
 
 ```sh
 # Generate Coverage Report
