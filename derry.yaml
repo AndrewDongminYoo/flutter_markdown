@@ -1,7 +1,7 @@
 test:
   (description): Runs all tests in the Flutter project with coverage enabled.
   (scripts):
-    - flutter test --coverage --concurrency=4 --test-randomize-ordering-seed=random --dart-define="FLUTTER_TEST=true"
+    - flutter test --coverage --concurrency=4 --test-randomize-ordering-seed=random --update-goldens
 
 posttest:
   (description): Generates a coverage report from the test coverage data.
