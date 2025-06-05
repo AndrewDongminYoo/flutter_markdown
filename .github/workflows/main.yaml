@@ -32,3 +32,4 @@ jobs:
     with:
       flutter_channel: stable
       format_line_length: 120
+      min_coverage: 99
