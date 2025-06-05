@@ -15,18 +15,18 @@
     }
   ],
   "allowCompoundWords": true,
-  "ignorePaths": ["CHANGELOG.md"],
+  "ignorePaths": ["../CHANGELOG.md"],
   "useGitignore": true,
   "words": [
-    "flutter_markdown",
-    "blockquotes",
-    "supr",
-    "numr",
     "ambiguate",
-    "nullsafety",
-    "upgraders",
-    "Darktheme",
+    "blockquotes",
     "Cupertino",
-    "strikethrough"
+    "Darktheme",
+    "flutter_markdown",
+    "nullsafety",
+    "numr",
+    "strikethrough",
+    "supr",
+    "upgraders"
   ]
 }
