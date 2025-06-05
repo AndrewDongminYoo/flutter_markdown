@@ -417,7 +417,6 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
       selectable: widget.selectable,
       styleSheet: styleSheet,
       imageDirectory: widget.imageDirectory,
-      imageBuilder: widget.imageBuilder,
       sizedImageBuilder: widget.sizedImageBuilder,
       checkboxBuilder: widget.checkboxBuilder,
       bulletBuilder: widget.bulletBuilder,

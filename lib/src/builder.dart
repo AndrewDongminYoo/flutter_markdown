@@ -145,15 +145,11 @@ class MarkdownBuilder implements md.NodeVisitor {
     required this.builders,
     required this.paddingBuilders,
     required this.listItemCrossAxisAlignment,
-    @Deprecated('Use sizedImageBuilder instead') this.imageBuilder,
     this.fitContent = false,
     this.onSelectionChanged,
     this.onTapText,
     this.softLineBreak = false,
-  }) : assert(
-          imageBuilder == null || sizedImageBuilder == null,
-          'Only one of imageBuilder or sizedImageBuilder may be specified.',
-        );
+  });
 
   /// A delegate that controls how link and `pre` elements behave.
   final MarkdownBuilderDelegate delegate;
@@ -169,21 +165,6 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// The base directory holding images referenced by Img tags with local or network file paths.
   final String? imageDirectory;
 
-  /// {@template flutter_markdown.builder.MarkdownBuilder.imageBuilder}
-  /// Called to build an image widget.
-  ///
-  /// This builder allows for custom rendering of images within the Markdown content.
-  /// It provides the image `Uri`, `title`, and `alt` text.
-  ///
-  /// **Deprecated:** Use [sizedImageBuilder] instead, which offers more comprehensive
-  /// image information.
-  ///
-  /// Only one of [imageBuilder] or [sizedImageBuilder] may be specified.
-  ///
-  /// {@endtemplate}
-  @Deprecated('Use sizedImageBuilder instead')
-  final MarkdownImageBuilder? imageBuilder;
-
   /// {@template flutter_markdown.builder.MarkdownBuilder.sizedImageBuilder}
   /// Called to build an image widget with size information.
   ///
@@ -191,15 +172,8 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// when size information is available. It provides a [MarkdownImageConfig]
   /// containing the `Uri`, `title`, `alt`, `width`, and `height` of the image.
   ///
-  /// If both [imageBuilder] and [sizedImageBuilder] are `null`, a default image builder
-  /// will be used.
   /// when size information is available. It provides a [MarkdownImageConfig]
   /// containing the `Uri`, `title`, `alt`, `width`, and `height` of the image.
-  ///
-  /// If both [imageBuilder] and [sizedImageBuilder] are `null`, a default
-  /// image builder will be used.
-  ///
-  /// Only one of [imageBuilder] or [sizedImageBuilder] may be specified.
   ///
   /// {@endtemplate}
   final MarkdownSizedImageBuilder? sizedImageBuilder;
@@ -696,8 +670,6 @@ class MarkdownBuilder implements md.NodeVisitor {
         width: width,
       );
       child = sizedImageBuilder!(config);
-    } else if (imageBuilder != null) {
-      child = imageBuilder!(uri, alt, title);
     } else {
       child = kDefaultImageBuilder(uri, imageDirectory, width, height);
     }

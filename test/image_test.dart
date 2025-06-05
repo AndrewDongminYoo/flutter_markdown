@@ -436,8 +436,8 @@ void defineTests() {
         final widgets = tester.allWidgets;
         final image = widgets.whereType<Image>().first;
 
-        expect(image.image.runtimeType, AssetImage);
-        expect((image.image as AssetImage).assetName, 'assets/logo.png');
+        expect(image.image.runtimeType.toString(), 'NetworkImage');
+        expect((image.image as NetworkImage).url, 'https://img.png');
 
         // Force the asset image to be rasterized so it can be compared.
         await tester.runAsync(() async {
