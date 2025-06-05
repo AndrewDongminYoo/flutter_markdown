@@ -591,32 +591,6 @@ class Markdown extends MarkdownWidget {
   }
 }
 
-/// Parse [task list items](https://github.github.com/gfm/#task-list-items-extension-).
-///
-/// This class is no longer used as Markdown now supports checkbox syntax natively.
-@Deprecated(
-  'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]',
-)
-class TaskListSyntax extends md.InlineSyntax {
-  /// Creates a new instance.
-  @Deprecated(
-    'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]',
-  )
-  TaskListSyntax() : super(_pattern);
-
-  static const String _pattern = r'^ *\[([ xX])\] +';
-
-  @override
-  bool onMatch(md.InlineParser parser, Match match) {
-    final el = md.Element.withTag('input');
-    el.attributes['type'] = 'checkbox';
-    el.attributes['disabled'] = 'true';
-    el.attributes['checked'] = '${match[1]!.trim().isNotEmpty}';
-    parser.addNode(el);
-    return true;
-  }
-}
-
 /// An interface for an padding builder for element.
 abstract class MarkdownPaddingBuilder {
   /// Called when an Element has been reached, before its children have been

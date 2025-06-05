@@ -88,9 +88,13 @@ MarkdownStyleSheet kFallbackStyle(
   MarkdownStyleSheet result;
   switch (baseTheme) {
     case MarkdownStyleSheetBaseTheme.platform:
+      // coverage:ignore-start
+      // This is a workaround for the fact that the platform theme is not
+      // available in the constructor of MarkdownStyleSheet.
       result = (Platform.isIOS || Platform.isMacOS)
           ? MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context))
           : MarkdownStyleSheet.fromTheme(Theme.of(context));
+      // coverage:ignore-end
     case MarkdownStyleSheetBaseTheme.cupertino:
       result = MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context));
     case MarkdownStyleSheetBaseTheme.material:
