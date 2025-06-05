@@ -28,3 +28,7 @@ dev_dependencies:
 topics:
   - markdown
   - widgets
+
+# https://github.com/frencojobs/derry
+# `dart pub global activate derry`
+scripts: derry.yaml
