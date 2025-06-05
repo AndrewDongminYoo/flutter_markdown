@@ -260,13 +260,13 @@ class MarkdownBuilder implements md.NodeVisitor {
     _blocks.add(_BlockElement(null));
 
     for (final node in nodes) {
-      assert(_blocks.length == 1);
+      assert(_blocks.length == 1, 'More than one root node found.');
       node.accept(this);
     }
 
-    assert(_tables.isEmpty);
-    assert(_inlines.isEmpty);
-    assert(!_isInBlockquote);
+    assert(_tables.isEmpty, 'Unclosed table found. Make sure to close all tables with a closing tag.');
+    assert(_inlines.isEmpty, 'Unclosed inline element found. Make sure to close all inline elements with a closing tag.');
+    assert(!_isInBlockquote, 'Unclosed blockquote found. Make sure to close all blockquotes with a closing tag.');
     return _blocks.single.children;
   }
 
@@ -468,7 +468,7 @@ class MarkdownBuilder implements md.NodeVisitor {
           defaultChild();
 
       if (_isListTag(tag)) {
-        assert(_listIndents.isNotEmpty);
+        assert(_listIndents.isNotEmpty, 'List tag $tag found without a list indent.');
         _listIndents.removeLast();
       } else if (tag == 'li') {
         if (_listIndents.isNotEmpty) {
