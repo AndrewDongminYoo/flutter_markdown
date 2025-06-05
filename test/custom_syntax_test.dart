@@ -30,7 +30,7 @@ void defineTests() {
           ),
         );
 
-        final Iterable<Widget> widgets = tester.allWidgets;
+        final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>['H₂O']);
       },
     );
@@ -38,7 +38,7 @@ void defineTests() {
     testWidgets(
       'Custom block element',
       (WidgetTester tester) async {
-        const String blockContent = 'note block';
+        const blockContent = 'note block';
         await tester.pumpWidget(
           boilerplate(
             Markdown(
@@ -51,8 +51,7 @@ void defineTests() {
             ),
           ),
         );
-        final ColoredBox container =
-            tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
+        final container = tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
         expect(container.color, Colors.red);
         expect(container.child, isInstanceOf<Text>());
         expect((container.child! as Text).data, blockContent);
@@ -62,15 +61,14 @@ void defineTests() {
     testWidgets(
       'Block with custom tag',
       (WidgetTester tester) async {
-        const String textBefore = 'Before ';
-        const String textAfter = ' After';
-        const String blockContent = 'Custom content rendered in a ColoredBox';
+        const textBefore = 'Before ';
+        const textAfter = ' After';
+        const blockContent = 'Custom content rendered in a ColoredBox';
 
         await tester.pumpWidget(
           boilerplate(
             Markdown(
-              data:
-                  '$textBefore\n{{custom}}\n$blockContent\n{{/custom}}\n$textAfter',
+              data: '$textBefore\n{{custom}}\n$blockContent\n{{/custom}}\n$textAfter',
               extensionSet: md.ExtensionSet.none,
               blockSyntaxes: <md.BlockSyntax>[CustomTagBlockSyntax()],
               builders: <String, MarkdownElementBuilder>{
@@ -80,8 +78,7 @@ void defineTests() {
           ),
         );
 
-        final ColoredBox container =
-            tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
+        final container = tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
         expect(container.color, Colors.red);
         expect(container.child, isInstanceOf<Text>());
         expect((container.child! as Text).data, blockContent);
@@ -104,9 +101,8 @@ void defineTests() {
           ),
         );
 
-        final Text textWidget = tester.widget(find.byType(Text));
-        final TextSpan span =
-            (textWidget.textSpan! as TextSpan).children![1] as TextSpan;
+        final textWidget = tester.widget<Text>(find.byType(Text));
+        final span = (textWidget.textSpan! as TextSpan).children![1] as TextSpan;
 
         expect(span.children, null);
         expect(span.recognizer.runtimeType, equals(TapGestureRecognizer));
@@ -129,9 +125,9 @@ void defineTests() {
           ),
         );
 
-        final Text textWidget = tester.widget(find.byType(Text));
-        final TextSpan textSpan = textWidget.textSpan! as TextSpan;
-        final WidgetSpan widgetSpan = textSpan.children![0] as WidgetSpan;
+        final textWidget = tester.widget<Text>(find.byType(Text));
+        final textSpan = textWidget.textSpan! as TextSpan;
+        final widgetSpan = textSpan.children![0] as WidgetSpan;
         expect(widgetSpan.child, isInstanceOf<Container>());
       },
     );
@@ -152,11 +148,11 @@ void defineTests() {
           ),
         );
 
-        final Text textWidget = tester.widget(find.byType(Text));
-        final TextSpan rootSpan = textWidget.textSpan! as TextSpan;
-        final TextSpan firstSpan = rootSpan.children![0] as TextSpan;
-        final TextSpan secondSpan = rootSpan.children![1] as TextSpan;
-        final TextSpan thirdSpan = rootSpan.children![2] as TextSpan;
+        final textWidget = tester.widget<Text>(find.byType(Text));
+        final rootSpan = textWidget.textSpan! as TextSpan;
+        final firstSpan = rootSpan.children![0] as TextSpan;
+        final secondSpan = rootSpan.children![1] as TextSpan;
+        final thirdSpan = rootSpan.children![2] as TextSpan;
 
         expect(secondSpan.style!.color, Colors.red);
         expect(secondSpan.style!.fontSize, firstSpan.style!.fontSize);
@@ -181,13 +177,13 @@ void defineTests() {
         ),
       );
 
-      final Text textWidget = tester.widget(find.byType(Text));
-      final TextSpan textSpan = textWidget.textSpan! as TextSpan;
-      final TextSpan start = textSpan.children![0] as TextSpan;
+      final textWidget = tester.widget<Text>(find.byType(Text));
+      final textSpan = textWidget.textSpan! as TextSpan;
+      final start = textSpan.children![0] as TextSpan;
       expect(start.text, 'this test replaces a string with a ');
-      final TextSpan foo = textSpan.children![1] as TextSpan;
+      final foo = textSpan.children![1] as TextSpan;
       expect(foo.text, 'foo');
-      final WidgetSpan widgetSpan = textSpan.children![2] as WidgetSpan;
+      final widgetSpan = textSpan.children![2] as WidgetSpan;
       expect(widgetSpan.child, isInstanceOf<Container>());
     },
   );
@@ -195,7 +191,7 @@ void defineTests() {
   testWidgets(
     'Custom rendering of tags without children',
     (WidgetTester tester) async {
-      const String data = '![alt](/assets/images/logo.png)';
+      const data = '![alt](/assets/images/logo.png)';
       await tester.pumpWidget(
         boilerplate(
           Markdown(
@@ -207,11 +203,11 @@ void defineTests() {
         ),
       );
 
-      final Finder imageFinder = find.byType(Image);
+      final imageFinder = find.byType(Image);
       expect(imageFinder, findsNothing);
-      final Finder textFinder = find.byType(Text);
+      final textFinder = find.byType(Text);
       expect(textFinder, findsOneWidget);
-      final Text textWidget = tester.widget(find.byType(Text));
+      final textWidget = tester.widget<Text>(find.byType(Text));
       expect(textWidget.data, 'foo');
     },
   );
@@ -220,7 +216,7 @@ void defineTests() {
 class SubscriptSyntax extends md.InlineSyntax {
   SubscriptSyntax() : super(_pattern);
 
-  static const String _pattern = r'_([0-9]+)';
+  static const String _pattern = '_([0-9]+)';
 
   @override
   bool onMatch(md.InlineParser parser, Match match) {
@@ -240,19 +236,19 @@ class SubscriptBuilder extends MarkdownElementBuilder {
     '₆',
     '₇',
     '₈',
-    '₉'
+    '₉',
   ];
 
   @override
   Widget visitElementAfter(md.Element element, _) {
     // We don't currently have a way to control the vertical alignment of text spans.
     // See https://github.com/flutter/flutter/issues/10906#issuecomment-385723664
-    final String textContent = element.textContent;
-    String text = '';
-    for (int i = 0; i < textContent.length; i++) {
-      text += _subscripts[int.parse(textContent[i])];
+    final textContent = element.textContent;
+    final buffer = StringBuffer();
+    for (var i = 0; i < textContent.length; i++) {
+      buffer.write(_subscripts[int.parse(textContent[i])]);
     }
-    return Text.rich(TextSpan(text: text));
+    return Text.rich(TextSpan(text: buffer.toString()));
   }
 }
 
@@ -263,10 +259,9 @@ class WikilinkSyntax extends md.InlineSyntax {
 
   @override
   bool onMatch(md.InlineParser parser, Match match) {
-    final String link = match[1]!;
-    final md.Element el =
-        md.Element('wikilink', <md.Element>[md.Element.text('span', link)])
-          ..attributes['href'] = link.replaceAll(' ', '_');
+    final link = match[1]!;
+    final el = md.Element('wikilink', <md.Element>[md.Element.text('span', link)])
+      ..attributes['href'] = link.replaceAll(' ', '_');
 
     parser.addNode(el);
     return true;
@@ -276,8 +271,7 @@ class WikilinkSyntax extends md.InlineSyntax {
 class WikilinkBuilder extends MarkdownElementBuilder {
   @override
   Widget visitElementAfter(md.Element element, _) {
-    final TapGestureRecognizer recognizer = TapGestureRecognizer()
-      ..onTap = () {};
+    final recognizer = TapGestureRecognizer()..onTap = () {};
     addTearDown(recognizer.dispose);
     return Text.rich(
       TextSpan(text: element.textContent, recognizer: recognizer),
@@ -338,18 +332,16 @@ class InlineTextColorSyntax extends md.InlineSyntax {
 
   @override
   bool onMatch(md.InlineParser parser, Match match) {
-    final String colorId = match.group(1)!;
-    final String textContent = match.group(2)!;
-    final md.Element node = md.Element.text(
+    final colorId = match.group(1)!;
+    final textContent = match.group(2)!;
+    final node = md.Element.text(
       'inlineTextColor',
       textContent,
     )..attributes['color'] = colorId;
 
-    parser.addNode(node);
-
-    parser.addNode(
-      md.Text(''),
-    );
+    parser
+      ..addNode(node)
+      ..addNode(md.Text(''));
     return true;
   }
 }
@@ -362,15 +354,15 @@ class InlineTextColorElementBuilder extends MarkdownElementBuilder {
     TextStyle? preferredStyle,
     TextStyle? parentStyle,
   ) {
-    final String innerText = element.textContent;
-    final String color = element.attributes['color'] ?? '';
+    final innerText = element.textContent;
+    final color = element.attributes['color'] ?? '';
 
-    final Map<String, Color> contentColors = <String, Color>{
+    final contentColors = <String, Color>{
       '1': Colors.red,
       '2': Colors.green,
       '3': Colors.blue,
     };
-    final Color? contentColor = contentColors[color];
+    final contentColor = contentColors[color];
 
     return Text.rich(
       TextSpan(
@@ -392,7 +384,9 @@ class NoteBuilder extends MarkdownElementBuilder {
   @override
   Widget? visitText(md.Text text, TextStyle? preferredStyle) {
     return ColoredBox(
-        color: Colors.red, child: Text(text.text, style: preferredStyle));
+      color: Colors.red,
+      child: Text(text.text, style: preferredStyle),
+    );
   }
 
   @override
@@ -404,7 +398,7 @@ class NoteBuilder extends MarkdownElementBuilder {
 class NoteSyntax extends md.BlockSyntax {
   @override
   md.Node? parse(md.BlockParser parser) {
-    final md.Line line = parser.current;
+    final line = parser.current;
     parser.advance();
     return md.Element('note', <md.Node>[md.Text(line.content.substring(8))]);
   }
@@ -425,9 +419,11 @@ class CustomTagBlockBuilder extends MarkdownElementBuilder {
     TextStyle? parentStyle,
   ) {
     if (element.tag == 'custom') {
-      final String content = element.attributes['content']!;
+      final content = element.attributes['content']!;
       return ColoredBox(
-          color: Colors.red, child: Text(content, style: preferredStyle));
+        color: Colors.red,
+        child: Text(content, style: preferredStyle),
+      );
     }
     return const SizedBox.shrink();
   }
@@ -446,9 +442,8 @@ class CustomTagBlockSyntax extends md.BlockSyntax {
   md.Node parse(md.BlockParser parser) {
     parser.advance();
 
-    final StringBuffer buffer = StringBuffer();
-    while (
-        !parser.current.content.startsWith('{{/custom}}') && !parser.isDone) {
+    final buffer = StringBuffer();
+    while (!parser.current.content.startsWith('{{/custom}}') && !parser.isDone) {
       buffer.writeln(parser.current.content);
       parser.advance();
     }
@@ -457,8 +452,8 @@ class CustomTagBlockSyntax extends md.BlockSyntax {
       parser.advance();
     }
 
-    final String content = buffer.toString().trim();
-    final md.Element element = md.Element.empty('custom');
+    final content = buffer.toString().trim();
+    final element = md.Element.empty('custom');
     element.attributes['content'] = content;
     return element;
   }

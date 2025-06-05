@@ -14,10 +14,10 @@ void defineTests() {
     testWidgets(
       '3 consecutive hyphens',
       (WidgetTester tester) async {
-        const String data = '---';
+        const data = '---';
         await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
-        final Iterable<Widget> widgets = selfAndDescendantWidgetsOf(
+        final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );
@@ -27,7 +27,7 @@ void defineTests() {
           DecoratedBox,
           Padding,
           LimitedBox,
-          ConstrainedBox
+          ConstrainedBox,
         ]);
       },
     );
@@ -35,10 +35,10 @@ void defineTests() {
     testWidgets(
       '5 consecutive hyphens',
       (WidgetTester tester) async {
-        const String data = '-----';
+        const data = '-----';
         await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
-        final Iterable<Widget> widgets = selfAndDescendantWidgetsOf(
+        final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );
@@ -48,7 +48,7 @@ void defineTests() {
           DecoratedBox,
           Padding,
           LimitedBox,
-          ConstrainedBox
+          ConstrainedBox,
         ]);
       },
     );
@@ -56,10 +56,10 @@ void defineTests() {
     testWidgets(
       '3 asterisks separated with spaces',
       (WidgetTester tester) async {
-        const String data = '* * *';
+        const data = '* * *';
         await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
-        final Iterable<Widget> widgets = selfAndDescendantWidgetsOf(
+        final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );
@@ -69,7 +69,7 @@ void defineTests() {
           DecoratedBox,
           Padding,
           LimitedBox,
-          ConstrainedBox
+          ConstrainedBox,
         ]);
       },
     );
@@ -77,10 +77,10 @@ void defineTests() {
     testWidgets(
       '3 asterisks separated with spaces alongside text Markdown',
       (WidgetTester tester) async {
-        const String data = '# h1\n ## h2\n* * *';
+        const data = '# h1\n ## h2\n* * *';
         await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
-        final Iterable<Widget> widgets = selfAndDescendantWidgetsOf(
+        final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );
@@ -101,7 +101,7 @@ void defineTests() {
           DecoratedBox,
           Padding,
           LimitedBox,
-          ConstrainedBox
+          ConstrainedBox,
         ]);
       },
     );

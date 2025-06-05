@@ -15,23 +15,25 @@ void defineTests() {
       'Given a MarkdownBody with shrinkWrap=true '
       'Then it wraps its content',
       (WidgetTester tester) async {
-        await tester.pumpWidget(boilerplate(
-          const Stack(
-            children: <Widget>[
-              Text('shrinkWrap=true'),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: MarkdownBody(
-                  data: 'This is a [link](https://flutter.dev/)',
+        await tester.pumpWidget(
+          boilerplate(
+            const Stack(
+              children: <Widget>[
+                Text('shrinkWrap=true'),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: MarkdownBody(
+                    data: 'This is a [link](https://flutter.dev/)',
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ));
+        );
 
-        final Rect stackRect = tester.getRect(find.byType(Stack));
-        final Rect textRect = tester.getRect(find.text('shrinkWrap=true'));
-        final Rect markdownBodyRect = tester.getRect(find.byType(MarkdownBody));
+        final stackRect = tester.getRect(find.byType(Stack));
+        final textRect = tester.getRect(find.text('shrinkWrap=true'));
+        final markdownBodyRect = tester.getRect(find.byType(MarkdownBody));
 
         // The Text should be on the top of the Stack
         expect(textRect.top, equals(stackRect.top));
@@ -45,25 +47,26 @@ void defineTests() {
       'Given a MarkdownBody with shrinkWrap=false '
       'Then it expands to the maximum allowed height',
       (WidgetTester tester) async {
-        await tester.pumpWidget(boilerplate(
-          const Stack(
-            children: <Widget>[
-              Text('shrinkWrap=false test'),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: MarkdownBody(
-                  data: 'This is a [link](https://flutter.dev/)',
-                  shrinkWrap: false,
+        await tester.pumpWidget(
+          boilerplate(
+            const Stack(
+              children: <Widget>[
+                Text('shrinkWrap=false test'),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: MarkdownBody(
+                    data: 'This is a [link](https://flutter.dev/)',
+                    shrinkWrap: false,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ));
+        );
 
-        final Rect stackRect = tester.getRect(find.byType(Stack));
-        final Rect textRect =
-            tester.getRect(find.text('shrinkWrap=false test'));
-        final Rect markdownBodyRect = tester.getRect(find.byType(MarkdownBody));
+        final stackRect = tester.getRect(find.byType(Stack));
+        final textRect = tester.getRect(find.text('shrinkWrap=false test'));
+        final markdownBodyRect = tester.getRect(find.byType(MarkdownBody));
 
         // The Text should be on the top of the Stack
         expect(textRect.top, equals(stackRect.top));

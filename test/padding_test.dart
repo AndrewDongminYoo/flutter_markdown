@@ -15,23 +15,23 @@ void defineTests() {
     testWidgets(
       'use paddingBuilders for p',
       (WidgetTester tester) async {
-        const double paddingX = 10.0;
+        const paddingX = 10;
 
         await tester.pumpWidget(
           boilerplate(
             Markdown(
-                data: '**line 1**\n\n# H1\n![alt](/assets/images/logo.png)',
-                paddingBuilders: <String, MarkdownPaddingBuilder>{
-                  'p': CustomPaddingBuilder(paddingX * 1),
-                  'strong': CustomPaddingBuilder(paddingX * 2),
-                  'h1': CustomPaddingBuilder(paddingX * 3),
-                  'img': CustomPaddingBuilder(paddingX * 4),
-                }),
+              data: '**line 1**\n\n# H1\n![alt](/assets/images/logo.png)',
+              paddingBuilders: <String, MarkdownPaddingBuilder>{
+                'p': CustomPaddingBuilder(paddingX * 1),
+                'strong': CustomPaddingBuilder(paddingX * 2),
+                'h1': CustomPaddingBuilder(paddingX * 3),
+                'img': CustomPaddingBuilder(paddingX * 4),
+              },
+            ),
           ),
         );
 
-        final List<Padding> paddings =
-            tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 4);
         expect(

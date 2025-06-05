@@ -20,7 +20,7 @@ void defineTests() {
           ),
         );
 
-        final Iterable<Widget> widgets = tester.allWidgets;
+        final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>['quote']);
       },
     );
@@ -34,7 +34,7 @@ void defineTests() {
           ),
         );
 
-        final Iterable<Widget> widgets = tester.allWidgets;
+        final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>['soft wrap']);
       },
     );
@@ -42,14 +42,14 @@ void defineTests() {
     testWidgets(
       'should work with styling',
       (WidgetTester tester) async {
-        final ThemeData theme = ThemeData.light().copyWith(
+        final theme = ThemeData.light().copyWith(
           textTheme: textTheme,
         );
-        final MarkdownStyleSheet styleSheet = MarkdownStyleSheet.fromTheme(
+        final styleSheet = MarkdownStyleSheet.fromTheme(
           theme,
         );
 
-        const String data =
+        const data =
             '> this is a link: [Markdown guide](https://www.markdownguide.org) and this is **bold** and *italic*';
         await tester.pumpWidget(
           boilerplate(
@@ -60,18 +60,17 @@ void defineTests() {
           ),
         );
 
-        final Iterable<Widget> widgets = tester.allWidgets;
-        final DecoratedBox blockQuoteContainer = tester.widget(
+        final widgets = tester.allWidgets;
+        final blockQuoteContainer = tester.widget<DecoratedBox>(
           find.byType(DecoratedBox),
         );
-        final Text qouteText = tester.widget(find.byType(Text));
-        final List<TextSpan> styledTextParts =
-            (qouteText.textSpan! as TextSpan).children!.cast<TextSpan>();
+        final quoteText = tester.widget<Text>(find.byType(Text));
+        final styledTextParts = (quoteText.textSpan! as TextSpan).children!.cast<TextSpan>();
 
         expectTextStrings(
           widgets,
           <String>[
-            'this is a link: Markdown guide and this is bold and italic'
+            'this is a link: Markdown guide and this is bold and italic',
           ],
         );
         expect(

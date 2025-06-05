@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
@@ -14,15 +13,15 @@ void defineTests() {
     testWidgets(
       'ignore tags',
       (WidgetTester tester) async {
-        final List<String> data = <String>[
+        final data = <String>[
           'Line 1\n<p>HTML content</p>\nLine 2',
-          'Line 1\n<!-- HTML\n comment\n ignored --><\nLine 2'
+          'Line 1\n<!-- HTML\n comment\n ignored --><\nLine 2',
         ];
 
-        for (final String line in data) {
+        for (final line in data) {
           await tester.pumpWidget(boilerplate(MarkdownBody(data: line)));
 
-          final Iterable<Widget> widgets = tester.allWidgets;
+          final widgets = tester.allWidgets;
           expectTextStrings(widgets, <String>['Line 1', 'Line 2']);
         }
       },

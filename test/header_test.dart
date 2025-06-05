@@ -14,10 +14,10 @@ void defineTests() {
     testWidgets(
       'level one',
       (WidgetTester tester) async {
-        const String data = '# Header';
+        const data = '# Header';
         await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
-        final Iterable<Widget> widgets = selfAndDescendantWidgetsOf(
+        final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
           tester,
         );

@@ -14,8 +14,8 @@ void defineTests() {
     testWidgets(
       'should use style textScaler in RichText',
       (WidgetTester tester) async {
-        const TextScaler scaler = TextScaler.linear(2.0);
-        const String data = 'Hello';
+        const scaler = TextScaler.linear(2);
+        const data = 'Hello';
         await tester.pumpWidget(
           boilerplate(
             MarkdownBody(
@@ -25,7 +25,7 @@ void defineTests() {
           ),
         );
 
-        final RichText richText = tester.widget(find.byType(RichText));
+        final richText = tester.widget<RichText>(find.byType(RichText));
         expect(richText.textScaler, scaler);
       },
     );
@@ -33,8 +33,8 @@ void defineTests() {
     testWidgets(
       'should use MediaQuery textScaler in RichText',
       (WidgetTester tester) async {
-        const TextScaler scaler = TextScaler.linear(2.0);
-        const String data = 'Hello';
+        const scaler = TextScaler.linear(2);
+        const data = 'Hello';
         await tester.pumpWidget(
           boilerplate(
             const MediaQuery(
@@ -46,7 +46,7 @@ void defineTests() {
           ),
         );
 
-        final RichText richText = tester.widget(find.byType(RichText));
+        final richText = tester.widget<RichText>(find.byType(RichText));
         expect(richText.textScaler, scaler);
       },
     );
@@ -54,8 +54,8 @@ void defineTests() {
     testWidgets(
       'should use MediaQuery textScaler in SelectableText.rich',
       (WidgetTester tester) async {
-        const TextScaler scaler = TextScaler.linear(2.0);
-        const String data = 'Hello';
+        const scaler = TextScaler.linear(2);
+        const data = 'Hello';
         await tester.pumpWidget(
           boilerplate(
             const MediaQuery(
@@ -68,8 +68,7 @@ void defineTests() {
           ),
         );
 
-        final SelectableText selectableText =
-            tester.widget(find.byType(SelectableText));
+        final selectableText = tester.widget<SelectableText>(find.byType(SelectableText));
         expect(selectableText.textScaler, scaler);
       },
     );
