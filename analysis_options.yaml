@@ -6,3 +6,8 @@ analyzer:
     avoid_positional_boolean_parameters: ignore
     one_member_abstracts: ignore
     directives_ordering: ignore
+
+# Formatter settings
+formatter:
+  page_width: 120
+  trailing_commas: preserve

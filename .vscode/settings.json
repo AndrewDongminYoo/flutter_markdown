@@ -1,0 +1,24 @@
+{
+  "[dart]": {
+    "cSpell.fixSpellingWithRenameProvider": true,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.rulers": [120],
+    "editor.selectionHighlight": false,
+    "editor.suggest.preview": true,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.wordBasedSuggestions": "matchingDocuments"
+  },
+  "[json]": {
+    "editor.indentSize": "tabSize",
+    "editor.tabSize": 2
+  },
+  "dart.lineLength": 120,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*": "${capture}.lock",
+    "*.dart": "${capture}.*.dart"
+  }
+}
