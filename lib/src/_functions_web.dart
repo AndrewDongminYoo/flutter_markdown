@@ -2,14 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// 🎯 Dart imports:
 import 'dart:js_interop';
 
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart' show CupertinoTheme;
 import 'package:flutter/material.dart' show Theme;
 import 'package:flutter/widgets.dart';
+
+// 📦 Package imports:
+import 'package:path/path.dart' as p;
+
+// 🌎 Project imports:
 import 'package:flutter_markdown/src/style_sheet.dart';
 import 'package:flutter_markdown/src/widget.dart';
-import 'package:path/path.dart' as p;
 
 /// Type for a function that creates image widgets.
 typedef ImageBuilder = Widget Function(

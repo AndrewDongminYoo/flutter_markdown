@@ -2,16 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// 🎯 Dart imports:
 import 'dart:io' as io;
 
+// 🐦 Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+
+// 📦 Package imports:
 import 'package:flutter_test/flutter_test.dart';
 
-import 'mocks/image_test_mocks.dart';
+// 🌎 Project imports:
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'helpers/utils.dart';
+import 'mocks/image_test_mocks.dart';
 
 void main() => defineTests();
 

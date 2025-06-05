@@ -2,14 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:io' as io;
 
+// 🐦 Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+
+// 📦 Package imports:
 import 'package:flutter_test/flutter_test.dart';
 
 final TextTheme textTheme = Typography.material2018().black.merge(const TextTheme(bodyMedium: TextStyle(fontSize: 12)));

@@ -2,12 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// 🐦 Flutter imports:
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/src/_functions_io.dart' if (dart.library.js_interop) 'package:flutter_markdown/src/_functions_web.dart';
+
+// 📦 Package imports:
+import 'package:markdown/markdown.dart' as md;
+
+// 🌎 Project imports:
 import 'package:flutter_markdown/src/style_sheet.dart';
 import 'package:flutter_markdown/src/widget.dart';
-import 'package:markdown/markdown.dart' as md;
+
+// 🌎 Project imports:
+import 'package:flutter_markdown/src/_functions_io.dart'
+    if (dart.library.js_interop) 'package:flutter_markdown/src/_functions_web.dart';
 
 final List<String> _kBlockTags = <String>[
   'p',
@@ -265,7 +273,10 @@ class MarkdownBuilder implements md.NodeVisitor {
     }
 
     assert(_tables.isEmpty, 'Unclosed table found. Make sure to close all tables with a closing tag.');
-    assert(_inlines.isEmpty, 'Unclosed inline element found. Make sure to close all inline elements with a closing tag.');
+    assert(
+      _inlines.isEmpty,
+      'Unclosed inline element found. Make sure to close all inline elements with a closing tag.',
+    );
     assert(!_isInBlockquote, 'Unclosed blockquote found. Make sure to close all blockquotes with a closing tag.');
     return _blocks.single.children;
   }

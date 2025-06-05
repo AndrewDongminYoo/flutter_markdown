@@ -2,12 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart' show CupertinoTheme;
 import 'package:flutter/material.dart' show Theme;
 import 'package:flutter/widgets.dart';
 
+// 🌎 Project imports:
 import 'package:flutter_markdown/src/style_sheet.dart';
 import 'package:flutter_markdown/src/widget.dart';
 

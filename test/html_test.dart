@@ -2,8 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_markdown/flutter_markdown.dart';
+// 📦 Package imports:
 import 'package:flutter_test/flutter_test.dart';
+
+// 🌎 Project imports:
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'helpers/utils.dart';
 
 void main() => defineTests();
