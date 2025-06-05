@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'blockquote_test.dart' as blockquote_test;
-import 'custom_syntax_test.dart' as custome_syntax_test;
+import 'custom_syntax_test.dart' as custom_syntax_test;
 import 'emphasis_test.dart' as emphasis_test;
 import 'footnote_test.dart' as footnote_test;
 import 'header_test.dart' as header_test;
@@ -24,7 +24,7 @@ import 'uri_test.dart' as uri_test;
 
 void main() {
   blockquote_test.defineTests();
-  custome_syntax_test.defineTests();
+  custom_syntax_test.defineTests();
   emphasis_test.defineTests();
   footnote_test.defineTests();
   header_test.defineTests();
