@@ -13,16 +13,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  markdown: ^7.1.1
-  path: ^1.8.0
+  markdown: ^7.3.0
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
-  leak_tracker_flutter_testing: any
-  mockito: ^5.4.4
-  very_good_analysis: ^8.0.0
+  leak_tracker_flutter_testing: ^3.0.9
+  mockito: ^5.4.6
+  very_good_analysis: ^9.0.0
 
 topics:
   - markdown
