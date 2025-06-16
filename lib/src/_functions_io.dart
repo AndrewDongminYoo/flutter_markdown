@@ -62,7 +62,7 @@ Widget kDefaultImageBuilder(
           height: height,
           errorBuilder: kDefaultImageErrorWidgetBuilder,
         );
-      } catch (error, stackTrace) {
+      } on Exception catch (error, stackTrace) {
         // Handle any invalid file URI's.
         return Builder(
           builder: (BuildContext context) {
