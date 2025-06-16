@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 
 // 🌎 Project imports:
+import 'package:flutter_markdown/src/keep_word_break.dart';
 import 'package:flutter_markdown/src/style_sheet.dart';
 import 'package:flutter_markdown/src/widget.dart';
 
@@ -145,6 +146,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     required this.builders,
     required this.paddingBuilders,
     required this.listItemCrossAxisAlignment,
+    required this.keepWordBreak,
     this.fitContent = false,
     this.onSelectionChanged,
     this.onTapText,
@@ -212,6 +214,12 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// Default these spaces are removed in accordance with the Markdown
   /// specification on soft line breaks when lines of text are joined.
   final bool softLineBreak;
+
+  /// Controls whether word breaks are preserved when rendering text.
+  ///
+  /// When set to `true`, word breaks will be maintained in the text rendering.
+  /// When `false`, word breaks may be modified or removed during text layout.
+  final bool keepWordBreak;
 
   final List<String> _listIndents = <String>[];
   final List<_BlockElement> _blocks = <_BlockElement>[];
@@ -378,10 +386,15 @@ class MarkdownBuilder implements md.NodeVisitor {
         text = text.replaceAll(leadingSpacesPattern, '');
       }
 
-      if (softLineBreak) {
-        return text;
+      if (keepWordBreak) {
+        text = text.wrapped;
       }
-      return text.replaceAll(softLineBreakPattern, ' ');
+
+      if (!softLineBreak) {
+        text = text.replaceAll(softLineBreakPattern, ' ');
+      }
+
+      return text;
     }
 
     Widget? child;
