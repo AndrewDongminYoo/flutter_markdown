@@ -13,19 +13,6 @@ reinstall:
   (scripts):
     - flutter clean
     - flutter pub get
-    - $bootstrap
-
-bootstrap:
-  (description): Initializes the project by generating necessary code, sorting imports, applying fixes, and formatting.
-  (scripts):
-    - $generate
-    - $format
-
-generate:
-  (description): Runs code generation builders and sorts imports to set up project files.
-  (scripts):
-    - dart run build_runner build --delete-conflicting-outputs
-    - dart run generate_barrel_files.dart
 
 format:
   (description): Applies automated fixes, sorts imports, and formats the codebase to ensure consistent code quality.
