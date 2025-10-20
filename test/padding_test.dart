@@ -67,7 +67,7 @@ class CustomPaddingBuilder extends MarkdownPaddingBuilder {
   double paddingX;
 
   @override
-  EdgeInsets getPadding() {
+  EdgeInsetsGeometry getPadding() {
     return EdgeInsets.symmetric(horizontal: paddingX);
   }
 }

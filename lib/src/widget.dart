@@ -545,7 +545,7 @@ class Markdown extends MarkdownWidget {
   });
 
   /// The amount of space by which to inset the children.
-  final EdgeInsets padding;
+  final EdgeInsetsGeometry padding;
 
   /// An object that can be used to control the position to which this scroll view is scrolled.
   ///
@@ -582,5 +582,5 @@ abstract class MarkdownPaddingBuilder {
   void visitElementBefore(md.Element element) {}
 
   /// Called when a widget node has been rendering and need tag padding.
-  EdgeInsets getPadding() => EdgeInsets.zero;
+  EdgeInsetsGeometry getPadding() => EdgeInsets.zero;
 }

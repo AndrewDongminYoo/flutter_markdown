@@ -341,20 +341,20 @@ class MarkdownStyleSheet {
   MarkdownStyleSheet copyWith({
     TextStyle? a,
     TextStyle? p,
-    EdgeInsets? pPadding,
+    EdgeInsetsGeometry? pPadding,
     TextStyle? code,
     TextStyle? h1,
-    EdgeInsets? h1Padding,
+    EdgeInsetsGeometry? h1Padding,
     TextStyle? h2,
-    EdgeInsets? h2Padding,
+    EdgeInsetsGeometry? h2Padding,
     TextStyle? h3,
-    EdgeInsets? h3Padding,
+    EdgeInsetsGeometry? h3Padding,
     TextStyle? h4,
-    EdgeInsets? h4Padding,
+    EdgeInsetsGeometry? h4Padding,
     TextStyle? h5,
-    EdgeInsets? h5Padding,
+    EdgeInsetsGeometry? h5Padding,
     TextStyle? h6,
-    EdgeInsets? h6Padding,
+    EdgeInsetsGeometry? h6Padding,
     TextStyle? em,
     TextStyle? strong,
     TextStyle? del,
@@ -364,20 +364,20 @@ class MarkdownStyleSheet {
     double? blockSpacing,
     double? listIndent,
     TextStyle? listBullet,
-    EdgeInsets? listBulletPadding,
+    EdgeInsetsGeometry? listBulletPadding,
     TextStyle? tableHead,
     TextStyle? tableBody,
     TextAlign? tableHeadAlign,
-    EdgeInsets? tablePadding,
+    EdgeInsetsGeometry? tablePadding,
     TableBorder? tableBorder,
     TableColumnWidth? tableColumnWidth,
     bool? tableScrollbarThumbVisibility,
-    EdgeInsets? tableCellsPadding,
+    EdgeInsetsGeometry? tableCellsPadding,
     Decoration? tableCellsDecoration,
     TableCellVerticalAlignment? tableVerticalAlignment,
-    EdgeInsets? blockquotePadding,
+    EdgeInsetsGeometry? blockquotePadding,
     Decoration? blockquoteDecoration,
-    EdgeInsets? codeblockPadding,
+    EdgeInsetsGeometry? codeblockPadding,
     Decoration? codeblockDecoration,
     Decoration? horizontalRuleDecoration,
     WrapAlignment? textAlign,
@@ -523,7 +523,7 @@ class MarkdownStyleSheet {
   final TextStyle? p;
 
   /// The padding to use for `p` elements.
-  final EdgeInsets? pPadding;
+  final EdgeInsetsGeometry? pPadding;
 
   /// The [TextStyle] to use for `code` elements.
   final TextStyle? code;
@@ -532,37 +532,37 @@ class MarkdownStyleSheet {
   final TextStyle? h1;
 
   /// The padding to use for `h1` elements.
-  final EdgeInsets? h1Padding;
+  final EdgeInsetsGeometry? h1Padding;
 
   /// The [TextStyle] to use for `h2` elements.
   final TextStyle? h2;
 
   /// The padding to use for `h2` elements.
-  final EdgeInsets? h2Padding;
+  final EdgeInsetsGeometry? h2Padding;
 
   /// The [TextStyle] to use for `h3` elements.
   final TextStyle? h3;
 
   /// The padding to use for `h3` elements.
-  final EdgeInsets? h3Padding;
+  final EdgeInsetsGeometry? h3Padding;
 
   /// The [TextStyle] to use for `h4` elements.
   final TextStyle? h4;
 
   /// The padding to use for `h4` elements.
-  final EdgeInsets? h4Padding;
+  final EdgeInsetsGeometry? h4Padding;
 
   /// The [TextStyle] to use for `h5` elements.
   final TextStyle? h5;
 
   /// The padding to use for `h5` elements.
-  final EdgeInsets? h5Padding;
+  final EdgeInsetsGeometry? h5Padding;
 
   /// The [TextStyle] to use for `h6` elements.
   final TextStyle? h6;
 
   /// The padding to use for `h6` elements.
-  final EdgeInsets? h6Padding;
+  final EdgeInsetsGeometry? h6Padding;
 
   /// The [TextStyle] to use for `em` elements.
   final TextStyle? em;
@@ -592,7 +592,7 @@ class MarkdownStyleSheet {
   final TextStyle? listBullet;
 
   /// The padding to use for bullets.
-  final EdgeInsets? listBulletPadding;
+  final EdgeInsetsGeometry? listBulletPadding;
 
   /// The [TextStyle] to use for `th` elements.
   final TextStyle? tableHead;
@@ -604,7 +604,7 @@ class MarkdownStyleSheet {
   final TextAlign? tableHeadAlign;
 
   /// The padding to use for `table` elements.
-  final EdgeInsets? tablePadding;
+  final EdgeInsetsGeometry? tablePadding;
 
   /// The [TableBorder] to use for `table` elements.
   final TableBorder? tableBorder;
@@ -616,7 +616,7 @@ class MarkdownStyleSheet {
   final bool? tableScrollbarThumbVisibility;
 
   /// The padding to use for `th` and `td` elements.
-  final EdgeInsets? tableCellsPadding;
+  final EdgeInsetsGeometry? tableCellsPadding;
 
   /// The decoration to use for `th` and `td` elements.
   final Decoration? tableCellsDecoration;
@@ -625,13 +625,13 @@ class MarkdownStyleSheet {
   final TableCellVerticalAlignment tableVerticalAlignment;
 
   /// The padding to use for `blockquote` elements.
-  final EdgeInsets? blockquotePadding;
+  final EdgeInsetsGeometry? blockquotePadding;
 
   /// The decoration to use behind `blockquote` elements.
   final Decoration? blockquoteDecoration;
 
   /// The padding to use for `pre` elements.
-  final EdgeInsets? codeblockPadding;
+  final EdgeInsetsGeometry? codeblockPadding;
 
   /// The decoration to use behind for `pre` elements.
   final Decoration? codeblockDecoration;

@@ -490,8 +490,7 @@ class MarkdownBuilder implements md.NodeVisitor {
                 : CrossAxisAlignment.baseline,
             children: <Widget>[
               SizedBox(
-                width:
-                    styleSheet.listIndent! + styleSheet.listBulletPadding!.left + styleSheet.listBulletPadding!.right,
+                width: styleSheet.listIndent! + styleSheet.listBulletPadding!.horizontal,
                 child: bullet,
               ),
               Flexible(
@@ -548,7 +547,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     } else {
       final current = _inlines.removeLast();
       final parent = _inlines.last;
-      var padding = EdgeInsets.zero;
+      EdgeInsetsGeometry padding = EdgeInsets.zero;
 
       if (paddingBuilders.containsKey(tag)) {
         padding = paddingBuilders[tag]!.getPadding();
@@ -768,7 +767,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     );
   }
 
-  Widget _buildPadding(EdgeInsets padding, Widget child) {
+  Widget _buildPadding(EdgeInsetsGeometry padding, Widget child) {
     if (padding == EdgeInsets.zero) {
       return child;
     }
@@ -803,7 +802,7 @@ class MarkdownBuilder implements md.NodeVisitor {
 
     var blockAlignment = WrapAlignment.start;
     var textAlign = TextAlign.start;
-    var textPadding = EdgeInsets.zero;
+    EdgeInsetsGeometry textPadding = EdgeInsets.zero;
     if (_isBlockTag(_currentBlockTag)) {
       blockAlignment = _wrapAlignmentForBlockTag(_currentBlockTag);
       textAlign = _textAlignForBlockTag(_currentBlockTag);
@@ -977,7 +976,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     return WrapAlignment.start;
   }
 
-  EdgeInsets _textPaddingForBlockTag(String? blockTag) {
+  EdgeInsetsGeometry _textPaddingForBlockTag(String? blockTag) {
     switch (blockTag) {
       case 'p':
         return styleSheet.pPadding!;

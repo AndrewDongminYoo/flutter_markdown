@@ -153,7 +153,7 @@ void defineTests() {
           ),
         );
 
-        final image = tester.allWidgets.whereType<Image>().first;
+        final image = tester.allWidgets.whereType<Image>().single;
 
         expect(image.image is AssetImage, isTrue);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');

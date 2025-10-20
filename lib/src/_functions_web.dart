@@ -54,7 +54,7 @@ Widget kDefaultImageBuilder(
     if (imageDirectory != null) {
       try {
         fileUri = Uri.parse(p.join(imageDirectory, uri.toString()));
-      } on Exception catch (error, stackTrace) {
+      } on Object catch (error, stackTrace) {
         // Handle any invalid file URI's.
         return Builder(
           builder: (BuildContext context) {
