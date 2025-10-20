@@ -317,9 +317,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         final destination = element.attributes['href'];
         final title = element.attributes['title'] ?? '';
 
-        _linkHandlers.add(
-          delegate.createLink(text, destination, title),
-        );
+        _linkHandlers.add(delegate.createLink(text, destination, title));
       }
 
       _addParentInlineIfNeeded(_blocks.last.tag);
@@ -346,11 +344,7 @@ class MarkdownBuilder implements md.NodeVisitor {
   /// Returns the text, if any, from [element] and its descendants.
   String? extractTextFromElement(md.Node element) {
     return element is md.Element && (element.children?.isNotEmpty ?? false)
-        ? element.children!
-            .map(
-              (md.Node e) => e is md.Text ? e.text : extractTextFromElement(e),
-            )
-            .join()
+        ? element.children!.map((md.Node e) => e is md.Text ? e.text : extractTextFromElement(e)).join()
         : (element is md.Element && (element.attributes.isNotEmpty) ? element.attributes['alt'] : '');
   }
 
@@ -458,12 +452,12 @@ class MarkdownBuilder implements md.NodeVisitor {
       }
 
       var child = builders[tag]?.visitElementAfterWithContext(
-            delegate.context,
-            element,
-            styleSheet.styles[tag],
-            _inlines.isNotEmpty ? _inlines.last.style : null,
-          ) ??
-          defaultChild();
+        delegate.context,
+        element,
+        styleSheet.styles[tag],
+        _inlines.isNotEmpty ? _inlines.last.style : null,
+      );
+      child ??= defaultChild();
 
       if (_isListTag(tag)) {
         assert(_listIndents.isNotEmpty, 'List tag $tag found without a list indent.');
@@ -481,13 +475,11 @@ class MarkdownBuilder implements md.NodeVisitor {
           } else {
             bullet = _buildBullet(_listIndents.last);
           }
+          final alignStart = listItemCrossAxisAlignment == MarkdownListItemCrossAxisAlignment.start;
           child = Row(
             mainAxisSize: fitContent ? MainAxisSize.min : MainAxisSize.max,
-            textBaseline:
-                listItemCrossAxisAlignment == MarkdownListItemCrossAxisAlignment.start ? null : TextBaseline.alphabetic,
-            crossAxisAlignment: listItemCrossAxisAlignment == MarkdownListItemCrossAxisAlignment.start
-                ? CrossAxisAlignment.start
-                : CrossAxisAlignment.baseline,
+            textBaseline: alignStart ? null : TextBaseline.alphabetic,
+            crossAxisAlignment: alignStart ? CrossAxisAlignment.start : CrossAxisAlignment.baseline,
             children: <Widget>[
               SizedBox(
                 width: styleSheet.listIndent! + styleSheet.listBulletPadding!.horizontal,
@@ -503,11 +495,7 @@ class MarkdownBuilder implements md.NodeVisitor {
       } else if (tag == 'table') {
         if (styleSheet.tableColumnWidth is FixedColumnWidth || styleSheet.tableColumnWidth is IntrinsicColumnWidth) {
           child = _ScrollControllerBuilder(
-            builder: (
-              BuildContext context,
-              ScrollController tableScrollController,
-              Widget? child,
-            ) {
+            builder: (context, ScrollController tableScrollController, Widget? child) {
               return Scrollbar(
                 controller: tableScrollController,
                 thumbVisibility: styleSheet.tableScrollbarThumbVisibility,
@@ -587,14 +575,15 @@ class MarkdownBuilder implements md.NodeVisitor {
         if (alignAttribute == null) {
           align = tag == 'th' ? styleSheet.tableHeadAlign : TextAlign.left;
         } else {
-          switch (alignAttribute) {
-            case 'left':
-              align = TextAlign.left;
-            case 'center':
-              align = TextAlign.center;
-            case 'right':
-              align = TextAlign.right;
-          }
+          align = switch (alignAttribute) {
+            'left' => TextAlign.left,
+            'center' => TextAlign.center,
+            'right' => TextAlign.right,
+            'justify' => TextAlign.justify,
+            'start' => TextAlign.start,
+            'end' => TextAlign.end,
+            _ => null
+          };
         }
         final child = _buildTableCell(
           _mergeInlineChildren(current.children, align),
@@ -898,11 +887,7 @@ class MarkdownBuilder implements md.NodeVisitor {
 
       if (lastIsText) {
         // Removes last widget from the list for merging and extracts its spans
-        spans.addAll(
-          _getInlineSpansFromSpan(
-            _getInlineSpanFromText(mergedWidgets.removeLast())!,
-          ),
-        );
+        spans.addAll(_getInlineSpansFromSpan(_getInlineSpanFromText(mergedWidgets.removeLast())!));
       }
 
       spans.addAll(_getInlineSpansFromSpan(currentSpan));
@@ -928,72 +913,46 @@ class MarkdownBuilder implements md.NodeVisitor {
 
   TextAlign _textAlignForBlockTag(String? blockTag) {
     final wrapAlignment = _wrapAlignmentForBlockTag(blockTag);
-    switch (wrapAlignment) {
-      case WrapAlignment.start:
-        return TextAlign.start;
-      case WrapAlignment.center:
-        return TextAlign.center;
-      case WrapAlignment.end:
-        return TextAlign.end;
-      case WrapAlignment.spaceAround:
-        return TextAlign.justify;
-      case WrapAlignment.spaceBetween:
-        return TextAlign.justify;
-      case WrapAlignment.spaceEvenly:
-        return TextAlign.justify;
-    }
+    return switch (wrapAlignment) {
+      WrapAlignment.start => TextAlign.start,
+      WrapAlignment.center => TextAlign.center,
+      WrapAlignment.end => TextAlign.end,
+      WrapAlignment.spaceAround => TextAlign.justify,
+      WrapAlignment.spaceBetween => TextAlign.justify,
+      WrapAlignment.spaceEvenly => TextAlign.justify
+    };
   }
 
   WrapAlignment _wrapAlignmentForBlockTag(String? blockTag) {
-    switch (blockTag) {
-      case 'p':
-        return styleSheet.textAlign;
-      case 'h1':
-        return styleSheet.h1Align;
-      case 'h2':
-        return styleSheet.h2Align;
-      case 'h3':
-        return styleSheet.h3Align;
-      case 'h4':
-        return styleSheet.h4Align;
-      case 'h5':
-        return styleSheet.h5Align;
-      case 'h6':
-        return styleSheet.h6Align;
-      case 'ul':
-        return styleSheet.unorderedListAlign;
-      case 'ol':
-        return styleSheet.orderedListAlign;
-      case 'blockquote':
-        return styleSheet.blockquoteAlign;
-      case 'pre':
-        return styleSheet.codeblockAlign;
-      case 'hr':
-        break;
-      case 'li':
-        break;
-    }
-    return WrapAlignment.start;
+    return switch (blockTag) {
+      'p' => styleSheet.textAlign,
+      'h1' => styleSheet.h1Align,
+      'h2' => styleSheet.h2Align,
+      'h3' => styleSheet.h3Align,
+      'h4' => styleSheet.h4Align,
+      'h5' => styleSheet.h5Align,
+      'h6' => styleSheet.h6Align,
+      'ul' => styleSheet.unorderedListAlign,
+      'ol' => styleSheet.orderedListAlign,
+      'blockquote' => styleSheet.blockquoteAlign,
+      'pre' => styleSheet.codeblockAlign,
+      'hr' => WrapAlignment.start,
+      'li' => WrapAlignment.start,
+      _ => WrapAlignment.start
+    };
   }
 
   EdgeInsetsGeometry _textPaddingForBlockTag(String? blockTag) {
-    switch (blockTag) {
-      case 'p':
-        return styleSheet.pPadding!;
-      case 'h1':
-        return styleSheet.h1Padding!;
-      case 'h2':
-        return styleSheet.h2Padding!;
-      case 'h3':
-        return styleSheet.h3Padding!;
-      case 'h4':
-        return styleSheet.h4Padding!;
-      case 'h5':
-        return styleSheet.h5Padding!;
-      case 'h6':
-        return styleSheet.h6Padding!;
-    }
-    return EdgeInsets.zero;
+    return switch (blockTag) {
+      'p' => styleSheet.pPadding!,
+      'h1' => styleSheet.h1Padding!,
+      'h2' => styleSheet.h2Padding!,
+      'h3' => styleSheet.h3Padding!,
+      'h4' => styleSheet.h4Padding!,
+      'h5' => styleSheet.h5Padding!,
+      'h6' => styleSheet.h6Padding!,
+      _ => EdgeInsets.zero
+    };
   }
 
   /// Combine text spans with equivalent properties into a single span.

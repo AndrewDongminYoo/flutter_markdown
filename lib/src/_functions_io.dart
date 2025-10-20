@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 // 🎯 Dart imports:
-import 'dart:io';
+import 'dart:io' as io;
 
 // 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart' show CupertinoTheme;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' show Theme;
 import 'package:flutter/widgets.dart';
 
@@ -57,7 +58,7 @@ Widget kDefaultImageBuilder(
     } else {
       try {
         return Image.file(
-          File.fromUri(fileUri),
+          io.File.fromUri(fileUri),
           width: width,
           height: height,
           errorBuilder: kDefaultImageErrorWidgetBuilder,
@@ -85,26 +86,20 @@ MarkdownStyleSheet kFallbackStyle(
   BuildContext context,
   MarkdownStyleSheetBaseTheme? baseTheme,
 ) {
-  MarkdownStyleSheet result;
-  switch (baseTheme) {
-    case MarkdownStyleSheetBaseTheme.platform:
-      // coverage:ignore-start
-      // This is a workaround for the fact that the platform theme is not
-      // available in the constructor of MarkdownStyleSheet.
-      result = (Platform.isIOS || Platform.isMacOS)
-          ? MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context))
-          : MarkdownStyleSheet.fromTheme(Theme.of(context));
+  final cupertino = MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context));
+  final material = MarkdownStyleSheet.fromTheme(Theme.of(context));
+  final textScaler = MediaQuery.textScalerOf(context);
+  return switch (baseTheme) {
+    // coverage:ignore-start
+    // This is a workaround for the fact that the platform theme is not available in the constructor of MarkdownStyleSheet.
+    MarkdownStyleSheetBaseTheme.platform => switch (defaultTargetPlatform) {
+        TargetPlatform.iOS || TargetPlatform.macOS => cupertino.copyWith(textScaler: textScaler),
+        _ => material.copyWith(textScaler: textScaler)
+      },
     // coverage:ignore-end
-    case MarkdownStyleSheetBaseTheme.cupertino:
-      result = MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context));
-    case MarkdownStyleSheetBaseTheme.material:
-    case null:
-      result = MarkdownStyleSheet.fromTheme(Theme.of(context));
-  }
-
-  return result.copyWith(
-    textScaler: MediaQuery.textScalerOf(context),
-  );
+    MarkdownStyleSheetBaseTheme.cupertino => cupertino.copyWith(textScaler: textScaler),
+    _ => material.copyWith(textScaler: textScaler)
+  };
 }
 
 Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {

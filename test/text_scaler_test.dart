@@ -44,9 +44,7 @@ void defineTests() {
           boilerplate(
             const MediaQuery(
               data: MediaQueryData(textScaler: scaler),
-              child: MarkdownBody(
-                data: data,
-              ),
+              child: MarkdownBody(data: data),
             ),
           ),
         );

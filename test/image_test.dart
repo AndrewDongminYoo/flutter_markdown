@@ -32,11 +32,7 @@ void defineTests() {
       'should not interrupt styling',
       (WidgetTester tester) async {
         const data = '_textbefore ![alt](https://img) textafter_';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final texts = tester.widgetList<Text>(find.byType(Text));
         final firstTextWidget = texts.first;
@@ -58,11 +54,7 @@ void defineTests() {
       'should work with a link',
       (WidgetTester tester) async {
         const data = '![alt](https://img#50x50)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final image = tester.widget<Image>(find.byType(Image));
         final networkImage = image.image as NetworkImage;
@@ -97,11 +89,7 @@ void defineTests() {
       'local files should be files on non-web',
       (WidgetTester tester) async {
         const data = '![alt](http.png)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final widgets = tester.allWidgets;
         final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
@@ -115,11 +103,7 @@ void defineTests() {
       'local files should be network on web',
       (WidgetTester tester) async {
         const data = '![alt](http.png)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final widgets = tester.allWidgets;
         final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
@@ -143,9 +127,7 @@ void defineTests() {
                   child: Container(
                     color: Colors.white,
                     width: 500,
-                    child: const Markdown(
-                      data: data,
-                    ),
+                    child: const Markdown(data: data),
                   ),
                 ),
               ),
@@ -168,9 +150,7 @@ void defineTests() {
 
         await expectLater(
           find.byType(Container),
-          matchesGoldenFile(
-            'assets/images/golden/image_test/resource_asset_logo.png',
-          ),
+          matchesGoldenFile('assets/images/golden/image_test/resource_asset_logo.png'),
         );
       },
       skip: kIsWeb, // Goldens are platform-specific.
@@ -180,11 +160,7 @@ void defineTests() {
       'should work with local image files',
       (WidgetTester tester) async {
         const data = '![alt](img.png#50x50)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final image = tester.widget<Image>(find.byType(Image));
         final fileImage = image.image as FileImage;
@@ -199,11 +175,7 @@ void defineTests() {
       'should show properly next to text',
       (WidgetTester tester) async {
         const data = 'Hello ![alt](img#50x50)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final text = tester.widget<Text>(find.byType(Text));
         final textSpan = text.textSpan! as TextSpan;
@@ -335,11 +307,7 @@ void defineTests() {
       'should gracefully handle image URLs with empty scheme',
       (WidgetTester tester) async {
         const data = '![alt](://img#x50)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         expect(find.byType(Image), findsNothing);
         expect(tester.takeException(), isNull);
@@ -350,11 +318,7 @@ void defineTests() {
       'should gracefully handle image URLs with invalid scheme',
       (WidgetTester tester) async {
         const data = '![alt](ttps://img#x50)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         // On the web, any URI with an unrecognized scheme is treated as a network image.
         // Thus the error builder of the Image widget is called.
@@ -375,11 +339,7 @@ void defineTests() {
       'should gracefully handle width parsing failures',
       (WidgetTester tester) async {
         const data = '![alt](https://img#x50)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final image = tester.widget<Image>(find.byType(Image));
         final networkImage = image.image as NetworkImage;
@@ -393,11 +353,7 @@ void defineTests() {
       'should gracefully handle height parsing failures',
       (WidgetTester tester) async {
         const data = ' ![alt](https://img#50x)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final image = tester.widget<Image>(find.byType(Image));
         final networkImage = image.image as NetworkImage;
@@ -456,9 +412,7 @@ void defineTests() {
 
         await expectLater(
           find.byType(Container),
-          matchesGoldenFile(
-            'assets/images/golden/image_test/custom_image_builder_test.png',
-          ),
+          matchesGoldenFile('assets/images/golden/image_test/custom_image_builder_test.png'),
         );
         imageCache.clear();
       },

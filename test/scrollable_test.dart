@@ -68,16 +68,10 @@ void defineTests() {
     testWidgets(
       'controller',
       (WidgetTester tester) async {
-        final controller = ScrollController(
-          initialScrollOffset: 209,
-        );
+        final controller = ScrollController(initialScrollOffset: 209);
         addTearDown(controller.dispose);
 
-        await tester.pumpWidget(
-          boilerplate(
-            Markdown(controller: controller, data: ''),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(Markdown(controller: controller, data: '')));
 
         double realOffset() {
           return tester.state<ScrollableState>(find.byType(Scrollable)).position.pixels;
@@ -91,11 +85,7 @@ void defineTests() {
     testWidgets(
       'Scrollable wrapping',
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: ''),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: '')));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(Markdown),
@@ -124,9 +114,7 @@ void defineTests() {
               data: const MediaQueryData(),
               child: MarkdownBody(
                 data: data,
-                styleSheet: MarkdownStyleSheet(
-                  tableColumnWidth: const FixedColumnWidth(150),
-                ),
+                styleSheet: MarkdownStyleSheet(tableColumnWidth: const FixedColumnWidth(150)),
               ),
             ),
           ),
@@ -151,9 +139,7 @@ void defineTests() {
               data: const MediaQueryData(),
               child: MarkdownBody(
                 data: data,
-                styleSheet: MarkdownStyleSheet(
-                  tableColumnWidth: const IntrinsicColumnWidth(),
-                ),
+                styleSheet: MarkdownStyleSheet(tableColumnWidth: const IntrinsicColumnWidth()),
               ),
             ),
           ),
@@ -183,9 +169,7 @@ void defineTests() {
               data: const MediaQueryData(),
               child: MarkdownBody(
                 data: data,
-                styleSheet: MarkdownStyleSheet(
-                  tableColumnWidth: const FixedColumnWidth(150),
-                ),
+                styleSheet: MarkdownStyleSheet(tableColumnWidth: const FixedColumnWidth(150)),
               ),
             ),
           ),

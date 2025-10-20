@@ -19,11 +19,7 @@ void defineTests() {
     testWidgets(
       'simple one word blockquote',
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: '> quote'),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: '> quote')));
 
         final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>['quote']);
@@ -33,11 +29,7 @@ void defineTests() {
     testWidgets(
       'soft wrapping in blockquote',
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: '> soft\n> wrap'),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: '> soft\n> wrap')));
 
         final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>['soft wrap']);
@@ -47,15 +39,11 @@ void defineTests() {
     testWidgets(
       'should work with styling',
       (WidgetTester tester) async {
-        final theme = ThemeData.light().copyWith(
-          textTheme: textTheme,
-        );
-        final styleSheet = MarkdownStyleSheet.fromTheme(
-          theme,
-        );
+        final theme = ThemeData.light().copyWith(textTheme: textTheme);
+        final styleSheet = MarkdownStyleSheet.fromTheme(theme);
 
-        const data =
-            '> this is a link: [Markdown guide](https://www.markdownguide.org) and this is **bold** and *italic*';
+        const data = '''
+> this is a link: [Markdown guide](https://www.markdownguide.org) and this is **bold** and *italic*''';
         await tester.pumpWidget(
           boilerplate(
             MarkdownBody(
@@ -66,9 +54,7 @@ void defineTests() {
         );
 
         final widgets = tester.allWidgets;
-        final blockQuoteContainer = tester.widget<DecoratedBox>(
-          find.byType(DecoratedBox),
-        );
+        final blockQuoteContainer = tester.widget<DecoratedBox>(find.byType(DecoratedBox));
         final quoteText = tester.widget<Text>(find.byType(Text));
         final styledTextParts = (quoteText.textSpan! as TextSpan).children!.cast<TextSpan>();
 

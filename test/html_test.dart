@@ -33,11 +33,7 @@ void defineTests() {
     testWidgets(
       "doesn't convert & to &amp; when parsing",
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: '&'),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: '&')));
         expectTextStrings(tester.allWidgets, <String>['&']);
       },
     );
@@ -45,11 +41,7 @@ void defineTests() {
     testWidgets(
       "doesn't convert < to &lt; when parsing",
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: '<'),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: '<')));
         expectTextStrings(tester.allWidgets, <String>['<']);
       },
     );

@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // 🎯 Dart imports:
-import 'dart:js_interop';
+import 'dart:js_interop' show JS, JSString, JSStringToString;
 
 // 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart' show CupertinoTheme;
@@ -109,9 +109,7 @@ MarkdownStyleSheet kFallbackStyle(
     _ => MarkdownStyleSheet.fromTheme(Theme.of(context)),
   };
 
-  return result.copyWith(
-    textScaler: MediaQuery.textScalerOf(context),
-  );
+  return result.copyWith(textScaler: MediaQuery.textScalerOf(context));
 }
 
 Widget _handleDataSchemeUri(Uri uri, double? width, double? height) {

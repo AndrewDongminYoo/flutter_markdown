@@ -130,25 +130,19 @@ class MockHttpClient extends Mock implements HttpClient {
   ) =>
       super.noSuchMethod(
         Invocation.method(#open, <Object?>[method, host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
   Future<HttpClientRequest> openUrl(String? method, Uri? url) => super.noSuchMethod(
         Invocation.method(#openUrl, <Object?>[method, url]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
   Future<HttpClientRequest> get(String? host, int? port, String? path) => super.noSuchMethod(
         Invocation.method(#get, <Object?>[host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
@@ -160,9 +154,7 @@ class MockHttpClient extends Mock implements HttpClient {
   @override
   Future<HttpClientRequest> post(String? host, int? port, String? path) => super.noSuchMethod(
         Invocation.method(#post, <Object?>[host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
@@ -174,9 +166,7 @@ class MockHttpClient extends Mock implements HttpClient {
   @override
   Future<HttpClientRequest> put(String? host, int? port, String? path) => super.noSuchMethod(
         Invocation.method(#put, <Object?>[host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
@@ -188,9 +178,7 @@ class MockHttpClient extends Mock implements HttpClient {
   @override
   Future<HttpClientRequest> delete(String? host, int? port, String? path) => super.noSuchMethod(
         Invocation.method(#delete, <Object?>[host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
@@ -202,9 +190,7 @@ class MockHttpClient extends Mock implements HttpClient {
   @override
   Future<HttpClientRequest> patch(String? host, int? port, String? path) => super.noSuchMethod(
         Invocation.method(#patch, <Object?>[host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
@@ -216,9 +202,7 @@ class MockHttpClient extends Mock implements HttpClient {
   @override
   Future<HttpClientRequest> head(String? host, int? port, String? path) => super.noSuchMethod(
         Invocation.method(#head, <Object?>[host, port, path]),
-        returnValue: Future<_FakeHttpClientRequest>.value(
-          _FakeHttpClientRequest(),
-        ),
+        returnValue: Future<_FakeHttpClientRequest>.value(_FakeHttpClientRequest()),
       ) as Future<HttpClientRequest>;
 
   @override
@@ -255,9 +239,8 @@ class MockHttpClient extends Mock implements HttpClient {
       );
 
   @override
-  void close({bool? force = false}) => super.noSuchMethod(
-        Invocation.method(#close, <Object?>[], <Symbol, Object?>{#force: force}),
-      );
+  void close({bool? force = false}) =>
+      super.noSuchMethod(Invocation.method(#close, <Object?>[], <Symbol, Object?>{#force: force}));
 }
 
 /// A class which mocks [HttpClientRequest].
@@ -275,9 +258,8 @@ class MockHttpClientRequest extends Mock implements HttpClientRequest {
       ) as bool;
 
   @override
-  set persistentConnection(bool? persistentConnection) => super.noSuchMethod(
-        Invocation.setter(#persistentConnection, persistentConnection),
-      );
+  set persistentConnection(bool? persistentConnection) =>
+      super.noSuchMethod(Invocation.setter(#persistentConnection, persistentConnection));
 
   @override
   bool get followRedirects => super.noSuchMethod(Invocation.getter(#followRedirects), returnValue: false) as bool;
@@ -409,9 +391,7 @@ class MockHttpClientResponse extends Mock implements HttpClientResponse {
   ]) =>
       super.noSuchMethod(
         Invocation.method(#redirect, <Object?>[method, url, followLoops]),
-        returnValue: Future<_FakeHttpClientResponse>.value(
-          _FakeHttpClientResponse(),
-        ),
+        returnValue: Future<_FakeHttpClientResponse>.value(_FakeHttpClientResponse()),
       ) as Future<HttpClientResponse>;
 
   @override
@@ -442,9 +422,8 @@ class MockHttpHeaders extends Mock implements HttpHeaders {
       ) as bool;
 
   @override
-  set persistentConnection(bool? persistentConnection) => super.noSuchMethod(
-        Invocation.setter(#persistentConnection, persistentConnection),
-      );
+  set persistentConnection(bool? persistentConnection) =>
+      super.noSuchMethod(Invocation.setter(#persistentConnection, persistentConnection));
 
   @override
   bool get chunkedTransferEncoding => super.noSuchMethod(
@@ -453,9 +432,8 @@ class MockHttpHeaders extends Mock implements HttpHeaders {
       ) as bool;
 
   @override
-  set chunkedTransferEncoding(bool? chunkedTransferEncoding) => super.noSuchMethod(
-        Invocation.setter(#chunkedTransferEncoding, chunkedTransferEncoding),
-      );
+  set chunkedTransferEncoding(bool? chunkedTransferEncoding) =>
+      super.noSuchMethod(Invocation.setter(#chunkedTransferEncoding, chunkedTransferEncoding));
 
   @override
   List<String>? operator [](String? name) =>

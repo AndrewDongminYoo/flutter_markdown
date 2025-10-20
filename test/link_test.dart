@@ -155,8 +155,10 @@ void defineTests() {
             children: <Widget>[
               Expanded(
                 child: MarkdownBody(
-                  data:
-                      '''links: [![first](image.png)](https://link.com) [![second](image.png)](https://link.com) [![third](image.png)](https://link.com)''',
+                  data: 'links: '
+                      '[![first](image.png)](https://link.com) '
+                      '[![second](image.png)](https://link.com) '
+                      '[![third](image.png)](https://link.com)',
                   onTapLink: (String text, String? href, String title) {},
                 ),
               ),
@@ -1236,11 +1238,9 @@ void defineTests() {
       "brackets that aren't part of links do not take precedence",
       (WidgetTester tester) async {
         const data = '*foo [bar* baz]';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(
+          const MarkdownBody(data: data),
+        ));
 
         final textWidget = tester.widget<Text>(find.byType(Text));
         final span = textWidget.textSpan! as TextSpan;
@@ -1510,7 +1510,7 @@ void defineTests() {
 
     testWidgets(
       // Example 539 from GFM.
-      'referenence link with inline image link text',
+      'reference link with inline image link text',
       (WidgetTester tester) async {
         const data = '[![moon](moon.jpg)][ref]\n\n[ref]: /uri';
         MarkdownLink? linkTapResults;

@@ -56,9 +56,7 @@ Offset positionInRenderedText(
   int textOffset,
 ) {
   final renderEditable = findRenderEditableWithText(tester, text);
-  final Iterable<TextSelectionPoint> textOffsetPoints = renderEditable.getEndpointsForSelection(
-    TextSelection.collapsed(offset: textOffset),
-  );
+  final textOffsetPoints = renderEditable.getEndpointsForSelection(TextSelection.collapsed(offset: textOffset));
   // Map the points to global positions.
   final endpoints = textOffsetPoints.map<TextSelectionPoint>((TextSelectionPoint point) {
     return TextSelectionPoint(
@@ -240,14 +238,10 @@ class TestAssetBundle extends CachingAssetBundle {
       final asset = ByteData.view(utf8.encoder.convert(manifest).buffer);
       return Future<ByteData>.value(asset);
     } else if (key == 'AssetManifest.bin') {
-      final manifest = const StandardMessageCodec().encodeMessage(
-        <String, List<Object>>{'assets/logo.png': <Object>[]},
-      )!;
+      final manifest = const StandardMessageCodec().encodeMessage({'assets/logo.png': <Object>[]})!;
       return Future<ByteData>.value(manifest);
     } else if (key == 'AssetManifest.smcbin') {
-      final manifest = const StandardMessageCodec().encodeMessage(
-        <String, List<Object>>{'assets/logo.png': <Object>[]},
-      )!;
+      final manifest = const StandardMessageCodec().encodeMessage({'assets/logo.png': <Object>[]})!;
       return Future<ByteData>.value(manifest);
     } else if (key == 'assets/logo.png') {
       // The root directory tests are run from is different for 'flutter test'

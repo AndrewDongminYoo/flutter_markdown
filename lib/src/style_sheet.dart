@@ -120,9 +120,7 @@ class MarkdownStyleSheet {
       del: const TextStyle(decoration: TextDecoration.lineThrough),
       blockquote: theme.textTheme.bodyMedium,
       img: theme.textTheme.bodyMedium,
-      checkbox: theme.textTheme.bodyMedium!.copyWith(
-        color: theme.primaryColor,
-      ),
+      checkbox: theme.textTheme.bodyMedium!.copyWith(color: theme.primaryColor),
       blockSpacing: 8,
       listIndent: 24,
       listBullet: theme.textTheme.bodyMedium,
@@ -131,9 +129,7 @@ class MarkdownStyleSheet {
       tableBody: theme.textTheme.bodyMedium,
       tableHeadAlign: TextAlign.center,
       tablePadding: const EdgeInsets.only(bottom: 4),
-      tableBorder: TableBorder.all(
-        color: theme.dividerColor,
-      ),
+      tableBorder: TableBorder.all(color: theme.dividerColor),
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
@@ -166,8 +162,7 @@ class MarkdownStyleSheet {
     );
     return MarkdownStyleSheet(
       a: theme.textTheme.textStyle.copyWith(
-        color: theme.brightness == Brightness.dark ? CupertinoColors.link.darkColor : CupertinoColors.link.color,
-      ),
+          color: theme.brightness == Brightness.dark ? CupertinoColors.link.darkColor : CupertinoColors.link.color),
       p: theme.textTheme.textStyle,
       pPadding: EdgeInsets.zero,
       code: theme.textTheme.textStyle.copyWith(
@@ -199,31 +194,19 @@ class MarkdownStyleSheet {
         fontSize: theme.textTheme.textStyle.fontSize! + 2,
       ),
       h5Padding: EdgeInsets.zero,
-      h6: theme.textTheme.textStyle.copyWith(
-        fontWeight: FontWeight.w500,
-      ),
+      h6: theme.textTheme.textStyle.copyWith(fontWeight: FontWeight.w500),
       h6Padding: EdgeInsets.zero,
-      em: theme.textTheme.textStyle.copyWith(
-        fontStyle: FontStyle.italic,
-      ),
-      strong: theme.textTheme.textStyle.copyWith(
-        fontWeight: FontWeight.bold,
-      ),
-      del: theme.textTheme.textStyle.copyWith(
-        decoration: TextDecoration.lineThrough,
-      ),
+      em: theme.textTheme.textStyle.copyWith(fontStyle: FontStyle.italic),
+      strong: theme.textTheme.textStyle.copyWith(fontWeight: FontWeight.bold),
+      del: theme.textTheme.textStyle.copyWith(decoration: TextDecoration.lineThrough),
       blockquote: theme.textTheme.textStyle,
       img: theme.textTheme.textStyle,
-      checkbox: theme.textTheme.textStyle.copyWith(
-        color: theme.primaryColor,
-      ),
+      checkbox: theme.textTheme.textStyle.copyWith(color: theme.primaryColor),
       blockSpacing: 8,
       listIndent: 24,
       listBullet: theme.textTheme.textStyle,
       listBulletPadding: const EdgeInsets.only(right: 4),
-      tableHead: theme.textTheme.textStyle.copyWith(
-        fontWeight: FontWeight.w600,
-      ),
+      tableHead: theme.textTheme.textStyle.copyWith(fontWeight: FontWeight.w600),
       tableBody: theme.textTheme.textStyle,
       tableHeadAlign: TextAlign.center,
       tablePadding: const EdgeInsets.only(bottom: 8),
@@ -298,9 +281,7 @@ class MarkdownStyleSheet {
       del: const TextStyle(decoration: TextDecoration.lineThrough),
       blockquote: theme.textTheme.bodyMedium,
       img: theme.textTheme.bodyMedium,
-      checkbox: theme.textTheme.bodyMedium!.copyWith(
-        color: theme.primaryColor,
-      ),
+      checkbox: theme.textTheme.bodyMedium!.copyWith(color: theme.primaryColor),
       blockSpacing: 8,
       listIndent: 24,
       listBullet: theme.textTheme.bodyMedium,
@@ -309,9 +290,7 @@ class MarkdownStyleSheet {
       tableBody: theme.textTheme.bodyMedium,
       tableHeadAlign: TextAlign.center,
       tablePadding: const EdgeInsets.only(bottom: 4),
-      tableBorder: TableBorder.all(
-        color: theme.dividerColor,
-      ),
+      tableBorder: TableBorder.all(color: theme.dividerColor),
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),

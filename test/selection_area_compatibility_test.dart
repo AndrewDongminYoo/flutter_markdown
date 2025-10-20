@@ -26,9 +26,7 @@ void defineTests() {
         await tester.pumpWidget(
           MaterialApp(
             home: SelectionArea(
-              child: const Markdown(
-                data: data,
-              ),
+              child: const Markdown(data: data),
               onSelectionChanged: (SelectedContent? selectedContent) => content = selectedContent,
             ),
           ),
@@ -59,9 +57,7 @@ void defineTests() {
         await tester.pumpWidget(
           MaterialApp(
             home: SelectionArea(
-              child: const Markdown(
-                data: data,
-              ),
+              child: const Markdown(data: data),
               onSelectionChanged: (SelectedContent? selectedContent) => content = selectedContent,
             ),
           ),

@@ -42,11 +42,7 @@ void defineTests() {
     testWidgets(
       'Empty string',
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: ''),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: '')));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
@@ -62,11 +58,7 @@ void defineTests() {
     testWidgets(
       'Simple string',
       (WidgetTester tester) async {
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: 'Hello'),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: 'Hello')));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
@@ -89,11 +81,7 @@ void defineTests() {
         // Example 192 from the GitHub Flavored Markdown specification.
         'leading space are ignored', (WidgetTester tester) async {
       const data = '  aaa\n bbb';
-      await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
       final widgets = selfAndDescendantWidgetsOf(
         find.byType(MarkdownBody),
@@ -116,11 +104,7 @@ void defineTests() {
       'two spaces at end of line inside a block element',
       (WidgetTester tester) async {
         const data = 'line 1  \nline 2';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
@@ -139,11 +123,7 @@ void defineTests() {
       'backslash at end of line inside a block element',
       (WidgetTester tester) async {
         const data = 'line 1\\\nline 2';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
@@ -161,11 +141,7 @@ void defineTests() {
       'non-applicable line break',
       (WidgetTester tester) async {
         const data = 'line 1.\nline 2.';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
@@ -186,11 +162,7 @@ void defineTests() {
       'non-applicable line break',
       (WidgetTester tester) async {
         const data = 'line 1.\nline 2.';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = selfAndDescendantWidgetsOf(
           find.byType(MarkdownBody),
@@ -394,11 +366,7 @@ void defineTests() {
   group('Strikethrough', () {
     testWidgets('single word', (WidgetTester tester) async {
       const data = '~~strikethrough~~';
-      await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
       final widgets = selfAndDescendantWidgetsOf(
         find.byType(MarkdownBody),

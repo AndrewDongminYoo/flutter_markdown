@@ -27,9 +27,7 @@ void defineTests() {
                 Text('shrinkWrap=true'),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: MarkdownBody(
-                    data: 'This is a [link](https://flutter.dev/)',
-                  ),
+                  child: MarkdownBody(data: 'This is a [link](https://flutter.dev/)'),
                 ),
               ],
             ),

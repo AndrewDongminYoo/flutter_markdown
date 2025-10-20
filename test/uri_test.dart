@@ -20,11 +20,7 @@ void defineTests() {
       'should work with image in uri data scheme',
       (WidgetTester tester) async {
         const data = '![alt](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final widgets = tester.allWidgets;
         final image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
@@ -36,11 +32,7 @@ void defineTests() {
       'should work with base64 text in uri data scheme',
       (WidgetTester tester) async {
         const imageData = '![alt](data:text/plan;base64,Rmx1dHRlcg==)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: imageData),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: imageData)));
 
         final widget = tester.widget<Text>(find.byType(Text));
         expect(widget.runtimeType, Text);
@@ -52,11 +44,7 @@ void defineTests() {
       'should work with text in uri data scheme',
       (WidgetTester tester) async {
         const imageData = '![alt](data:text/plan,Hello%2C%20Flutter)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: imageData),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: imageData)));
 
         final widget = tester.widget<Text>(find.byType(Text));
         expect(widget.runtimeType, Text);
@@ -68,11 +56,7 @@ void defineTests() {
       'should work with empty uri data scheme',
       (WidgetTester tester) async {
         const imageData = '![alt](data:,)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: imageData),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: imageData)));
 
         final widget = tester.widget<Text>(find.byType(Text));
         expect(widget.runtimeType, Text);
@@ -84,11 +68,7 @@ void defineTests() {
       'should work with unsupported mime types of uri data scheme',
       (WidgetTester tester) async {
         const data = '![alt](data:application/javascript,var%20test=1)';
-        await tester.pumpWidget(
-          boilerplate(
-            const Markdown(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const Markdown(data: data)));
 
         final widgets = tester.allWidgets;
         final widget = widgets.firstWhere((Widget widget) => widget is SizedBox) as SizedBox;

@@ -287,9 +287,7 @@ class WikilinkBuilder extends MarkdownElementBuilder {
   ) {
     final recognizer = TapGestureRecognizer()..onTap = () {};
     addTearDown(recognizer.dispose);
-    return Text.rich(
-      TextSpan(text: element.textContent, recognizer: recognizer),
-    );
+    return Text.rich(TextSpan(text: element.textContent, recognizer: recognizer));
   }
 }
 
@@ -300,9 +298,7 @@ class ContainerSyntax extends md.InlineSyntax {
 
   @override
   bool onMatch(md.InlineParser parser, Match match) {
-    parser.addNode(
-      md.Element.text('container', ''),
-    );
+    parser.addNode(md.Element.text('container', ''));
     return true;
   }
 }
@@ -318,9 +314,7 @@ class ContainerBuilder extends MarkdownElementBuilder {
     return Text.rich(
       TextSpan(
         children: <InlineSpan>[
-          WidgetSpan(
-            child: Container(),
-          ),
+          WidgetSpan(child: Container()),
         ],
       ),
     );
@@ -339,9 +333,7 @@ class ContainerBuilder2 extends MarkdownElementBuilder {
       TextSpan(
         children: <InlineSpan>[
           const TextSpan(text: 'foo'),
-          WidgetSpan(
-            child: Container(),
-          ),
+          WidgetSpan(child: Container()),
         ],
       ),
     );

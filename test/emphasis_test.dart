@@ -33,11 +33,7 @@ void defineTests() {
             'italic text using asterisk tags',
             (WidgetTester tester) async {
               const data = '*foo bar*';
-              await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
-              );
+              await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
@@ -59,11 +55,7 @@ void defineTests() {
             'invalid left-flanking delimiter run because * is followed by whitespace',
             (WidgetTester tester) async {
               const data = 'a * foo bar*';
-              await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
-              );
+              await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
@@ -86,11 +78,7 @@ void defineTests() {
             'invalid left-flanking delimiter run because * preceded by alphanumeric followed by punctuation',
             (WidgetTester tester) async {
               const data = 'a*"foo bar"*';
-              await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
-              );
+              await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
@@ -117,11 +105,7 @@ void defineTests() {
             'intraword emphasis with * is permitted alpha characters',
             (WidgetTester tester) async {
               const data = 'foo*bar*';
-              await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
-              );
+              await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
@@ -159,11 +143,7 @@ void defineTests() {
             'intraword emphasis with * is permitted numeric characters',
             (WidgetTester tester) async {
               const data = '5*6*78';
-              await tester.pumpWidget(
-                boilerplate(
-                  const MarkdownBody(data: data),
-                ),
-              );
+              await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
               final textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
@@ -212,11 +192,7 @@ void defineTests() {
           'italic text using underscore tags',
           (WidgetTester tester) async {
             const data = '_foo bar_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -238,11 +214,7 @@ void defineTests() {
           'invalid left-flanking delimiter run because _ is followed by whitespace',
           (WidgetTester tester) async {
             const data = '_ foo bar_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -265,11 +237,7 @@ void defineTests() {
           'invalid left-flanking delimiter run because _ preceded by alphanumeric followed by punctuation',
           (WidgetTester tester) async {
             const data = 'a_"foo bar"_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -292,11 +260,7 @@ void defineTests() {
           'emphasis with _ is not allowed inside words alpha characters',
           (WidgetTester tester) async {
             const data = 'foo_bar_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -319,11 +283,7 @@ void defineTests() {
           'emphasis with _ is not allowed inside words numeric characters',
           (WidgetTester tester) async {
             const data = '5_6_78';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -346,11 +306,7 @@ void defineTests() {
           'emphasis with _ is not allowed inside words unicode characters',
           (WidgetTester tester) async {
             const data = 'пристаням_стремятся_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -373,11 +329,7 @@ void defineTests() {
           'invalid first delimiter right-flanking followed by second delimiter left-flanking',
           (WidgetTester tester) async {
             const data = 'aa_"bb"_cc';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -400,11 +352,7 @@ void defineTests() {
           'valid open delimiter left- and right-flanking preceded by punctuation',
           (WidgetTester tester) async {
             const data = 'foo-_(bar)_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -443,11 +391,7 @@ void defineTests() {
           'invalid emphasis - closing delimiter does not match opening delimiter',
           (WidgetTester tester) async {
             const data = '_foo*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -470,11 +414,7 @@ void defineTests() {
           'invalid emphasis - closing * is preceded by whitespace',
           (WidgetTester tester) async {
             const data = '*foo bar *';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -497,11 +437,7 @@ void defineTests() {
           'invalid emphasis - closing * is preceded by newline',
           (WidgetTester tester) async {
             const data = '*foo bar\n*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -523,11 +459,7 @@ void defineTests() {
           'invalid emphasis - second * is preceded by punctuation followed by alphanumeric',
           (WidgetTester tester) async {
             const data = '*(*foo)';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -550,11 +482,7 @@ void defineTests() {
           'nested * emphasis',
           (WidgetTester tester) async {
             const data = '*(*foo*)*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -576,11 +504,7 @@ void defineTests() {
           'intraword emphasis with * is allowed',
           (WidgetTester tester) async {
             const data = '*foo*bar';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -619,11 +543,7 @@ void defineTests() {
           'invalid emphasis because closing _ is preceded by whitespace',
           (WidgetTester tester) async {
             const data = '_foo bar _';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -646,11 +566,7 @@ void defineTests() {
           'invalid emphasis because second _ is preceded by punctuation and followed by an alphanumeric',
           (WidgetTester tester) async {
             const data = '_(_foo)';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -673,11 +589,7 @@ void defineTests() {
           'nested _ emphasis',
           (WidgetTester tester) async {
             const data = '_(_foo_)_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -699,11 +611,7 @@ void defineTests() {
           'intraword emphasis with _ is disallowed - alpha characters',
           (WidgetTester tester) async {
             const data = '_foo_bar';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -726,11 +634,7 @@ void defineTests() {
           'intraword emphasis with _ is disallowed - unicode characters',
           (WidgetTester tester) async {
             const data = '_пристаням_стремятся';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -753,11 +657,7 @@ void defineTests() {
           'intraword emphasis with _ is disallowed - nested emphasis tags',
           (WidgetTester tester) async {
             const data = '_foo_bar_baz_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -779,11 +679,7 @@ void defineTests() {
           'valid emphasis closing delimiter is both left- and right-flanking followed by punctuation',
           (WidgetTester tester) async {
             const data = '_(bar)_.';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -822,11 +718,7 @@ void defineTests() {
           'strong emphasis using ** emphasis tags',
           (WidgetTester tester) async {
             const data = '**foo bar**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -848,11 +740,7 @@ void defineTests() {
           'invalid strong emphasis - opening delimiter followed by whitespace',
           (WidgetTester tester) async {
             const data = '** foo bar**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -875,11 +763,7 @@ void defineTests() {
           'invalid strong emphasis - opening ** is preceded by an alphanumeric and followed by punctuation',
           (WidgetTester tester) async {
             const data = 'a**"foo"**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -902,11 +786,7 @@ void defineTests() {
           'intraword strong emphasis with ** is permitted',
           (WidgetTester tester) async {
             const data = 'foo**bar**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -945,11 +825,7 @@ void defineTests() {
           'strong emphasis using __ emphasis tags',
           (WidgetTester tester) async {
             const data = '__foo bar__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -971,11 +847,7 @@ void defineTests() {
           'invalid strong emphasis - opening delimiter followed by whitespace',
           (WidgetTester tester) async {
             const data = '__ foo bar__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -998,11 +870,7 @@ void defineTests() {
           'invalid strong emphasis - opening delimiter followed by newline',
           (WidgetTester tester) async {
             const data = '__\nfoo bar__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1024,11 +892,7 @@ void defineTests() {
           'invalid strong emphasis - opening __ is preceded by an alphanumeric and followed by punctuation',
           (WidgetTester tester) async {
             const data = 'a__"foo"__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1051,11 +915,7 @@ void defineTests() {
           'intraword strong emphasis is forbidden with __ - alpha characters',
           (WidgetTester tester) async {
             const data = 'foo__bar__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1078,11 +938,7 @@ void defineTests() {
           'intraword strong emphasis is forbidden with __ - numeric characters',
           (WidgetTester tester) async {
             const data = '5__6__78';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1105,11 +961,7 @@ void defineTests() {
           'intraword strong emphasis is forbidden with __ - unicode characters',
           (WidgetTester tester) async {
             const data = 'пристаням__стремятся__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1132,11 +984,7 @@ void defineTests() {
           'intraword strong emphasis is forbidden with __ - nested strong emphasis',
           (WidgetTester tester) async {
             const data = '__foo, __bar__, baz__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1159,11 +1007,7 @@ void defineTests() {
           'valid strong emphasis because opening delimiter is both left- and right-flanking preceded by punctuation',
           (WidgetTester tester) async {
             const data = 'foo-__(bar)__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1203,11 +1047,7 @@ void defineTests() {
           'invalid strong emphasis - closing delimiter is preceded by whitespace',
           (WidgetTester tester) async {
             const data = '**foo bar **';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1230,11 +1070,7 @@ void defineTests() {
           'invalid strong emphasis - second ** is preceded by punctuation and followed by an alphanumeric',
           (WidgetTester tester) async {
             const data = '**(**foo)';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1257,11 +1093,7 @@ void defineTests() {
           'emphasis with nested strong emphasis',
           (WidgetTester tester) async {
             const data = '*(**foo**)*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1307,11 +1139,7 @@ void defineTests() {
           'strong emphasis with multiple nested emphasis',
           (WidgetTester tester) async {
             const data = '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1376,11 +1204,7 @@ void defineTests() {
           'strong emphasis with nested emphasis',
           (WidgetTester tester) async {
             const data = '**foo "*bar*" foo**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1426,11 +1250,7 @@ void defineTests() {
           'intraword strong emphasis',
           (WidgetTester tester) async {
             const data = '**foo**bar';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1470,11 +1290,7 @@ void defineTests() {
           'invalid strong emphasis - closing delimiter is preceded by whitespace',
           (WidgetTester tester) async {
             const data = '__foo bar __';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1497,11 +1313,7 @@ void defineTests() {
           'invalid strong emphasis - second __ is preceded by punctuation followed by alphanumeric',
           (WidgetTester tester) async {
             const data = '__(__foo)';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1524,11 +1336,7 @@ void defineTests() {
           'strong emphasis nested in emphasis',
           (WidgetTester tester) async {
             const data = '_(__foo__)_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1573,11 +1381,7 @@ void defineTests() {
           'intraword strong emphasis is forbidden with __ - alpha characters',
           (WidgetTester tester) async {
             const data = '__foo__bar';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1600,11 +1404,7 @@ void defineTests() {
           'intraword strong emphasis is forbidden with __ - unicode characters',
           (WidgetTester tester) async {
             const data = '__пристаням__стремятся';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1627,11 +1427,7 @@ void defineTests() {
           'intraword nested strong emphasis is forbidden with __',
           (WidgetTester tester) async {
             const data = '__foo__bar__baz__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1653,11 +1449,7 @@ void defineTests() {
           'strong emphasis because closing delimiter is both left- and right-flanking is followed by punctuation',
           (WidgetTester tester) async {
             const data = '__(bar)__.';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1696,11 +1488,7 @@ void defineTests() {
           'nonempty sequence emphasis span - text followed by link',
           (WidgetTester tester) async {
             const data = '*foo [bar](/url)*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1740,11 +1528,7 @@ void defineTests() {
           'nonempty sequence emphasis span - two lines of text',
           (WidgetTester tester) async {
             const data = '*foo\nbar*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1766,11 +1550,7 @@ void defineTests() {
           'strong emphasis nested inside emphasis - _ delimiter',
           (WidgetTester tester) async {
             const data = '_foo __bar__ baz_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1815,11 +1595,7 @@ void defineTests() {
           'emphasis nested inside emphasis',
           (WidgetTester tester) async {
             const data = '_foo _bar_ baz_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1841,11 +1617,7 @@ void defineTests() {
           'intraword emphasis nested inside emphasis - _ delimiter',
           (WidgetTester tester) async {
             const data = '__foo_ bar_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1867,11 +1639,7 @@ void defineTests() {
           'intraword emphasis nested inside emphasis - * delimiter',
           (WidgetTester tester) async {
             const data = '*foo *bar**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1893,11 +1661,7 @@ void defineTests() {
           'strong emphasis nested inside emphasis - * delimiter',
           (WidgetTester tester) async {
             const data = '*foo **bar** baz*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1942,11 +1706,7 @@ void defineTests() {
           'intraword strong emphasis nested inside emphasis - * delimiter',
           (WidgetTester tester) async {
             const data = '*foo**bar**baz*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -1991,11 +1751,7 @@ void defineTests() {
           'consecutive emphasis sections are not allowed',
           (WidgetTester tester) async {
             const data = '*foo**bar*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2017,11 +1773,7 @@ void defineTests() {
           'strong emphasis nested inside emphasis - space after first word',
           (WidgetTester tester) async {
             const data = '***foo** bar*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2058,11 +1810,7 @@ void defineTests() {
           'strong emphasis nested inside emphasis - space before second word',
           (WidgetTester tester) async {
             const data = '*foo **bar***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2099,11 +1847,7 @@ void defineTests() {
           'intraword strong emphasis nested inside emphasis',
           (WidgetTester tester) async {
             const data = '*foo**bar***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2140,11 +1884,7 @@ void defineTests() {
           'intraword emphasis and strong emphasis',
           (WidgetTester tester) async {
             const data = 'foo***bar***baz';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2189,11 +1929,7 @@ void defineTests() {
           'intraword emphasis and strong emphasis - multiples of 3',
           (WidgetTester tester) async {
             const data = 'foo******bar*********baz';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2238,11 +1974,7 @@ void defineTests() {
           'infinite levels of nesting are possible within emphasis',
           (WidgetTester tester) async {
             const data = '*foo **bar *baz*\nbim** bop*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2287,11 +2019,7 @@ void defineTests() {
           'infinite levels of nesting are possible within emphasis - text and a link',
           (WidgetTester tester) async {
             const data = '*foo [*bar*](/url)*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2331,11 +2059,7 @@ void defineTests() {
           'there can be no empty emphasis * delimiter',
           (WidgetTester tester) async {
             const data = '** is not an empty emphasis';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2358,11 +2082,7 @@ void defineTests() {
           'there can be no empty strong emphasis * delimiter',
           (WidgetTester tester) async {
             const data = '**** is not an empty strong emphasis';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2387,11 +2107,7 @@ void defineTests() {
           'nonempty sequence of inline elements with strong emphasis - text and a link',
           (WidgetTester tester) async {
             const data = '**foo [bar](/url)**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2431,11 +2147,7 @@ void defineTests() {
           'nonempty sequence of inline elements with strong emphasis - two lines of texts',
           (WidgetTester tester) async {
             const data = '**foo\nbar**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2457,11 +2169,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested emphasis',
           (WidgetTester tester) async {
             const data = '__foo _bar_ baz__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2506,11 +2214,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested strong emphasis',
           (WidgetTester tester) async {
             const data = '__foo __bar__ baz__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2532,11 +2236,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested strong emphasis',
           (WidgetTester tester) async {
             const data = '____foo__ bar__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2558,11 +2258,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested strong emphasis',
           (WidgetTester tester) async {
             const data = '**foo **bar****';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2584,11 +2280,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested emphasis',
           (WidgetTester tester) async {
             const data = '**foo *bar* baz**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2633,11 +2325,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - intraword nested emphasis',
           (WidgetTester tester) async {
             const data = '**foo*bar*baz**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2682,11 +2370,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested emphasis on first word',
           (WidgetTester tester) async {
             const data = '***foo* bar**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2723,11 +2407,7 @@ void defineTests() {
           'emphasis and strong emphasis nested inside strong emphasis - nested emphasis on second word',
           (WidgetTester tester) async {
             const data = '**foo *bar***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2764,11 +2444,7 @@ void defineTests() {
           'infinite levels of nesting are possible within strong emphasis',
           (WidgetTester tester) async {
             const data = '**foo *bar **baz**\nbim* bop**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2813,11 +2489,7 @@ void defineTests() {
           'infinite levels of nesting are possible within strong emphasis - text and a link',
           (WidgetTester tester) async {
             const data = '**foo [*bar*](/url)**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2857,11 +2529,7 @@ void defineTests() {
           'there can be no empty emphasis _ delimiter',
           (WidgetTester tester) async {
             const data = '__ is not an empty emphasis';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2884,11 +2552,7 @@ void defineTests() {
           'there can be no empty strong emphasis _ delimiter',
           (WidgetTester tester) async {
             const data = '____ is not an empty strong emphasis';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2913,11 +2577,7 @@ void defineTests() {
           'an * cannot occur at the beginning or end of * delimited emphasis',
           (WidgetTester tester) async {
             const data = 'foo ***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2940,11 +2600,7 @@ void defineTests() {
           'an escaped * can occur inside * delimited emphasis',
           (WidgetTester tester) async {
             const data = r'foo *\**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -2982,11 +2638,7 @@ void defineTests() {
           'an _ can occur inside * delimited emphasis',
           (WidgetTester tester) async {
             const data = 'foo *_*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3024,11 +2676,7 @@ void defineTests() {
           'an * cannot occur at the beginning or end of ** delimited strong emphasis',
           (WidgetTester tester) async {
             const data = 'foo *****';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3051,11 +2699,7 @@ void defineTests() {
           'an escaped * can occur inside ** delimited strong emphasis',
           (WidgetTester tester) async {
             const data = r'foo **\***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3093,11 +2737,7 @@ void defineTests() {
           'an _ can occur inside ** delimited strong emphasis',
           (WidgetTester tester) async {
             const data = 'foo **_**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3135,11 +2775,7 @@ void defineTests() {
           'unmatched emphasis delimiters excess * at beginning',
           (WidgetTester tester) async {
             const data = '**foo*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3177,11 +2813,7 @@ void defineTests() {
           'unmatched emphasis delimiters excess * at end',
           (WidgetTester tester) async {
             const data = '*foo**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3219,11 +2851,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess * at beginning',
           (WidgetTester tester) async {
             const data = '***foo**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3261,11 +2889,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess * at beginning',
           (WidgetTester tester) async {
             const data = '****foo*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3303,11 +2927,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess * at end',
           (WidgetTester tester) async {
             const data = '**foo***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3345,11 +2965,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess * at end',
           (WidgetTester tester) async {
             const data = '*foo****';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3389,11 +3005,7 @@ void defineTests() {
           'an _ cannot occur at the beginning or end of _ delimited emphasis',
           (WidgetTester tester) async {
             const data = 'foo ___';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3416,11 +3028,7 @@ void defineTests() {
           'an escaped _ can occur inside _ delimited emphasis',
           (WidgetTester tester) async {
             const data = r'foo _\__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3458,11 +3066,7 @@ void defineTests() {
           'an * can occur inside _ delimited emphasis',
           (WidgetTester tester) async {
             const data = 'foo _*_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3500,11 +3104,7 @@ void defineTests() {
           'an _ cannot occur at the beginning or end of __ delimited strong emphasis',
           (WidgetTester tester) async {
             const data = 'foo _____';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3527,11 +3127,7 @@ void defineTests() {
           'an escaped _ can occur inside __ delimited strong emphasis',
           (WidgetTester tester) async {
             const data = r'foo __\___';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3569,11 +3165,7 @@ void defineTests() {
           'an * can occur inside __ delimited strong emphasis',
           (WidgetTester tester) async {
             const data = 'foo __*__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3611,11 +3203,7 @@ void defineTests() {
           'unmatched emphasis delimiters excess _ at beginning',
           (WidgetTester tester) async {
             const data = '__foo_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3653,11 +3241,7 @@ void defineTests() {
           'unmatched emphasis delimiters excess _ at end',
           (WidgetTester tester) async {
             const data = '_foo__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3695,11 +3279,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess _ at beginning',
           (WidgetTester tester) async {
             const data = '___foo__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3737,11 +3317,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess _ at beginning',
           (WidgetTester tester) async {
             const data = '____foo_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3779,11 +3355,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess _ at end',
           (WidgetTester tester) async {
             const data = '__foo___';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3821,11 +3393,7 @@ void defineTests() {
           'unmatched strong emphasis delimiters excess _ at end',
           (WidgetTester tester) async {
             const data = '_foo____';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3865,11 +3433,7 @@ void defineTests() {
           'nested delimiters must be different - nested * is strong emphasis',
           (WidgetTester tester) async {
             const data = '**foo**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3891,11 +3455,7 @@ void defineTests() {
           'nested delimiters must be different - nest _ in * emphasis',
           (WidgetTester tester) async {
             const data = '*_foo_*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3917,11 +3477,7 @@ void defineTests() {
           'nested delimiters must be different - nested _ is strong emphasis',
           (WidgetTester tester) async {
             const data = '__foo__';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3943,11 +3499,7 @@ void defineTests() {
           'nested delimiters must be different - nest * in _ emphasis',
           (WidgetTester tester) async {
             const data = '_*foo*_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3969,11 +3521,7 @@ void defineTests() {
           'nested delimiters must be different - nested * strong emphasis',
           (WidgetTester tester) async {
             const data = '****foo****';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -3995,11 +3543,7 @@ void defineTests() {
           'nested delimiters must be different - nested _ strong emphasis',
           (WidgetTester tester) async {
             const data = '____foo____';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4021,11 +3565,7 @@ void defineTests() {
           'nested delimiters must be different - long sequence of * delimiters',
           (WidgetTester tester) async {
             const data = '******foo******';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4051,11 +3591,7 @@ void defineTests() {
           'font style and weight order * delimiter',
           (WidgetTester tester) async {
             const data = '***foo***';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4077,11 +3613,7 @@ void defineTests() {
           'font style and weight order _ delimiter',
           (WidgetTester tester) async {
             const data = '_____foo_____';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4105,11 +3637,7 @@ void defineTests() {
           'overlapping * and _ emphasis delimiters',
           (WidgetTester tester) async {
             const data = '*foo _bar* baz_';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4146,11 +3674,7 @@ void defineTests() {
           'overlapping * and __ emphasis delimiters',
           (WidgetTester tester) async {
             const data = '*foo __bar *baz bim__ bam*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4197,11 +3721,7 @@ void defineTests() {
           'overlapping ** strong emphasis delimiters',
           (WidgetTester tester) async {
             const data = '**foo **bar baz**';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4238,11 +3758,7 @@ void defineTests() {
           'overlapping * emphasis delimiters',
           (WidgetTester tester) async {
             const data = '*foo *bar baz*';
-            await tester.pumpWidget(
-              boilerplate(
-                const MarkdownBody(data: data),
-              ),
-            );
+            await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
             final textFinder = find.byType(Text);
             expect(textFinder, findsOneWidget);
@@ -4275,25 +3791,21 @@ void defineTests() {
         );
       });
 
-      group(
-        'Rule 17',
-        () {
-          // The markdown package does not follow rule 17. Sam Rawlins made the
-          // following comment on issue #280 on March 7, 2020:
-          //
-          // In terms of the spec, we are not following Rule 17 of "Emphasis and
-          // strong emphasis." Inline code spans, links, images, and HTML tags
-          // group more tightly than emphasis. Currently the Dart package respects
-          // the broader rule that any time we can close a tag, we do, attempting
-          // in the order of most recent openings first. I don't think this is
-          // terribly hard to correct.
-          // https://github.com/dart-lang/markdown/issues/280
-          //
-          // Test for rule 17 are not included since markdown package is not
-          // following the rule.
-        },
-        skip: 'No Rule 17 tests implemented',
-      );
+      group('Rule 17', () {
+        // The markdown package does not follow rule 17. Sam Rawlins made the
+        // following comment on issue #280 on March 7, 2020:
+        //
+        // In terms of the spec, we are not following Rule 17 of "Emphasis and
+        // strong emphasis." Inline code spans, links, images, and HTML tags
+        // group more tightly than emphasis. Currently the Dart package respects
+        // the broader rule that any time we can close a tag, we do, attempting
+        // in the order of most recent openings first. I don't think this is
+        // terribly hard to correct.
+        // https://github.com/dart-lang/markdown/issues/280
+        //
+        // Test for rule 17 are not included since markdown package is not
+        // following the rule.
+      }, skip: 'No Rule 17 tests implemented');
     },
   );
 }

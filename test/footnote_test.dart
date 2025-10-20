@@ -24,11 +24,7 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
-                data: data,
-              ),
-            ),
+            boilerplate(const MarkdownBody(data: data)),
           );
 
           final widgets = tester.allWidgets;
@@ -67,11 +63,7 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^1] Bar[^2]\n[^1]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
-                data: data,
-              ),
-            ),
+            boilerplate(const MarkdownBody(data: data)),
           );
 
           final widgets = tester.allWidgets;
@@ -87,11 +79,7 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = '[^2]: Bar \n [^1]: Foo \n Foo[^f] Bar[^b]';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
-                data: data,
-              ),
-            ),
+            boilerplate(const MarkdownBody(data: data)),
           );
 
           final widgets = tester.allWidgets;
@@ -122,11 +110,7 @@ void defineTests() {
 [^10]:10
 ''';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
-                data: data,
-              ),
-            ),
+            boilerplate(const MarkdownBody(data: data)),
           );
 
           final widgets = tester.allWidgets;
@@ -166,11 +150,7 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = 'Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
-                data: data,
-              ),
-            ),
+            boilerplate(const MarkdownBody(data: data)),
           );
 
           final widgets = tester.allWidgets;
@@ -219,11 +199,7 @@ void defineTests() {
         (WidgetTester tester) async {
           const data = '# Foo[^a]\n[^a]: Bar';
           await tester.pumpWidget(
-            boilerplate(
-              const MarkdownBody(
-                data: data,
-              ),
-            ),
+            boilerplate(const MarkdownBody(data: data)),
           );
 
           final widgets = tester.allWidgets;

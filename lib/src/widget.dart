@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // 🎯 Dart imports:
-import 'dart:convert';
+import 'dart:convert' show LineSplitter;
 
 // 🐦 Flutter imports:
 import 'package:flutter/gestures.dart';

@@ -69,9 +69,7 @@ void defineTests() {
       'should align formatted text',
       (WidgetTester tester) async {
         final theme = ThemeData.light().copyWith(textTheme: textTheme);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          textAlign: WrapAlignment.spaceBetween,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(textAlign: WrapAlignment.spaceBetween);
 
         const data = 'hello __my formatted text__';
         await tester.pumpWidget(
@@ -92,9 +90,7 @@ void defineTests() {
       'should align selectable text',
       (WidgetTester tester) async {
         final theme = ThemeData.light().copyWith(textTheme: textTheme);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          textAlign: WrapAlignment.spaceBetween,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(textAlign: WrapAlignment.spaceBetween);
 
         const data = 'hello __my formatted text__';
         await tester.pumpWidget(
@@ -119,9 +115,7 @@ void defineTests() {
       'should apply spaceEvenly alignment to text',
       (WidgetTester tester) async {
         final theme = ThemeData.light().copyWith(textTheme: textTheme);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          textAlign: WrapAlignment.spaceEvenly,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(textAlign: WrapAlignment.spaceEvenly);
 
         const data = 'hello world this is a test';
         await tester.pumpWidget(
@@ -177,9 +171,7 @@ void defineTests() {
       'should apply spaceEvenly alignment to selectable headers',
       (WidgetTester tester) async {
         final theme = ThemeData.light().copyWith(textTheme: textTheme);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          h1Align: WrapAlignment.spaceEvenly,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(h1Align: WrapAlignment.spaceEvenly);
 
         const data = '# Selectable Header with SpaceEvenly';
         await tester.pumpWidget(

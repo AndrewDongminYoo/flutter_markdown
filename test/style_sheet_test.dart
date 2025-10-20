@@ -44,9 +44,7 @@ void defineTests() {
     testWidgets(
       'MarkdownStyleSheet.fromCupertinoTheme',
       (WidgetTester tester) async {
-        const cTheme = CupertinoThemeData(
-          brightness: Brightness.dark,
-        );
+        const cTheme = CupertinoThemeData(brightness: Brightness.dark);
 
         final style = MarkdownStyleSheet.fromCupertinoTheme(cTheme);
 
@@ -133,11 +131,7 @@ void defineTests() {
     testWidgets(
       'MarkdownStyleSheet.fromTheme',
       (WidgetTester tester) async {
-        final theme = ThemeData.dark().copyWith(
-          textTheme: const TextTheme(
-            bodyMedium: TextStyle(fontSize: 12),
-          ),
-        );
+        final theme = ThemeData.dark().copyWith(textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 12)));
 
         final style = MarkdownStyleSheet.fromTheme(theme);
 
@@ -276,9 +270,7 @@ void defineTests() {
       'use stylesheet option listBulletPadding',
       (WidgetTester tester) async {
         const paddingX = 20.0;
-        final style = MarkdownStyleSheet(
-          listBulletPadding: const EdgeInsets.symmetric(horizontal: paddingX),
-        );
+        final style = MarkdownStyleSheet(listBulletPadding: const EdgeInsets.symmetric(horizontal: paddingX));
 
         await tester.pumpWidget(
           boilerplate(
@@ -293,9 +285,7 @@ void defineTests() {
 
         expect(paddings.length, 3);
         expect(
-          paddings.every(
-            (Padding p) => p.padding.along(Axis.horizontal) == paddingX * 2,
-          ),
+          paddings.every((Padding p) => p.padding.along(Axis.horizontal) == paddingX * 2),
           true,
         );
       },
@@ -306,9 +296,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '# Header';
         const paddingX = 20.0;
-        final style = MarkdownStyleSheet(
-          h1Padding: const EdgeInsets.symmetric(horizontal: paddingX),
-        );
+        final style = MarkdownStyleSheet(h1Padding: const EdgeInsets.symmetric(horizontal: paddingX));
 
         await tester.pumpWidget(
           boilerplate(
@@ -339,9 +327,7 @@ void defineTests() {
       'use stylesheet option pPadding',
       (WidgetTester tester) async {
         const paddingX = 20.0;
-        final style = MarkdownStyleSheet(
-          pPadding: const EdgeInsets.symmetric(horizontal: paddingX),
-        );
+        final style = MarkdownStyleSheet(pPadding: const EdgeInsets.symmetric(horizontal: paddingX));
 
         await tester.pumpWidget(
           boilerplate(
@@ -356,9 +342,7 @@ void defineTests() {
 
         expect(paddings.length, 3);
         expect(
-          paddings.every(
-            (Padding p) => p.padding.along(Axis.horizontal) == paddingX * 2,
-          ),
+          paddings.every((Padding p) => p.padding.along(Axis.horizontal) == paddingX * 2),
           true,
         );
       },
@@ -390,9 +374,7 @@ void defineTests() {
 
         expect(paddings.length, 6);
         expect(
-          paddings.every(
-            (Padding p) => p.padding.along(Axis.horizontal) == paddingX * 2,
-          ),
+          paddings.every((Padding p) => p.padding.along(Axis.horizontal) == paddingX * 2),
           true,
         );
       },

@@ -20,11 +20,7 @@ void defineTests() {
       'simple 3 item list',
       (WidgetTester tester) async {
         const data = '- Item 1\n- Item 2\n- Item 3';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>[
@@ -42,11 +38,7 @@ void defineTests() {
       'empty list item',
       (WidgetTester tester) async {
         const data = '- \n- Item 2\n- Item 3';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>[
@@ -63,11 +55,7 @@ void defineTests() {
         // Example 236 from the GitHub Flavored Markdown specification.
         'leading space are ignored', (WidgetTester tester) async {
       const data = ' -    one\n\n        two';
-      await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
       final widgets = tester.allWidgets;
       expectTextStrings(widgets, <String>[
@@ -81,11 +69,7 @@ void defineTests() {
       'leading spaces are ignored (non-paragraph test case)',
       (WidgetTester tester) async {
         const data = '- one\n-  two\n-   three';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>[
@@ -102,14 +86,9 @@ void defineTests() {
     testWidgets('custom bullet builder', (WidgetTester tester) async {
       const data = '* Item 1\n   * Item 2\n      * Item 3\n   * Item 4\n* Item 5';
       Widget builder(MarkdownBulletParameters parameters) => Text(
-            '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'} ${parameters.nestLevel}',
-          );
+          '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'} ${parameters.nestLevel}');
 
-      await tester.pumpWidget(
-        boilerplate(
-          Markdown(data: data, bulletBuilder: builder),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(Markdown(data: data, bulletBuilder: builder)));
 
       final widgets = tester.allWidgets;
 
@@ -134,11 +113,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '1. Item 1\n1. Item 2\n2. Item 3\n\n\n'
             '10. Item 10\n13. Item 11';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         expectTextStrings(widgets, <String>[
@@ -158,11 +133,7 @@ void defineTests() {
 
     testWidgets('leading space are ignored', (WidgetTester tester) async {
       const data = ' 1.    one\n\n       two';
-      await tester.pumpWidget(
-        boilerplate(
-          const MarkdownBody(data: data),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
       final widgets = tester.allWidgets;
       expectTextStrings(widgets, <String>['1.', 'one', 'two']);
@@ -171,14 +142,9 @@ void defineTests() {
     testWidgets('custom bullet builder', (WidgetTester tester) async {
       const data = '1. Item 1\n   1. Item 2\n      1. Item 3\n   1. Item 4\n1. Item 5';
       Widget builder(MarkdownBulletParameters parameters) => Text(
-            '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'} ${parameters.nestLevel}',
-          );
+          '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'} ${parameters.nestLevel}');
 
-      await tester.pumpWidget(
-        boilerplate(
-          Markdown(data: data, bulletBuilder: builder),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(Markdown(data: data, bulletBuilder: builder)));
 
       final widgets = tester.allWidgets;
 
@@ -202,11 +168,7 @@ void defineTests() {
       'simple 2 item task list',
       (WidgetTester tester) async {
         const data = '- [x] Item 1\n- [ ] Item 2';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
 
@@ -221,15 +183,10 @@ void defineTests() {
 
     testWidgets('custom bullet builder', (WidgetTester tester) async {
       const data = '* Item 1\n* Item 2\n1) Item 3\n2) Item 4';
-      Widget builder(MarkdownBulletParameters parameters) => Text(
-            '${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'}',
-          );
+      Widget builder(MarkdownBulletParameters parameters) =>
+          Text('${parameters.index} ${parameters.style == BulletStyle.orderedList ? 'ordered' : 'unordered'}');
 
-      await tester.pumpWidget(
-        boilerplate(
-          Markdown(data: data, bulletBuilder: builder),
-        ),
-      );
+      await tester.pumpWidget(boilerplate(Markdown(data: data, bulletBuilder: builder)));
 
       final widgets = tester.allWidgets;
 
@@ -251,11 +208,7 @@ void defineTests() {
         const data = '- [x] Item 1\n- [ ] Item 2';
         Widget builder(bool checked) => Text('$checked');
 
-        await tester.pumpWidget(
-          boilerplate(
-            Markdown(data: data, checkboxBuilder: builder),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(Markdown(data: data, checkboxBuilder: builder)));
 
         final widgets = tester.allWidgets;
 

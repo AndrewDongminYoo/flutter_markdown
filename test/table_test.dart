@@ -20,11 +20,7 @@ void defineTests() {
       'should show properly',
       (WidgetTester tester) async {
         const data = '|Header 1|Header 2|\n|-----|-----|\n|Col 1|Col 2|';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         expectTextStrings(
@@ -38,11 +34,7 @@ void defineTests() {
       'work without the outer pipes',
       (WidgetTester tester) async {
         const data = 'Header 1|Header 2\n-----|-----\nCol 1|Col 2';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         expectTextStrings(
@@ -56,11 +48,7 @@ void defineTests() {
       'should work with alignments',
       (WidgetTester tester) async {
         const data = '|Header 1|Header 2|Header 3|\n|:----|:----:|----:|\n|Col 1|Col 2|Col 3|';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final styles = tester.widgetList<DefaultTextStyle>(find.byType(DefaultTextStyle));
 
@@ -86,11 +74,7 @@ void defineTests() {
       'should work with styling',
       (WidgetTester tester) async {
         const data = '|Header|\n|----|\n|*italic*|';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final widgets = tester.allWidgets;
         final text = widgets.lastWhere((Widget widget) => widget is Text) as Text;
@@ -105,11 +89,7 @@ void defineTests() {
       (WidgetTester tester) async {
         const data = '|first header|\n|----|\n|first col|\n\n'
             '|second header|\n|----|\n|second col|';
-        await tester.pumpWidget(
-          boilerplate(
-            const MarkdownBody(data: data),
-          ),
-        );
+        await tester.pumpWidget(boilerplate(const MarkdownBody(data: data)));
 
         final tables = tester.widgetList<Table>(find.byType(Table));
 
@@ -124,13 +104,9 @@ void defineTests() {
 
         const data = '|Header|\n|----|\n|Column|';
         const columnWidth = FixedColumnWidth(100);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          tableColumnWidth: columnWidth,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final table = tester.widget<Table>(find.byType(Table));
 
@@ -145,9 +121,7 @@ void defineTests() {
 
         const data = '|Header|\n|----|\n|Column|';
         final style = MarkdownStyleSheet.fromTheme(theme);
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final table = tester.widget<Table>(find.byType(Table));
 
@@ -167,9 +141,7 @@ void defineTests() {
         const tableCellVerticalAlignment = TableCellVerticalAlignment.top;
         final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableVerticalAlignment: tableCellVerticalAlignment);
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final table = tester.widget<Table>(find.byType(Table));
 
@@ -186,9 +158,7 @@ void defineTests() {
         const tableCellVerticalAlignment = TableCellVerticalAlignment.bottom;
         final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableVerticalAlignment: tableCellVerticalAlignment);
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final table = tester.widget<Table>(find.byType(Table));
 
@@ -208,9 +178,7 @@ void defineTests() {
           tableScrollbarThumbVisibility: tableScrollbarThumbVisibility,
         );
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final scrollbar = tester.widget<Scrollbar>(find.byType(Scrollbar));
 
@@ -230,9 +198,7 @@ void defineTests() {
           tableScrollbarThumbVisibility: tableScrollbarThumbVisibility,
         );
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final scrollbar = tester.widget<Scrollbar>(find.byType(Scrollbar));
 
@@ -247,13 +213,9 @@ void defineTests() {
 
         const data = '|Header 1|Header 2|\n|----|----|\n| | |';
         const columnWidth = FixedColumnWidth(100);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          tableColumnWidth: columnWidth,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final table = tester.widget<Table>(find.byType(Table));
 
@@ -285,13 +247,9 @@ void defineTests() {
 
         const data = '|Header 1|Header 2|\n|----|----|\n| | |\n| bar | |';
         const columnWidth = FixedColumnWidth(100);
-        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-          tableColumnWidth: columnWidth,
-        );
+        final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-        await tester.pumpWidget(
-          boilerplate(MarkdownBody(data: data, styleSheet: style)),
-        );
+        await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
         final table = tester.widget<Table>(find.byType(Table));
 
@@ -327,13 +285,9 @@ void defineTests() {
 
           const data = '| foo | bar |\n| --- | --- |\n| baz | bim |';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
@@ -365,13 +319,9 @@ void defineTests() {
 
           const data = '| abc | defghi |\n:-: | -----------:\nbar | baz';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
@@ -403,13 +353,9 @@ void defineTests() {
 
           const data = '| f\\|oo  |\n| ------ |\n| b \\| az |\n| b **\\|** im |';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
@@ -445,13 +391,9 @@ void defineTests() {
 
           const data = '| abc | def |\n| --- | --- |\n| bar | baz |\n> bar';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
@@ -487,13 +429,9 @@ void defineTests() {
 
           const data = '| abc | def |\n| --- | --- |\n| bar | baz |\nbar\n\nbar';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
@@ -522,13 +460,9 @@ void defineTests() {
 
           const data = '| abc | def |\n| --- |\n| bar |';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           expect(find.byType(Table), findsNothing);
           final text = find
@@ -552,13 +486,9 @@ void defineTests() {
 
           const data = '| abc | def |\n| --- | --- |\n| bar |\n| bar | baz | boo |';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
@@ -587,13 +517,9 @@ void defineTests() {
 
           const data = '| abc | def |\n| --- | --- |';
           const columnWidth = FixedColumnWidth(100);
-          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(
-            tableColumnWidth: columnWidth,
-          );
+          final style = MarkdownStyleSheet.fromTheme(theme).copyWith(tableColumnWidth: columnWidth);
 
-          await tester.pumpWidget(
-            boilerplate(MarkdownBody(data: data, styleSheet: style)),
-          );
+          await tester.pumpWidget(boilerplate(MarkdownBody(data: data, styleSheet: style)));
 
           final table = tester.widget<Table>(find.byType(Table));
 
