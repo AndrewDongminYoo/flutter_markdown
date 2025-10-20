@@ -1,3 +1,20 @@
+## 0.7.8+1
+
+### Added
+
+- Added a `keepWordBreak` flag to `Markdown`, `MarkdownBody`, and the builder to preserve word breaks for languages such as Korean, backed by the new `WordWrapBreakWord.wrapped` extension. (lib/src/widget.dart:239, lib/src/builder.dart:383, lib/src/keep_word_break.dart:1)
+
+### Changed
+
+- Bumped runtime dependencies to `markdown` ^7.3.0 and `path` ^1.9.1 and refreshed dev tooling versions. (pubspec.yaml:13)
+- Allow directional padding customisation by switching Markdown padding properties over to `EdgeInsetsGeometry`. (lib/src/widget.dart:547, lib/src/style_sheet.dart:323)
+
+### Removed
+
+- Removed the deprecated `MarkdownWidget.imageBuilder` constructor argument in favour of `sizedImageBuilder`. (lib/src/widget.dart:217)
+- Removed the deprecated `MarkdownStyleSheet.textScaleFactor` API now that `textScaler` is required. (lib/src/style_sheet.dart:40)
+- Removed the legacy `TaskListSyntax` helper because GitHub Flavoured Markdown already supports checkbox syntax. (lib/src/widget.dart:578)
+
 ## 0.7.7+1
 
 - Updates README to indicate that the package has been discontinued.
